@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl2s32ikstd2p"]
+
+[ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="1_377w7"]
+[ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="1_b2cq8"]
+[ext_resource type="Script" uid="uid://dl7b3s42xt3wb" path="res://scripts/camera/camera.gd" id="2_xb4v1"]
+[ext_resource type="Script" uid="uid://c5mqqjuxijcmp" path="res://scripts/UI/cursor.gd" id="4_d4w6o"]
+[ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="4_urvlt"]
+[ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://assets/ground_temp.png" id="6_d4w6o"]
+
+[node name="game" type="Node2D"]
+
+[node name="camera" parent="." instance=ExtResource("1_b2cq8")]
+position = Vector2(0, 6)
+script = ExtResource("2_xb4v1")
+
+[node name="player" parent="." instance=ExtResource("1_377w7")]
+unique_name_in_owner = true
+position = Vector2(-1, 5)
+
+[node name="cursor" parent="." instance=ExtResource("4_urvlt")]
+position = Vector2(17, 7)
+script = ExtResource("4_d4w6o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+offset_left = -382.0
+offset_top = -211.0
+offset_right = 410.0
+offset_bottom = 226.0
+texture = ExtResource("6_d4w6o")
+stretch_mode = 1

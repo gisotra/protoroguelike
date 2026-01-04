@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=4 format=3 uid="uid://cq26lufys3s8m"]
+
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_frmf0"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="1_yqxr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqxr7"]
+atlas = ExtResource("1_yqxr7")
+region = Rect2(116, 60, 23, 9)
+
+[resource]
+script = ExtResource("1_frmf0")
+weapon_name = "Espingarda"
+gun_texture = SubResource("AtlasTexture_yqxr7")
+metadata/_custom_type_script = "uid://lq56wytnavvh"

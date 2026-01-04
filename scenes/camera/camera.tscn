@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bbwh752ccvdj2"]
+
+[node name="camera" type="Camera2D"]
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_left = -348
+limit_top = -160
+limit_right = 358
+limit_bottom = 181
+limit_smoothed = true
+position_smoothing_enabled = true

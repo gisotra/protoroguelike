@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=11 format=3 uid="uid://dnidydwa051lx"]
+
+[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="1_bfbaa"]
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="2_m5b33"]
+[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="2_vkq25"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkq25"]
+atlas = ExtResource("1_bfbaa")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxei"]
+atlas = ExtResource("2_vkq25")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eun5"]
+atlas = ExtResource("2_vkq25")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgh1v"]
+atlas = ExtResource("2_vkq25")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
+atlas = ExtResource("2_vkq25")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
+atlas = ExtResource("2_vkq25")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1xar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoxei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eun5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgh1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm80t")
+}],
+"loop": false,
+"name": &"burst",
+"speed": 50.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7p5")
+}],
+"loop": false,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_m5b33")
+weapon_name = "Triple Shotgun"
+gun_texture = SubResource("AtlasTexture_vkq25")
+muzzle_flash_animation = SubResource("SpriteFrames_n1xar")
+bullet_spread = 5.0
+bullets_per_shot = 5
+metadata/_custom_type_script = "uid://lq56wytnavvh"

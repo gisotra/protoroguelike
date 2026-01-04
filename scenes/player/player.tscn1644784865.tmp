@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctl5ov2xsk68e"]
+
+[ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scripts/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://bsdauxraermew" path="res://assets/atlas.png" id="2_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullet.tscn" id="4_p47bc"]
+[ext_resource type="Resource" uid="uid://2spglfp8fafx" path="res://resources/bullets/SecondGunBullet.tres" id="8_h17s1"]
+[ext_resource type="Resource" uid="uid://c81afgy02w47n" path="res://resources/weapons/SecondGun.tres" id="9_je7p5"]
+[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="10_fm80t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjkh3"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6k8r"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
+atlas = ExtResource("2_g1dw6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw30f")
+}],
+"loop": true,
+"name": &"IDLE_DOWN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjkh3")
+}],
+"loop": true,
+"name": &"IDLE_LEFT",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6k8r")
+}],
+"loop": true,
+"name": &"IDLE_RIGHT",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boad6")
+}],
+"loop": true,
+"name": &"IDLE_UP",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 4.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_dovo2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_u8vuu")
+animation = &"IDLE_DOWN"
+autoplay = "IDLE_DOWN"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_g2els")
+
+[node name="Gun" parent="." instance=ExtResource("3_gmlin")]
+unique_name_in_owner = true
+position = Vector2(7, -6)
+bullet_scene = ExtResource("4_p47bc")
+current_bullet_resource = ExtResource("8_h17s1")
+gun_settings = ExtResource("9_je7p5")
+
+[node name="Sprite2D" parent="Gun" index="0"]
+position = Vector2(10.590805, -1.7988586)
+texture = ExtResource("10_fm80t")
+
+[node name="Marker2D" parent="Gun" index="1"]
+position = Vector2(18.590805, -2.7988586)
+
+[editable path="Gun"]
