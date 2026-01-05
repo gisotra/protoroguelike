@@ -11,6 +11,7 @@ extends Node2D
 @onready var gun_sprite: Sprite2D = $gun_sprite
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
+@onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 
 func _ready():
 	setup_gun()
@@ -29,6 +30,9 @@ func setup_gun():
 
 func shoot():
 	muzzle_flash.play("burst")
+	#camera shake
+	camera.trigger_shake(gun_settings.shake_intensity)
+	
 	for i in gun_settings.bullets_per_shot:
 		#crio 1 bala
 		var bullet_instance = bullet_scene.instantiate()
@@ -51,6 +55,3 @@ func _manage_pos():
 		
 func _apply_spread(bullet_instance, spread_value):
 	bullet_instance.rotation = global_rotation + deg_to_rad(randi_range(-spread_value, spread_value))
-	
-	
-	

@@ -7,6 +7,6 @@
 script = ExtResource("1_kk7he")
 nome = "Shotgun_Bullet"
 SPEED = 700
-texture = ExtResource("2_jdf5k")
 bullet_duration = 1.5
+texture = ExtResource("2_jdf5k")
 metadata/_custom_type_script = "uid://b5m55kgg4cl78"

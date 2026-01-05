@@ -1,17 +1,14 @@
 extends Camera2D
 @onready var player: CharacterBody2D = %player
 
+#Mouse Oriented Camera
 var desired_offset: Vector2
 var min_off_set = -50
 var max_off_set = 50
 
-var noise = FastNoiseLite.new()
-var shake_intensity: float = 0.0
-var activate_shake_time: float = 0.0
-
-var shake_decay: float = 5.0
-
-var shake_time_speed: float = 20.0
+#Shake
+var shake_fade: float = 10.0
+var shake_strength: float
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,7 +17,11 @@ func _process(delta: float) -> void:
 	desired_offset.y = clamp(desired_offset.y, min_off_set / 2.0, max_off_set / 2.0)
 	
 	global_position = player.global_position + desired_offset
-
-func _shake():
-	randomize()
-	noise.seed = randi()
+	#handles shaking
+	if shake_strength > 0:
+		shake_strength = lerp(shake_strength, 0.0, shake_fade * delta)
+		offset = Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
+		
+func trigger_shake(max_shake: float):
+	shake_strength = max_shake
+	

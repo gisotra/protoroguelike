@@ -86,7 +86,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"burst",
-"speed": 50.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -127,10 +127,12 @@ texture = SubResource("AtlasTexture_vkq25")
 position = Vector2(39, -3)
 
 [node name="muzzleFlash" parent="Gun" index="2"]
-position = Vector2(45, -2)
+position = Vector2(54, -2)
 sprite_frames = SubResource("SpriteFrames_n1xar")
 animation = &"burst"
 autoplay = "sleep"
+frame = 3
+frame_progress = 1.0
 
 [connection signal="animation_finished" from="Gun/muzzleFlash" to="Gun" method="_on_muzzle_flash_animation_finished"]
 

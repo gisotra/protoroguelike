@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbwh752ccvdj2"]
 
-[node name="camera" type="Camera2D"]
+[node name="camera" type="Camera2D" groups=["Camera"]]
 zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = -348
