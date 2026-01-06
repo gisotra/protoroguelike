@@ -8,10 +8,12 @@ extends Node2D
 	set(value):
 		gun_settings = value
 		setup_gun()
-		
+
 @onready var gun_sprite: Sprite2D = $gun_sprite
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
+@onready var fire_rate_timer: Timer = $fire_rate_timer
+
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var type: GunSettings.gunType 
@@ -26,10 +28,11 @@ func _process(delta: float) -> void:
 	#se a arma for semi-automatica:
 	match type:
 		GunSettings.gunType.SEMIAUTO:
-			if Input.is_action_just_pressed("fire"):
+			
+			if Input.is_action_just_pressed("fire") and fire_rate_timer.is_stopped():
 				shoot()
 		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
-			if Input.is_action_pressed("fire"):
+			if Input.is_action_pressed("fire") and fire_rate_timer.is_stopped():
 				shoot()
 	if gun_sprite.position.x < 20:
 		gun_sprite.position.x = lerp(gun_sprite.position.x, 20.0, 10.0 * delta)
@@ -45,6 +48,7 @@ func shoot():
 	muzzle_flash.play("burst")
 	#camera shake
 	camera.trigger_shake(gun_settings.shake_intensity)
+	fire_rate_timer.start(gun_settings.fire_rate)
 	_apply_recoil(gun_settings.recoil)
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
@@ -73,4 +77,4 @@ func _apply_recoil(recoil_value):
 		GunSettings.gunType.SEMIAUTO:
 			gun_sprite.position.x -= recoil_value
 		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
-			gun_sprite.position.x = -recoil_value * 0.10
+			gun_sprite.position.x -= recoil_value 

@@ -10,3 +10,6 @@ script = ExtResource("1_76485")
 [node name="muzzle" type="Marker2D" parent="."]
 
 [node name="muzzleFlash" type="AnimatedSprite2D" parent="."]
+
+[node name="fire_rate_timer" type="Timer" parent="."]
+one_shot = true
