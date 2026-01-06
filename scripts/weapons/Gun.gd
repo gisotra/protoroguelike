@@ -25,6 +25,8 @@ func _process(delta: float) -> void:
 	_manage_pos()
 	if Input.is_action_just_pressed("fire"):
 		shoot()
+	if gun_sprite.position.x < 20:
+		gun_sprite.position.x = lerp(gun_sprite.position.x, 20.0, 10.0 * delta)
 
 func setup_gun():
 	type = gun_settings.gun_type
