@@ -14,7 +14,7 @@ extends Node2D
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
-@onready var type
+@onready var type: GunSettings.gunType 
 
 func _ready():
 	setup_gun()
@@ -23,16 +23,23 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	_manage_pos()
-	if Input.is_action_just_pressed("fire"):
-		shoot()
+	#se a arma for semi-automatica:
+	match type:
+		GunSettings.gunType.SEMIAUTO:
+			if Input.is_action_just_pressed("fire"):
+				shoot()
+		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
+			if Input.is_action_pressed("fire"):
+				shoot()
 	if gun_sprite.position.x < 20:
 		gun_sprite.position.x = lerp(gun_sprite.position.x, 20.0, 10.0 * delta)
 
 func setup_gun():
-	type = gun_settings.gun_type
+	
 	if gun_settings and gun_sprite:
 		gun_sprite.texture = gun_settings.gun_texture
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
+		type = gun_settings.gun_type
 
 func shoot():
 	muzzle_flash.play("burst")
@@ -62,9 +69,8 @@ func _apply_spread(bullet_instance, spread_value):
 	bullet_instance.rotation = global_rotation + deg_to_rad(randi_range(-spread_value, spread_value))
 	
 func _apply_recoil(recoil_value):
-	"""if type == GunSettings.gun_type.SEMIAUTO:
-		gun_sprite.position.x -= recoil_value
-	if type == GunSettings.gun_type.AUTO:
-		gun_sprite.position.x = -recoil_value
-	"""
-	gun_sprite.position.x -= recoil_value
+	match type:
+		GunSettings.gunType.SEMIAUTO:
+			gun_sprite.position.x -= recoil_value
+		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
+			gun_sprite.position.x = -recoil_value * 0.10

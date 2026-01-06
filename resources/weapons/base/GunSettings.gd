@@ -22,8 +22,8 @@ class_name GunSettings
 @export var shell_texture: Texture2D
 
 enum gunType{
-	AUTO,
-	SEMIAUTO,
-	LASER,
-	CHARGE	
+	AUTO = 0,
+	SEMIAUTO = 1,
+	LASER = 2,
+	CHARGE = 3
 }
