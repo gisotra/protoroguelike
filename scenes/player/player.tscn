@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=27 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://assets/newplayersheet.png" id="2_0owmy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/weapons/TripleShotgun.tres" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="8_qek5x"]
 [ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="10_fm80t"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="10_h17s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("2_0owmy")
@@ -114,6 +115,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1xar"]
+atlas = ExtResource("10_h17s1")
+region = Rect2(175, 19, 3, 1)
+
 [node name="dust_emmiter" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 
@@ -184,6 +189,10 @@ position = Vector2(54, -2)
 sprite_frames = SubResource("SpriteFrames_n1xar")
 animation = &"sleep"
 autoplay = "sleep"
+
+[node name="shell_emmiter" parent="Gun" index="4"]
+amount = 8
+texture = SubResource("AtlasTexture_n1xar")
 
 [connection signal="animation_finished" from="Gun/muzzleFlash" to="Gun" method="_on_muzzle_flash_animation_finished"]
 

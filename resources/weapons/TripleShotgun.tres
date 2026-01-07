@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GunSettings" load_steps=11 format=3 uid="uid://dnidydwa051lx"]
+[gd_resource type="Resource" script_class="GunSettings" load_steps=13 format=3 uid="uid://dnidydwa051lx"]
 
 [ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="1_bfbaa"]
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="2_m5b33"]
 [ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="2_vkq25"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="4_vkq25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkq25"]
 atlas = ExtResource("1_bfbaa")
@@ -55,6 +56,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1xar"]
+atlas = ExtResource("4_vkq25")
+region = Rect2(175, 19, 3, 1)
+
 [resource]
 script = ExtResource("2_m5b33")
 weapon_name = "Triple Shotgun"
@@ -64,6 +69,8 @@ bullets_per_shot = 5
 shake_intensity = 2.0
 recoil = 6.5
 player_knockback = 20.0
+shell_amount = 8
 gun_texture = SubResource("AtlasTexture_vkq25")
 muzzle_flash_animation = SubResource("SpriteFrames_n1xar")
+shell_texture = SubResource("AtlasTexture_n1xar")
 metadata/_custom_type_script = "uid://lq56wytnavvh"

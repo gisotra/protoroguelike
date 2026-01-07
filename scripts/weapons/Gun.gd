@@ -13,6 +13,7 @@ extends Node2D
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var fire_rate_timer: Timer = $fire_rate_timer
+@onready var shell_emmiter: CPUParticles2D = $shell_emmiter
 
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
@@ -43,7 +44,11 @@ func setup_gun():
 		gun_sprite.texture = gun_settings.gun_texture
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
-
+		shell_emmiter.texture = gun_settings.shell_texture
+		#if gun_settings.shell_amount > 0:
+		shell_emmiter.amount = gun_settings.shell_amount
+		#else:
+			#shell_emmiter.hide()
 func shoot():
 	muzzle_flash.play("burst")
 	camera.trigger_shake(gun_settings.shake_intensity)
