@@ -46,10 +46,11 @@ func setup_gun():
 
 func shoot():
 	muzzle_flash.play("burst")
-	#camera shake
 	camera.trigger_shake(gun_settings.shake_intensity)
 	fire_rate_timer.start(gun_settings.fire_rate)
 	_apply_recoil(gun_settings.recoil)
+	#_apply_knockback(gun_settings.player_knockback)
+	
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
 	
@@ -78,3 +79,6 @@ func _apply_recoil(recoil_value):
 			gun_sprite.position.x -= recoil_value
 		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
 			gun_sprite.position.x -= recoil_value 
+
+#func _apply_knockback(knockback_value):
+	#player.position.x -= knockback_value

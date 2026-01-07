@@ -4,7 +4,8 @@ const SPEED = 150.0
 const coeficiente_de_aceleracao = .15
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun: Gun = $Gun
-const isWalking: bool = false
+var isWalking: bool = false
+@onready var dust_emmiter: CPUParticles2D = $dust_emmiter
 
 func _physics_process(delta: float) -> void:
 	#handle the direction the player is facing
@@ -18,14 +19,20 @@ func _physics_process(delta: float) -> void:
 	
 	#handles animation
 	if direction != Vector2.ZERO:
+		isWalking = true
 		sprite.play("WALK")
 	else:	#parado
+		isWalking = false
 		sprite.play("IDLE")
 		
 	#velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 	velocity += (target_velocity - velocity) * coeficiente_de_aceleracao
 	velocity = velocity.limit_length(SPEED)
 	#limita a velocity
+	if isWalking:
+		dust_emmiter.emitting = true
+	else:
+		dust_emmiter.emitting = false
 	move_and_slide()
 
 func _handle_direction():
