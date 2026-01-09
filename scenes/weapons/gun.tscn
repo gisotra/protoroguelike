@@ -1,17 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmwlvjfj2fxb1"]
+[gd_scene load_steps=2 format=3 uid="uid://dmwlvjfj2fxb1"]
 
 [ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scripts/weapons/Gun.gd" id="1_76485"]
-
-[sub_resource type="Curve" id="Curve_76485"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_mgo42"]
-_limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0, 245.76791), 0.0, 0.0, 0, 0, Vector2(0.90000004, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_76485")
@@ -24,22 +13,3 @@ script = ExtResource("1_76485")
 
 [node name="fire_rate_timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="shell_emmiter" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 3
-explosiveness = 1.0
-randomness = 0.37
-direction = Vector2(1.5, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 8.4
-initial_velocity_max = 15.4
-angular_velocity_min = -60.17
-angular_velocity_max = 60.17
-damping_min = 0.1
-damping_max = 0.7
-damping_curve = SubResource("Curve_76485")
-angle_min = 12.0
-angle_max = 15.0
-angle_curve = SubResource("Curve_mgo42")

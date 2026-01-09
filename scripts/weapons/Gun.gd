@@ -3,6 +3,7 @@ class_name Gun
 extends Node2D
 
 @export var bullet_scene: PackedScene
+@export var shell_case_scene: PackedScene
 @export var current_bullet_resource: BulletSettings 
 @export var gun_settings: GunSettings: 
 	set(value):
@@ -44,17 +45,13 @@ func setup_gun():
 		gun_sprite.texture = gun_settings.gun_texture
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
-		shell_emmiter.texture = gun_settings.shell_texture
-		#if gun_settings.shell_amount > 0:
-		shell_emmiter.amount = gun_settings.shell_amount
-		#else:
-			#shell_emmiter.hide()
+		
 func shoot():
 	muzzle_flash.play("burst")
 	camera.trigger_shake(gun_settings.shake_intensity)
 	fire_rate_timer.start(gun_settings.fire_rate)
 	_apply_recoil(gun_settings.recoil)
-	#_apply_knockback(gun_settings.player_knockback)
+	_apply_knockback(gun_settings.player_knockback)
 	
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
@@ -85,5 +82,5 @@ func _apply_recoil(recoil_value):
 		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
 			gun_sprite.position.x -= recoil_value 
 
-#func _apply_knockback(knockback_value):
-	#player.position.x -= knockback_value
+func _apply_knockback(knockback_value):
+	player.velocity -= transform.x * knockback_value
