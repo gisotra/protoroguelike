@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bbwh752ccvdj2"]
+[gd_scene load_steps=2 format=3 uid="uid://bbwh752ccvdj2"]
+
+[ext_resource type="Script" uid="uid://dl7b3s42xt3wb" path="res://scripts/camera/camera.gd" id="1_xejhd"]
 
 [node name="camera" type="Camera2D" groups=["Camera"]]
 zoom = Vector2(2, 2)
@@ -9,3 +11,4 @@ limit_right = 358
 limit_bottom = 181
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("1_xejhd")

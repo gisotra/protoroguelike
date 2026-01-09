@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://cl2s32ikstd2p"]
+
+[ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="1_b4sxl"]
+[ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_qm7gn"]
+[ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="3_ea3gy"]
+[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/Gate.tscn" id="5_b4sxl"]
+[ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://assets/ground_temp.png" id="5_uq7s3"]
+[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://assets/scenary/objects/gates/gate.png" id="6_qm7gn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea3gy"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_harsw"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq7s3"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fer5g"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swuqm"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ud1"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skuj3"]
+atlas = ExtResource("6_qm7gn")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qm7gn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea3gy")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_harsw")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq7s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fer5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swuqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ud1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skuj3")
+}],
+"loop": true,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm7gn"]
+size = Vector2(36, 20)
+
+[node name="sandbox" type="Node2D"]
+
+[node name="cursor" parent="." instance=ExtResource("3_ea3gy")]
+position = Vector2(17, 7)
+
+[node name="camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_b4sxl")]
+player = NodePath("../scenary/player")
+
+[node name="scenary" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="player" parent="scenary" instance=ExtResource("2_qm7gn")]
+unique_name_in_owner = true
+position = Vector2(-1, 5)
+
+[node name="Gate" parent="scenary" instance=ExtResource("5_b4sxl")]
+position = Vector2(-114, -73)
+LocationDestiny = "res://scenes/levels/lobby_room.tscn"
+SpriteAnimation = SubResource("SpriteFrames_qm7gn")
+
+[node name="gate_sprite" parent="scenary/Gate" index="0"]
+position = Vector2(0.039764404, -21.694275)
+sprite_frames = SubResource("SpriteFrames_qm7gn")
+animation = &"closed"
+
+[node name="gate_collision" parent="scenary/Gate" index="1"]
+position = Vector2(0.039764404, 0.3057251)
+shape = SubResource("RectangleShape2D_qm7gn")
+
+[node name="TextureRect" type="TextureRect" parent="scenary"]
+z_index = -1
+offset_left = -382.0
+offset_top = -211.0
+offset_right = 410.0
+offset_bottom = 226.0
+texture = ExtResource("5_uq7s3")
+stretch_mode = 1
+
+[editable path="scenary/Gate"]

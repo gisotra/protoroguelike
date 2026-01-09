@@ -119,7 +119,7 @@ animations = [{
 atlas = ExtResource("10_h17s1")
 region = Rect2(175, 19, 3, 1)
 
-[node name="dust_emmiter" type="CharacterBody2D" groups=["Player"]]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

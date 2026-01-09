@@ -1,5 +1,7 @@
 extends Camera2D
-@onready var player: CharacterBody2D = %player
+class_name GameCamera
+
+@export var player: Node2D
 
 #Mouse Oriented Camera
 var desired_offset: Vector2

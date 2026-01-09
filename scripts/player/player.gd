@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const SPEED = 150.0
 const coeficiente_de_aceleracao = .15
