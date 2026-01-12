@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 class_name BulletShell
 
 @onready var spr_shell: Sprite2D = $spr_shell
@@ -19,8 +19,6 @@ func _ready():
 	death_timer.wait_time = duration
 	death_timer.start()
 
-func _physics_process(delta: float) -> void:
-	move_and_slide()
 	
 	
 	

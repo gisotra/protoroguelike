@@ -56,6 +56,8 @@ func shoot():
 	
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
+	for i in gun_settings.shell_amount:
+		get_tree().root.add_child(_create_shell())
 	
 func _manage_pos():
 	look_at(get_global_mouse_position())
@@ -87,9 +89,7 @@ func _apply_knockback(knockback_value):
 	player.velocity -= transform.x * knockback_value
 	
 func _create_shell():
-	for i in gun_settings.shell_amount:
-		var shell_instance = shell_case_scene.instantiate()
-		shell_instance.global_position = global_position
-		shell_instance._initialize(gun_settings.life_time, gun_settings.shell_texture)
-		shell_instance.velocity = transform.x * gun_settings.ejection_speed
-		get_tree().current_scene.add_child(shell_instance)
+	var shell_instance = shell_case_scene.instantiate()
+	shell_instance.global_position = global_position
+	shell_instance._initialize(gun_settings.life_time, gun_settings.shell_texture)
+	return shell_instance
