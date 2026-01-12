@@ -15,8 +15,11 @@ class_name GunSettings
 @export_group("Post-Firing FX")
 @export var recoil: float
 @export var player_knockback: float
-@export var shell_amount: int
 
+@export_group("Bullet Shells")
+@export var shell_amount: int
+@export var ejection_speed: float
+@export var life_time: float
 
 @export_group("Weapon Sprites")
 @export var gun_texture: Texture2D

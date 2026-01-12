@@ -14,7 +14,6 @@ extends Node2D
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var fire_rate_timer: Timer = $fire_rate_timer
-@onready var shell_emmiter: CPUParticles2D = $shell_emmiter
 
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
@@ -52,6 +51,8 @@ func shoot():
 	fire_rate_timer.start(gun_settings.fire_rate)
 	_apply_recoil(gun_settings.recoil)
 	_apply_knockback(gun_settings.player_knockback)
+	_create_shell()
+	
 	
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
@@ -84,3 +85,11 @@ func _apply_recoil(recoil_value):
 
 func _apply_knockback(knockback_value):
 	player.velocity -= transform.x * knockback_value
+	
+func _create_shell():
+	for i in gun_settings.shell_amount:
+		var shell_instance = shell_case_scene.instantiate()
+		shell_instance.global_position = global_position
+		shell_instance._initialize(gun_settings.life_time, gun_settings.shell_texture)
+		shell_instance.velocity = transform.x * gun_settings.ejection_speed
+		get_tree().current_scene.add_child(shell_instance)

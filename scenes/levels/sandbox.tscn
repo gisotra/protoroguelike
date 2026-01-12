@@ -108,6 +108,7 @@ position = Vector2(0.039764404, 0.3057251)
 shape = SubResource("RectangleShape2D_qm7gn")
 
 [node name="TextureRect" type="TextureRect" parent="scenary"]
+visible = false
 z_index = -1
 offset_left = -382.0
 offset_top = -211.0

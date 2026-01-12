@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=11 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://assets/scenary/snow_layer.png" id="1_1bwmq"]
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/Gate.tscn" id="1_5wg5b"]
@@ -25,6 +25,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxdr2"]
 size = Vector2(36, 20)
 
+[sub_resource type="Environment" id="Environment_capf1"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.65
+glow_enabled = true
+glow_blend_mode = 0
+adjustment_enabled = true
+
 [node name="LobbyRoom" type="Node2D"]
 
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
@@ -43,16 +51,17 @@ y_sort_enabled = true
 [node name="instances" type="Node2D" parent="scenary"]
 
 [node name="player" parent="scenary/instances" instance=ExtResource("2_cq85v")]
+position = Vector2(91, 110)
 
 [node name="camera" parent="scenary/instances" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 limit_left = -160
-limit_top = -328
+limit_top = -281
 limit_right = 160
 limit_bottom = 281
 player = NodePath("../player")
 
 [node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
-position = Vector2(0, -195)
+position = Vector2(0, -112)
 LocationDestiny = "res://scenes/levels/sandbox.tscn"
 SpriteAnimation = SubResource("SpriteFrames_5wg5b")
 
@@ -63,5 +72,8 @@ animation = &"closed"
 [node name="gate_collision" parent="scenary/Gate" index="1"]
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_dxdr2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_capf1")
 
 [editable path="scenary/Gate"]

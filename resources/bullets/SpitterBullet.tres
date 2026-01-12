@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BulletSettings" load_steps=3 format=3 uid="uid://bx6ixyjjwrhx4"]
+
+[ext_resource type="Script" uid="uid://b5m55kgg4cl78" path="res://resources/bullets/base/BulletSettings.gd" id="1_obhkd"]
+[ext_resource type="Texture2D" uid="uid://dpffvfoqypolc" path="res://assets/mobs/static/spitter_bullet.png" id="2_ooeay"]
+
+[resource]
+script = ExtResource("1_obhkd")
+nome = "Spitter Bullet"
+SPEED = 100
+bullet_duration = 5.0
+texture = ExtResource("2_ooeay")
+metadata/_custom_type_script = "uid://b5m55kgg4cl78"
