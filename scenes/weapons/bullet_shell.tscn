@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cfdlpyxd8s0o3" path="res://scripts/weapons/bullet_shell.gd" id="1_rgbfu"]
 
 [node name="bullet_shell" type="RigidBody2D"]
+inertia = 1.0
 script = ExtResource("1_rgbfu")
 
 [node name="spr_shell" type="Sprite2D" parent="."]

@@ -62,6 +62,7 @@ player = NodePath("../player")
 
 [node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
 position = Vector2(0, -112)
+collision_mask = 2
 LocationDestiny = "res://scenes/levels/sandbox.tscn"
 SpriteAnimation = SubResource("SpriteFrames_5wg5b")
 

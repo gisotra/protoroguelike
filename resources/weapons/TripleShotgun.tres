@@ -58,7 +58,7 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1xar"]
 atlas = ExtResource("4_vkq25")
-region = Rect2(175, 19, 3, 1)
+region = Rect2(197, 55, 3, 1)
 
 [resource]
 script = ExtResource("2_m5b33")
@@ -70,8 +70,8 @@ gun_type = 1
 shake_intensity = 3.0
 recoil = 8.5
 player_knockback = 40.0
-shell_amount = 5
-ejection_speed = 10.0
+shell_amount = 1
+ejection_speed = 50.0
 life_time = 4.0
 gun_texture = SubResource("AtlasTexture_vkq25")
 muzzle_flash_animation = SubResource("SpriteFrames_n1xar")

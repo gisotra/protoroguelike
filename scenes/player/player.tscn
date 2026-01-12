@@ -116,6 +116,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

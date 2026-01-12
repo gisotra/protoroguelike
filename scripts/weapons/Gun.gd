@@ -89,7 +89,17 @@ func _apply_knockback(knockback_value):
 	player.velocity -= transform.x * knockback_value
 	
 func _create_shell():
+	#creation
 	var shell_instance = shell_case_scene.instantiate()
 	shell_instance.global_position = global_position
 	shell_instance._initialize(gun_settings.life_time, gun_settings.shell_texture)
+
+	#impulse ejection
+	var eject_imp_X: float = randf_range(55 + gun_settings.ejection_speed, 155 + gun_settings.ejection_speed)
+	var eject_imp_Y: float = randf_range(120 + gun_settings.ejection_speed, 205 + gun_settings.ejection_speed)
+	
+	shell_instance.apply_impulse(transform.x * -eject_imp_X, Vector2.ZERO)
+	shell_instance.apply_impulse(transform.y * -eject_imp_Y, Vector2.ZERO)
+	shell_instance.apply_torque_impulse(randf_range(-360, 360))
+	
 	return shell_instance
