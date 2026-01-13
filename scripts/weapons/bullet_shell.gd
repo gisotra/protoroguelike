@@ -8,23 +8,34 @@ class_name BulletShell
 @onready var shell_texture: Texture2D
 @onready var new_point_floorY: float
 
-
 func _initialize(tempoDeDuracao: float, sprite: Texture2D):
 	duration = tempoDeDuracao
 	shell_texture = sprite
-	if duration and shell_texture:
-		print("capsula configurada!")
 
 func _ready():
-	#anim_player.play("birth")	
 	spr_shell.texture = shell_texture
+	
 	death_timer.wait_time = duration
 	death_timer.start()
-	new_point_floorY = randf_range(get_parent().position.y - 50, get_parent().position.y + 50)
-	
+	new_point_floorY = global_position.y + randf_range(0, 30)
 	
 func _physics_process(delta: float):
-	
-	
+	if position.y >= new_point_floorY:
+		position.y = new_point_floorY
+		
+		if linear_velocity.y > 0:
+			linear_velocity.y = -linear_velocity.y * 0.8
+			linear_velocity.x = linear_velocity.x * 0.8
 
+		if abs(linear_velocity.y) < 2:
+			linear_velocity = Vector2.ZERO
+			angular_velocity = 0 
+			
+
+func _on_death_timer_timeout() -> void:
+	anim_player.play("disappear")
 	
+	
+func _on_animation_player_animation_finished(anim_name: StringName):
+	queue_free()
+	print("adeus cabron")

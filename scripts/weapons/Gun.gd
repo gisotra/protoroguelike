@@ -53,7 +53,6 @@ func shoot():
 	_apply_knockback(gun_settings.player_knockback)
 	_create_shell()
 	
-	
 	for i in gun_settings.bullets_per_shot:
 		get_tree().root.add_child(_create_bullet())
 	for i in gun_settings.shell_amount:
@@ -97,9 +96,8 @@ func _create_shell():
 	#impulse ejection
 	var eject_imp_X: float = randf_range(55 + gun_settings.ejection_speed, 155 + gun_settings.ejection_speed)
 	var eject_imp_Y: float = randf_range(120 + gun_settings.ejection_speed, 205 + gun_settings.ejection_speed)
-	
-	shell_instance.apply_impulse(transform.x * -eject_imp_X, Vector2.ZERO)
-	shell_instance.apply_impulse(transform.y * -eject_imp_Y, Vector2.ZERO)
-	shell_instance.apply_torque_impulse(randf_range(-360, 360))
+	shell_instance.apply_impulse(transform.x * -eject_imp_X, Vector2.ZERO) #HORIZONTAL
+	shell_instance.apply_impulse(transform.y * -eject_imp_Y, Vector2.ZERO) #VERTICAL
+	shell_instance.apply_torque_impulse(randf_range(-360, 360)) #ROTATION 
 	
 	return shell_instance

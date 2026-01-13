@@ -79,7 +79,11 @@ size = Vector2(36, 20)
 
 [node name="sandbox" type="Node2D"]
 
-[node name="cursor" parent="." instance=ExtResource("3_ea3gy")]
+[node name="UI" type="CanvasLayer" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="cursor" parent="UI" instance=ExtResource("3_ea3gy")]
 position = Vector2(17, 7)
 
 [node name="camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_b4sxl")]

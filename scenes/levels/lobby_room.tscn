@@ -38,6 +38,7 @@ adjustment_enabled = true
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
 
 [node name="snow" type="Node2D" parent="."]
+z_index = -1
 
 [node name="snowground" type="TileMapLayer" parent="snow"]
 
@@ -54,9 +55,9 @@ y_sort_enabled = true
 position = Vector2(91, 110)
 
 [node name="camera" parent="scenary/instances" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
-limit_left = -160
+limit_left = -320
 limit_top = -281
-limit_right = 160
+limit_right = 320
 limit_bottom = 281
 player = NodePath("../player")
 

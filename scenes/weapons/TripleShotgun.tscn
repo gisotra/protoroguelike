@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx1sqxsjq04v1"]
+
+[ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scripts/weapons/Gun.gd" id="1_b5un5"]
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullet.tscn" id="2_khdgc"]
+[ext_resource type="PackedScene" uid="uid://cwpvstasp4x1l" path="res://scenes/weapons/bullet_shell.tscn" id="3_3jpdy"]
+[ext_resource type="Resource" uid="uid://bgexyxyvgd2t4" path="res://resources/bullets/ShotgunBullet.tres" id="4_am1u6"]
+[ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/weapons/TripleShotgun.tres" id="5_kgnn4"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_b5un5")
+bullet_scene = ExtResource("2_khdgc")
+shell_case_scene = ExtResource("3_3jpdy")
+current_bullet_resource = ExtResource("4_am1u6")
+gun_settings = ExtResource("5_kgnn4")
+metadata/_custom_type_script = "uid://cxi2ltx2yw2gh"
