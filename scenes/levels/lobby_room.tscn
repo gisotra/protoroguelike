@@ -96,5 +96,6 @@ environment = SubResource("Environment_capf1")
 position = Vector2(0, -150)
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
+[connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]
 
 [editable path="scenary/Gate"]
