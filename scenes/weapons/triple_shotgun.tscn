@@ -1,0 +1,79 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnu7q2dmvndkm"]
+
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_ij6u7"]
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullet.tscn" id="2_15hjv"]
+[ext_resource type="PackedScene" uid="uid://cwpvstasp4x1l" path="res://scenes/weapons/bullet_shell.tscn" id="3_35i7k"]
+[ext_resource type="Resource" uid="uid://bgexyxyvgd2t4" path="res://resources/bullets/ShotgunBullet.tres" id="4_xb48g"]
+[ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/weapons/TripleShotgun.tres" id="5_64lt0"]
+[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="6_xyjxw"]
+[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="7_jup3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkq25"]
+atlas = ExtResource("6_xyjxw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoxei"]
+atlas = ExtResource("7_jup3c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eun5"]
+atlas = ExtResource("7_jup3c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgh1v"]
+atlas = ExtResource("7_jup3c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
+atlas = ExtResource("7_jup3c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
+atlas = ExtResource("7_jup3c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1xar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoxei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eun5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgh1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm80t")
+}],
+"loop": false,
+"name": &"burst",
+"speed": 40.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7p5")
+}],
+"loop": false,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[node name="TripleShotgun" instance=ExtResource("1_ij6u7")]
+bullet_scene = ExtResource("2_15hjv")
+shell_case_scene = ExtResource("3_35i7k")
+current_bullet_resource = ExtResource("4_xb48g")
+gun_settings = ExtResource("5_64lt0")
+
+[node name="gun_sprite" parent="." index="0"]
+position = Vector2(19, -2)
+texture = SubResource("AtlasTexture_vkq25")
+
+[node name="muzzle" parent="." index="1"]
+position = Vector2(38, -2)
+
+[node name="muzzleFlash" parent="." index="2"]
+position = Vector2(56, -3)
+sprite_frames = SubResource("SpriteFrames_n1xar")
+animation = &"sleep"
+autoplay = "sleep"

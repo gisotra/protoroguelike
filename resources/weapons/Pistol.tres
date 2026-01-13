@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=9 format=3 uid="uid://dwucvmt62jsw7"]
+
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="1_c5r1d"]
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_d1aer"]
+[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="2_dhj3l"]
+[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://assets/shells.png" id="4_y3g45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7hy3"]
+atlas = ExtResource("1_c5r1d")
+region = Rect2(66, 45, 21, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tcck"]
+atlas = ExtResource("2_dhj3l")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svkac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tcck")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"unused",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5g5h"]
+atlas = ExtResource("4_y3g45")
+region = Rect2(0, 5, 5, 4)
+
+[resource]
+script = ExtResource("1_d1aer")
+weapon_name = "Pistol"
+ammo_cap = 40
+fire_rate = 0.05
+bullet_spread = 3.0
+bullets_per_shot = 1
+gun_type = 1
+shake_intensity = 2.5
+recoil = 2.5
+player_knockback = 0.9
+shell_amount = 1
+ejection_speed = 5.0
+life_time = 6.0
+gun_texture = SubResource("AtlasTexture_c7hy3")
+muzzle_flash_animation = SubResource("SpriteFrames_svkac")
+shell_texture = SubResource("AtlasTexture_q5g5h")
+metadata/_custom_type_script = "uid://lq56wytnavvh"
