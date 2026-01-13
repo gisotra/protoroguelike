@@ -63,14 +63,13 @@ region = Rect2(0, 0, 5, 3)
 [resource]
 script = ExtResource("2_m5b33")
 weapon_name = "Triple Shotgun"
-fire_rate = 0.05
+fire_rate = 0.25
 bullet_spread = 5.0
 bullets_per_shot = 5
-gun_type = 1
 shake_intensity = 3.0
 recoil = 8.5
 player_knockback = 40.0
-shell_amount = 5
+shell_amount = 1
 ejection_speed = 1.0
 life_time = 4.0
 gun_texture = SubResource("AtlasTexture_vkq25")

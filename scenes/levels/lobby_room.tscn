@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=13 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://assets/scenary/snow_layer.png" id="1_1bwmq"]
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/Gate.tscn" id="1_5wg5b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://assets/scenary/objects/gates/gate.png" id="6_capf1"]
+[ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/levels/cinematic_area.gd" id="7_6jy5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -24,6 +25,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxdr2"]
 size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbk1y"]
+size = Vector2(640.25, 95)
 
 [sub_resource type="Environment" id="Environment_capf1"]
 background_mode = 3
@@ -55,14 +59,14 @@ y_sort_enabled = true
 position = Vector2(91, 110)
 
 [node name="camera" parent="scenary/instances" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
-limit_left = -320
-limit_top = -281
-limit_right = 320
-limit_bottom = 281
+limit_left = -319
+limit_top = -283
+limit_right = 321
+limit_bottom = 279
 player = NodePath("../player")
 
 [node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
-position = Vector2(0, -112)
+position = Vector2(0, -78)
 collision_mask = 2
 LocationDestiny = "res://scenes/levels/sandbox.tscn"
 SpriteAnimation = SubResource("SpriteFrames_5wg5b")
@@ -75,7 +79,22 @@ animation = &"closed"
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_dxdr2")
 
+[node name="cinematicArea" type="Area2D" parent="scenary" node_paths=PackedStringArray("camera", "marker")]
+collision_mask = 2
+script = ExtResource("7_6jy5w")
+camera = NodePath("../instances/camera")
+marker = NodePath("../../desired_camera_point")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
+position = Vector2(-0.125, -55.5)
+shape = SubResource("RectangleShape2D_sbk1y")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_capf1")
+
+[node name="desired_camera_point" type="Marker2D" parent="."]
+position = Vector2(0, -150)
+
+[connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 
 [editable path="scenary/Gate"]

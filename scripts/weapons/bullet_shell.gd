@@ -23,9 +23,9 @@ func _physics_process(delta: float):
 	if position.y >= new_point_floorY:
 		position.y = new_point_floorY
 		
-		if linear_velocity.y > 0:
+		if linear_velocity.y > 0: #caindo
 			linear_velocity.y = -linear_velocity.y * 0.8
-			linear_velocity.x = linear_velocity.x * 0.8
+			linear_velocity.x = linear_velocity.x * 0.3
 
 		if abs(linear_velocity.y) < 2:
 			linear_velocity = Vector2.ZERO
