@@ -17,6 +17,9 @@ func _physics_process(delta: float) -> void:
 	#handle the direction the player is facing
 	_handle_direction()
 	
+	"""if frame_count % eyes_update_rate:
+		eyes._update_eyes_pos()
+		frame_count = 0"""
 	
 	#handle movement
 	var direction

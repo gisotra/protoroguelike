@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bj8vpqjt0h8sn" path="res://components/comp_scenes/interaction_component.gd" id="1_th1a4"]
 
 [node name="Interaction_Component" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_th1a4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -10,3 +12,4 @@ script = ExtResource("1_th1a4")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

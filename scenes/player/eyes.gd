@@ -6,8 +6,7 @@ extends Sprite2D
 @onready var max_off_set_y: = 0.5
 @onready var smooth_speed = 7
 
-
-"""func _process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if !central_head_point:
 		return
 	var mouse_global = get_global_mouse_position()
@@ -18,9 +17,9 @@ extends Sprite2D
 	
 	var target_position = head_point + diff
 	global_position = global_position.lerp(target_position, smooth_speed * delta)
-"""
+
 	
-func _update_eyes_pos():
+"""func _update_eyes_pos():
 	
 	var mouse_global = get_global_mouse_position()
 	var head_point = central_head_point.global_position
@@ -33,5 +32,5 @@ func _update_eyes_pos():
 	myTween.set_ease(Tween.EASE_IN)
 	myTween.set_trans(Tween.TRANS_SPRING)
 	myTween.tween_property(self, "global_position", target_position, 1.2)
-	
+	"""
 	

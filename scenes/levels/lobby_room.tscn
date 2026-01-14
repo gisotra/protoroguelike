@@ -96,6 +96,8 @@ environment = SubResource("Environment_capf1")
 [node name="desired_camera_point" type="Marker2D" parent="."]
 position = Vector2(0, -150)
 
+[node name="npc" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]
 
