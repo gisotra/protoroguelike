@@ -18,7 +18,7 @@ func unregister_area(area: InteractionComponent):
 
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 and can_interact:
-		active_areas.sort_by_custom(_sort_by_distance_to_player)
+		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
@@ -32,9 +32,7 @@ func _input(event):
 		if active_areas.size () > 0: #existir elementos na minha lista
 			can_interact = false
 			label.hide()
-			
 			await active_areas[0].interact.call() #chamo o método daquela minha interação
-			
 			can_interact = true
 		
 func _sort_by_distance_to_player(area1, area2): #algoritmo de sorte customizado

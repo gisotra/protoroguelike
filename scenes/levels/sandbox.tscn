@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cl2s32ikstd2p"]
+[gd_scene load_steps=17 format=3 uid="uid://cl2s32ikstd2p"]
 
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="1_b4sxl"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_qm7gn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="5_b4sxl"]
 [ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://scenes/scenary/visuals/ground_temp.png" id="5_uq7s3"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_qm7gn"]
+[ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="7_ea3gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3gy"]
 atlas = ExtResource("6_qm7gn")
@@ -120,5 +121,8 @@ offset_right = 410.0
 offset_bottom = 226.0
 texture = ExtResource("5_uq7s3")
 stretch_mode = 1
+
+[node name="npc" parent="scenary" instance=ExtResource("7_ea3gy")]
+position = Vector2(-104, -19)
 
 [editable path="scenary/Gate"]

@@ -68,7 +68,6 @@ collision_layer = 2
 script = ExtResource("1_dovo2")
 
 [node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
-z_index = 1
 position = Vector2(0, -11)
 texture = SubResource("AtlasTexture_lvxji")
 script = ExtResource("3_p47bc")
@@ -78,6 +77,7 @@ central_head_point = NodePath("../central_head_point")
 position = Vector2(0, -11)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -16)
@@ -127,4 +127,5 @@ color = Color(1, 1, 1, 0.78039217)
 anim_offset_max = 1.0
 
 [node name="TripleShotgun" parent="." instance=ExtResource("4_lvxji")]
+z_index = 1
 position = Vector2(0, -6)
