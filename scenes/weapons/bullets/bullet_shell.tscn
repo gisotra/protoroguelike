@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwpvstasp4x1l"]
+
+[ext_resource type="Script" uid="uid://cfdlpyxd8s0o3" path="res://scenes/weapons/bullets/scripts/base/bullet_shell.gd" id="1_rgbfu"]
+
+[sub_resource type="Animation" id="Animation_qt1ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_shell:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr_shell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rgbfu"]
+resource_name = "disappear"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_shell:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.9),
+"transitions": PackedFloat32Array(1, 0.5, 0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr_shell:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1457168, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(0.5, 0.5), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whxjy"]
+_data = {
+&"RESET": SubResource("Animation_qt1ti"),
+&"disappear": SubResource("Animation_rgbfu")
+}
+
+[node name="bullet_shell" type="RigidBody2D"]
+z_index = -1
+y_sort_enabled = true
+inertia = 1.0
+script = ExtResource("1_rgbfu")
+
+[node name="spr_shell" type="Sprite2D" parent="."]
+region_rect = Rect2(0, 0, 304, 80)
+
+[node name="Death_Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_whxjy")
+}
+
+[connection signal="timeout" from="Death_Timer" to="." method="_on_death_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

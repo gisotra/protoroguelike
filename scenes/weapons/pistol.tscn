@@ -1,44 +1,51 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq2s3apqr5xbe"]
+[gd_scene load_steps=15 format=3 uid="uid://bq2s3apqr5xbe"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_ivc8v"]
-[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullet.tscn" id="2_t1ie7"]
-[ext_resource type="PackedScene" uid="uid://cwpvstasp4x1l" path="res://scenes/weapons/bullet_shell.tscn" id="3_61dc8"]
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="2_t1ie7"]
+[ext_resource type="PackedScene" uid="uid://cwpvstasp4x1l" path="res://scenes/weapons/bullets/bullet_shell.tscn" id="3_61dc8"]
 [ext_resource type="Resource" uid="uid://4i6ssyddpylx" path="res://resources/bullets/PistolBullet.tres" id="4_red3f"]
 [ext_resource type="Resource" uid="uid://dwucvmt62jsw7" path="res://resources/weapons/Pistol.tres" id="5_red3f"]
-[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="6_c5u5x"]
-[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="7_nb08m"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://scenes/weapons/guns/visuals/weapons.png" id="6_c5u5x"]
+[ext_resource type="Texture2D" uid="uid://b83tufb6qofkq" path="res://scenes/weapons/guns/visuals/muzzleFlash/PistolMuzzleFlash.png" id="7_red3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7hy3"]
 atlas = ExtResource("6_c5u5x")
 region = Rect2(66, 45, 21, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhj3l"]
+atlas = ExtResource("7_red3f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3g45"]
+atlas = ExtResource("7_red3f")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tcck"]
-atlas = ExtResource("7_nb08m")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5sf3v"]
-atlas = ExtResource("7_nb08m")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8on4r"]
-atlas = ExtResource("7_nb08m")
-region = Rect2(128, 0, 64, 64)
+atlas = ExtResource("7_red3f")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_red3f"]
-atlas = ExtResource("7_nb08m")
-region = Rect2(192, 0, 64, 64)
+atlas = ExtResource("7_red3f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svkac"]
+atlas = ExtResource("7_red3f")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_svkac"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dhj3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3g45")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8tcck")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5sf3v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8on4r")
+"texture": SubResource("AtlasTexture_red3f")
 }],
 "loop": false,
 "name": &"burst",
@@ -46,10 +53,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_red3f")
+"texture": SubResource("AtlasTexture_svkac")
 }],
 "loop": false,
-"name": &"unused",
+"name": &"sleep",
 "speed": 5.0
 }]
 
@@ -67,8 +74,7 @@ texture = SubResource("AtlasTexture_c7hy3")
 position = Vector2(26.5, -3)
 
 [node name="muzzleFlash" parent="." index="2"]
-position = Vector2(36, -3)
-scale = Vector2(0.45312497, 0.375)
+position = Vector2(31, -3)
 sprite_frames = SubResource("SpriteFrames_svkac")
-animation = &"burst"
-autoplay = "unused"
+animation = &"sleep"
+autoplay = "sleep"

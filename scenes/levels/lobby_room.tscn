@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=13 format=3 uid="uid://dacrcyjtpm36g"]
 
-[ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://assets/scenary/snow_layer.png" id="1_1bwmq"]
-[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/Gate.tscn" id="1_5wg5b"]
+[ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://scenes/scenary/visuals/snow_layer.png" id="1_1bwmq"]
+[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
-[ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/triple_shotgun.tscn" id="2_dxdr2"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
-[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://assets/scenary/objects/gates/gate.png" id="6_capf1"]
-[ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scripts/camera/cinematic_area.gd" id="7_6jy5w"]
+[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
+[ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -28,7 +27,7 @@ animations = [{
 size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbk1y"]
-size = Vector2(640.25, 95)
+size = Vector2(199, 58)
 
 [sub_resource type="Environment" id="Environment_capf1"]
 background_mode = 3
@@ -41,8 +40,6 @@ adjustment_enabled = true
 [node name="LobbyRoom" type="Node2D"]
 
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
-
-[node name="TripleShotgun" parent="cursor" instance=ExtResource("2_dxdr2")]
 
 [node name="snow" type="Node2D" parent="."]
 z_index = -1
@@ -82,14 +79,15 @@ animation = &"closed"
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_dxdr2")
 
-[node name="cinematicArea" type="Area2D" parent="scenary" node_paths=PackedStringArray("camera", "marker")]
+[node name="cinematicArea" type="Area2D" parent="scenary" node_paths=PackedStringArray("player", "camera", "marker")]
 collision_mask = 2
 script = ExtResource("7_6jy5w")
+player = NodePath("../instances/player")
 camera = NodePath("../instances/camera")
 marker = NodePath("../../desired_camera_point")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
-position = Vector2(-0.125, -55.5)
+position = Vector2(3.5, -37)
 shape = SubResource("RectangleShape2D_sbk1y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

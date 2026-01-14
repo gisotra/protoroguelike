@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="1_b4sxl"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_qm7gn"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="3_ea3gy"]
-[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/Gate.tscn" id="5_b4sxl"]
-[ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://assets/ground_temp.png" id="5_uq7s3"]
-[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://assets/scenary/objects/gates/gate.png" id="6_qm7gn"]
+[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="5_b4sxl"]
+[ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://scenes/scenary/visuals/ground_temp.png" id="5_uq7s3"]
+[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_qm7gn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3gy"]
 atlas = ExtResource("6_qm7gn")

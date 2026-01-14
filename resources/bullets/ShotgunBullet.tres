@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletSettings" load_steps=3 format=3 uid="uid://bgexyxyvgd2t4"]
 
 [ext_resource type="Script" uid="uid://b5m55kgg4cl78" path="res://resources/bullets/base/BulletSettings.gd" id="1_kk7he"]
-[ext_resource type="Texture2D" uid="uid://7qmnou8ybqtx" path="res://assets/third_gun_bullet.png" id="2_jdf5k"]
+[ext_resource type="Texture2D" uid="uid://7qmnou8ybqtx" path="res://scenes/weapons/bullets/visuals/triple_shotgun_bullet.png" id="2_jdf5k"]
 
 [resource]
 script = ExtResource("1_kk7he")

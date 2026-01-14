@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="GunSettings" load_steps=13 format=3 uid="uid://dnidydwa051lx"]
 
-[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://assets/second_gun.png" id="1_bfbaa"]
+[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://scenes/weapons/guns/visuals/second_gun.png" id="1_bfbaa"]
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="2_m5b33"]
-[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="2_vkq25"]
-[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://assets/shells.png" id="4_vkq25"]
+[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="2_vkq25"]
+[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://scenes/weapons/bullets/visuals/shells.png" id="4_vkq25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkq25"]
 atlas = ExtResource("1_bfbaa")

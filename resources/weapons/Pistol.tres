@@ -1,31 +1,59 @@
-[gd_resource type="Resource" script_class="GunSettings" load_steps=9 format=3 uid="uid://dwucvmt62jsw7"]
+[gd_resource type="Resource" script_class="GunSettings" load_steps=13 format=3 uid="uid://dwucvmt62jsw7"]
 
-[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://assets/weapons.png" id="1_c5r1d"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://scenes/weapons/guns/visuals/weapons.png" id="1_c5r1d"]
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_d1aer"]
-[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://assets/TripleShotgunMuzzleFlash.png" id="2_dhj3l"]
-[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://assets/shells.png" id="4_y3g45"]
+[ext_resource type="Texture2D" uid="uid://b83tufb6qofkq" path="res://scenes/weapons/guns/visuals/muzzleFlash/PistolMuzzleFlash.png" id="2_c5r1d"]
+[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://scenes/weapons/bullets/visuals/shells.png" id="4_y3g45"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7hy3"]
 atlas = ExtResource("1_c5r1d")
 region = Rect2(66, 45, 21, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhj3l"]
+atlas = ExtResource("2_c5r1d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3g45"]
+atlas = ExtResource("2_c5r1d")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tcck"]
-atlas = ExtResource("2_dhj3l")
-region = Rect2(0, 0, 64, 64)
+atlas = ExtResource("2_c5r1d")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_red3f"]
+atlas = ExtResource("2_c5r1d")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svkac"]
+atlas = ExtResource("2_c5r1d")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_svkac"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8tcck")
-}],
-"loop": true,
-"name": &"shot",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_dhj3l")
 }, {
-"frames": [],
-"loop": true,
-"name": &"unused",
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3g45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tcck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_red3f")
+}],
+"loop": false,
+"name": &"burst",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svkac")
+}],
+"loop": false,
+"name": &"sleep",
 "speed": 5.0
 }]
 
