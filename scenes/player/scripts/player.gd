@@ -9,10 +9,14 @@ const coeficiente_de_aceleracao = .15
 var isWalking: bool = false
 @onready var dust_emmiter: CPUParticles2D = $dust_emmiter
 @onready var central_head_point: Marker2D = $central_head_point
+@onready var frame_count: int = 0
+@onready var eyes_update_rate = 10
 
 func _physics_process(delta: float) -> void:
+	frame_count += 1
 	#handle the direction the player is facing
 	_handle_direction()
+	
 	
 	#handle movement
 	var direction
