@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2tsr6a16pfw4"]
+[gd_scene load_steps=6 format=3 uid="uid://d2tsr6a16pfw4"]
 
 [ext_resource type="Texture2D" uid="uid://dvsgrmwc6riti" path="res://scenes/entities/npcs/merchant.png" id="1_ii721"]
 [ext_resource type="Script" uid="uid://cn3kvfoddxpfn" path="res://scenes/entities/npcs/npc.gd" id="1_kcbfn"]
 [ext_resource type="Texture2D" uid="uid://bxm6uynhc06hf" path="res://scenes/UI/keys.png" id="3_cyk10"]
 [ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="3_ii721"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcbfn"]
-atlas = ExtResource("3_cyk10")
-region = Rect2(1, 1, 14, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyk10"]
 radius = 30.805843
@@ -16,12 +12,21 @@ radius = 30.805843
 script = ExtResource("1_kcbfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
 texture = ExtResource("1_ii721")
 region_enabled = true
 region_rect = Rect2(144, 54, 38, 38)
 
 [node name="Interaction_Component" parent="." instance=ExtResource("3_ii721")]
-hover_sprite = SubResource("AtlasTexture_kcbfn")
+hover_sprite = ExtResource("3_cyk10")
+
+[node name="Sprite2D" parent="Interaction_Component" index="0"]
+position = Vector2(0, -40)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_cyk10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
+position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_cyk10")
+
+[editable path="Interaction_Component"]

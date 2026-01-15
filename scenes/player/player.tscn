@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=17 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
 [ext_resource type="Texture2D" uid="uid://dth68visi4bpo" path="res://scenes/player/visuals/dust_particles.png" id="3_5gtgg"]
-[ext_resource type="Script" uid="uid://ckkqykpeu1xr" path="res://scenes/player/eyes.gd" id="3_p47bc"]
+[ext_resource type="Script" uid="uid://ckkqykpeu1xr" path="res://scenes/player/scripts/eyes.gd" id="3_p47bc"]
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/triple_shotgun.tscn" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
 atlas = ExtResource("2_0owmy")
@@ -44,6 +45,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_75vfm"]
+_data = [Vector2(0, 0.79513246), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 4.0
 
@@ -78,13 +83,22 @@ position = Vector2(0, -11)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"IDLE"
 autoplay = "IDLE"
 frame_progress = 0.37047043
+
+[node name="Trail2D" type="Line2D" parent="AnimatedSprite2D"]
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(0, 10)
+width = 5.0
+width_curve = SubResource("Curve_75vfm")
+script = ExtResource("6_75vfm")
+length = 20
+metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

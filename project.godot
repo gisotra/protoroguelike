@@ -25,11 +25,15 @@ InteractionManager="*res://components/autoload/InteractionManager.tscn"
 window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/resizable=false
-window/size/window_width_override=640
-window/size/window_height_override=320
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/trail_2d/plugin.cfg")
 
 [global_group]
 

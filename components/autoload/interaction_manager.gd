@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@onready var label: Label = $Label
 
 const base_text = "[E] to "
 
@@ -19,19 +18,11 @@ func unregister_area(area: InteractionComponent):
 func _process(delta: float) -> void:
 	if active_areas.size() > 0 and can_interact:
 		active_areas.sort_custom(_sort_by_distance_to_player)
-		label.text = base_text + active_areas[0].action_name
-		label.global_position = active_areas[0].global_position
-		label.global_position.y -= 36
-		label.global_position.x -= label.size.x / 2
-		label.show()
-	else:
-		label.hide()
 
 func _input(event):
 	if event.is_action_pressed("interact") && can_interact:
 		if active_areas.size () > 0: #existir elementos na minha lista
 			can_interact = false
-			label.hide()
 			await active_areas[0].interact.call() #chamo o método daquela minha interação
 			can_interact = true
 		
