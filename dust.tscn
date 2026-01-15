@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bys8blhndb5le"]
+
+[ext_resource type="Texture2D" uid="uid://dth68visi4bpo" path="res://scenes/player/visuals/dust_particles.png" id="1_1vtmn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1vtmn"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_hvgcl"]
+offsets = PackedFloat32Array(0, 0.71657753)
+colors = PackedColorArray(1, 0, 0.30588236, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p32id"]
+gradient = SubResource("Gradient_hvgcl")
+
+[sub_resource type="Curve" id="Curve_gaq67"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12106299, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.008103609), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_veaii"]
+curve = SubResource("Curve_gaq67")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hvgcl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 2, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 23.0
+angular_velocity_min = -143.16002
+angular_velocity_max = 164.15997
+gravity = Vector3(0, -30, 0)
+scale_min = 0.93
+scale_max = 1.75
+scale_curve = SubResource("CurveTexture_veaii")
+color_ramp = SubResource("GradientTexture1D_p32id")
+anim_offset_max = 1.0
+
+[node name="dust" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_1vtmn")
+amount = 4
+texture = ExtResource("1_1vtmn")
+lifetime = 0.6900000000000001
+fixed_fps = 60
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_hvgcl")
