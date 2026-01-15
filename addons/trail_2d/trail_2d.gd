@@ -8,7 +8,7 @@ var offset : = Vector2.ZERO
 
 func _ready() -> void:
 	offset = position
-	top_level = true
+	top_level = false
 
 func _physics_process(_delta: float) -> void:
 	global_position = Vector2.ZERO
@@ -18,4 +18,3 @@ func _physics_process(_delta: float) -> void:
 	
 	if get_point_count() > length:
 		remove_point(get_point_count() - 1)
-

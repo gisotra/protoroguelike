@@ -2,8 +2,8 @@
 class_name Gun
 extends Node2D
 
-@export var bullet_scene: PackedScene
-@export var shell_case_scene: PackedScene
+@export var bullet_scene: PackedScene = preload(Constants.SCENE_PATHS.bullet)
+@export var shell_case_scene: PackedScene = preload(Constants.SCENE_PATHS.bullet_shell)
 @export var current_bullet_resource: BulletSettings 
 @export var gun_settings: GunSettings: 
 	set(value):

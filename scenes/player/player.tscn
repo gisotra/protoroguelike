@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=18 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/triple_shotgun.tscn" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
-atlas = ExtResource("2_0owmy")
-region = Rect2(43, 14, 8, 2)
+[sub_resource type="Curve" id="Curve_75vfm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_75vfm"]
+offsets = PackedFloat32Array(0, 0.4826087)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("2_0owmy")
@@ -45,9 +49,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Curve" id="Curve_75vfm"]
-_data = [Vector2(0, 0.79513246), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvxji"]
+atlas = ExtResource("2_0owmy")
+region = Rect2(43, 14, 8, 2)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 4.0
@@ -72,17 +76,20 @@ point_count = 4
 collision_layer = 2
 script = ExtResource("1_dovo2")
 
-[node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
-position = Vector2(0, -11)
-texture = SubResource("AtlasTexture_lvxji")
-script = ExtResource("3_p47bc")
-central_head_point = NodePath("../central_head_point")
+[node name="Trail2D" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, -9)
+width = 8.0
+width_curve = SubResource("Curve_75vfm")
+gradient = SubResource("Gradient_75vfm")
+script = ExtResource("6_75vfm")
+length = 35
+metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="central_head_point" type="Marker2D" parent="."]
 position = Vector2(0, -11)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = -1
 y_sort_enabled = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
@@ -90,15 +97,11 @@ animation = &"IDLE"
 autoplay = "IDLE"
 frame_progress = 0.37047043
 
-[node name="Trail2D" type="Line2D" parent="AnimatedSprite2D"]
-show_behind_parent = true
-z_as_relative = false
-position = Vector2(0, 10)
-width = 5.0
-width_curve = SubResource("Curve_75vfm")
-script = ExtResource("6_75vfm")
-length = 20
-metadata/_custom_type_script = "uid://bb7133dhhvmtg"
+[node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
+position = Vector2(0, -11)
+texture = SubResource("AtlasTexture_lvxji")
+script = ExtResource("3_p47bc")
+central_head_point = NodePath("../central_head_point")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -141,5 +144,4 @@ color = Color(1, 1, 1, 0.78039217)
 anim_offset_max = 1.0
 
 [node name="TripleShotgun" parent="." instance=ExtResource("4_lvxji")]
-z_index = 1
 position = Vector2(0, -6)
