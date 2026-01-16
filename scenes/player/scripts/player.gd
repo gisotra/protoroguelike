@@ -7,7 +7,7 @@ const coeficiente_de_aceleracao = .15
 @onready var eyes: Sprite2D = $eyes
 @onready var gun: Gun = $Gun
 var isWalking: bool = false
-@onready var dust_emmiter: CPUParticles2D = $dust_emmiter
+@onready var dust: GPUParticles2D = $dust
 @onready var central_head_point: Marker2D = $central_head_point
 @onready var frame_count: int = 0
 @onready var eyes_update_rate = 10
@@ -40,9 +40,9 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.limit_length(SPEED)
 	#limita a velocity
 	if isWalking:
-		dust_emmiter.emitting = true
+		dust.emitting = true
 	else:
-		dust_emmiter.emitting = false
+		dust.emitting = false
 	move_and_slide()
 
 func _handle_direction():

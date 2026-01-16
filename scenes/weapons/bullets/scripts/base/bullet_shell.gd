@@ -33,7 +33,14 @@ func _physics_process(delta: float):
 			
 
 func _on_death_timer_timeout() -> void:
-	anim_player.play("disappear")
+	var myTween = create_tween()
+	
+	myTween.set_ease(Tween.EASE_OUT)
+	myTween.set_trans(Tween.TRANS_CUBIC)
+	myTween.tween_property(self, "scale", Vector2(1.3, 1.3), 0.5)
+	myTween.tween_property(self, "scale", Vector2.ZERO, 0.9)
+	await myTween.finished
+	queue_free()
 	
 	
 func _on_animation_player_animation_finished(anim_name: StringName):

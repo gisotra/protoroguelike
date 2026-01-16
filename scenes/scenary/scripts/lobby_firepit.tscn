@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpupxjsevyybh"]
+
+[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_k208g"]
+
+[sub_resource type="Gradient" id="Gradient_bk34j"]
+offsets = PackedFloat32Array(0, 0.12711865, 0.5423729)
+colors = PackedColorArray(1, 1, 0.2901961, 1, 1, 0.2, 0.10980392, 0.9019608, 0.023529412, 0.015686275, 0, 0.67058825)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5bhke"]
+gradient = SubResource("Gradient_bk34j")
+
+[sub_resource type="Curve" id="Curve_juon5"]
+_limits = [0.0, 2.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.019903176, 0.88299584), 0.0, 0.0, 0, 0, Vector2(0.50672406, 0.52574086), 0.0, 0.0, 0, 0, Vector2(0.8402367, 0), 0.0, 0.0, 0, 0, Vector2(0.845616, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_juon5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu6u5"]
+lifetime_randomness = 0.71
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 2, 1)
+direction = Vector3(-1, -1, 0)
+spread = 27.419
+initial_velocity_min = 12.49
+initial_velocity_max = 55.739998
+gravity = Vector3(0, -30, 0)
+scale_min = 0.95
+scale_max = 1.25
+scale_curve = SubResource("CurveTexture_rbehg")
+color_ramp = SubResource("GradientTexture1D_5bhke")
+
+[node name="firepit" type="GPUParticles2D"]
+amount = 80
+texture = ExtResource("1_k208g")
+lifetime = 1.1
+randomness = 0.27
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fu6u5")

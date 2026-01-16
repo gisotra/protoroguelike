@@ -8,6 +8,7 @@ collision_mask = 2
 script = ExtResource("1_th1a4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

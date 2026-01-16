@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=19 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -6,14 +6,7 @@
 [ext_resource type="Script" uid="uid://ckkqykpeu1xr" path="res://scenes/player/scripts/eyes.gd" id="3_p47bc"]
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/triple_shotgun.tscn" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
-
-[sub_resource type="Curve" id="Curve_75vfm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_75vfm"]
-offsets = PackedFloat32Array(0, 0.4826087)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[ext_resource type="PackedScene" uid="uid://bys8blhndb5le" path="res://scenes/player/dust.tscn" id="7_0owmy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("2_0owmy")
@@ -72,19 +65,17 @@ _limits = [0.0, 1.0, 0.0, 2.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.108492665, 1), 0.0, 0.0, 0, 0, Vector2(1.126723, 0), 0.0, 0.0, 0, 0, Vector2(1.5357838, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
+[sub_resource type="Curve" id="Curve_75vfm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_75vfm"]
+offsets = PackedFloat32Array(0, 0.4826087)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_dovo2")
-
-[node name="Trail2D" type="Line2D" parent="."]
-show_behind_parent = true
-position = Vector2(0, -9)
-width = 8.0
-width_curve = SubResource("Curve_75vfm")
-gradient = SubResource("Gradient_75vfm")
-script = ExtResource("6_75vfm")
-length = 35
-metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="central_head_point" type="Marker2D" parent="."]
 position = Vector2(0, -11)
@@ -145,3 +136,17 @@ anim_offset_max = 1.0
 
 [node name="TripleShotgun" parent="." instance=ExtResource("4_lvxji")]
 position = Vector2(0, -6)
+
+[node name="dust" parent="." instance=ExtResource("7_0owmy")]
+emitting = false
+
+[node name="Trail2D" type="Line2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(0, -9)
+width = 8.0
+width_curve = SubResource("Curve_75vfm")
+gradient = SubResource("Gradient_75vfm")
+script = ExtResource("6_75vfm")
+length = 35
+metadata/_custom_type_script = "uid://bb7133dhhvmtg"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=15 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://scenes/scenary/visuals/snow_layer.png" id="1_1bwmq"]
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
+[ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/scenary/scripts/lobby_firepit.tscn" id="8_sbk1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -90,6 +91,9 @@ marker = NodePath("../../desired_camera_point")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
 position = Vector2(3.5, -37)
 shape = SubResource("RectangleShape2D_sbk1y")
+
+[node name="firepit" parent="scenary" instance=ExtResource("8_sbk1y")]
+position = Vector2(2, 173)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_capf1")

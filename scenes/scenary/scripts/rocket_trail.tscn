@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://hieuae2t4l8i"]
+
+[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_7gunh"]
+
+[sub_resource type="Gradient" id="Gradient_7gunh"]
+offsets = PackedFloat32Array(0, 0.13841808, 0.3361582)
+colors = PackedColorArray(1, 1, 0.2901961, 1, 1, 0.2, 0.10980392, 0.9019608, 0.023529412, 0.015686275, 0, 0.67058825)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ywvg3"]
+gradient = SubResource("Gradient_7gunh")
+
+[sub_resource type="Curve" id="Curve_w2dhr"]
+_limits = [0.0, 2.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.033351265, 1.3615872), 0.0, 0.0, 0, 0, Vector2(0.4825175, 0.3967042), 0.0, 0.0, 0, 0, Vector2(0.697687, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_knby3"]
+curve = SubResource("Curve_w2dhr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p0ike"]
+lifetime_randomness = 0.32
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 3.23
+direction = Vector3(-1, 0, 0)
+spread = 12.946
+initial_velocity_min = 50.0
+initial_velocity_max = 142.44
+gravity = Vector3(0, -30, 0)
+scale_min = 0.55
+scale_max = 0.95
+scale_curve = SubResource("CurveTexture_knby3")
+color_ramp = SubResource("GradientTexture1D_ywvg3")
+
+[node name="firepit" type="GPUParticles2D"]
+position = Vector2(-8, -28)
+amount = 80
+texture = ExtResource("1_7gunh")
+lifetime = 1.1
+randomness = 0.27
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_p0ike")
