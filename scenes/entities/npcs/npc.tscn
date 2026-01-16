@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2tsr6a16pfw4"]
+[gd_scene load_steps=9 format=3 uid="uid://d2tsr6a16pfw4"]
 
 [ext_resource type="Texture2D" uid="uid://dvsgrmwc6riti" path="res://scenes/entities/npcs/merchant.png" id="1_ii721"]
 [ext_resource type="Script" uid="uid://cn3kvfoddxpfn" path="res://scenes/entities/npcs/npc.gd" id="1_kcbfn"]
 [ext_resource type="Texture2D" uid="uid://bxm6uynhc06hf" path="res://scenes/UI/keys.png" id="3_cyk10"]
 [ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="3_ii721"]
+[ext_resource type="Script" uid="uid://fpfu63mlr5lt" path="res://components/health_component.gd" id="5_cyk10"]
+[ext_resource type="Script" uid="uid://cee86a4a2opa7" path="res://components/hitbox.gd" id="6_0fe8l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyk10"]
 radius = 30.805843
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgdeb"]
+radius = 8.0
 
 [node name="npc" type="Node2D"]
 script = ExtResource("1_kcbfn")
@@ -22,11 +27,26 @@ hover_sprite = ExtResource("3_cyk10")
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -40)
-scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_cyk10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_cyk10")
+debug_color = Color(0.9764706, 0, 0.41960785, 0)
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("5_cyk10")
+max = 50
+metadata/_custom_type_script = "uid://fpfu63mlr5lt"
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("6_0fe8l")
+damage = 0
+metadata/_custom_type_script = "uid://cee86a4a2opa7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-3, -2)
+rotation = -1.5730895
+shape = SubResource("CapsuleShape2D_dgdeb")
 
 [editable path="Interaction_Component"]
