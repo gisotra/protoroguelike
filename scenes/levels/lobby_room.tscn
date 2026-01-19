@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=16 format=3 uid="uid://dacrcyjtpm36g"]
 
-[ext_resource type="Texture2D" uid="uid://c3gejpyeagc7c" path="res://scenes/scenary/visuals/snow_layer.png" id="1_1bwmq"]
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
+[ext_resource type="Texture2D" uid="uid://omx6jn27882s" path="res://scenes/scenary/visuals/backgrounds/cenarioV5.png" id="2_sbk1y"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
+[ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="3_hi1ba"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
-[ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/scenary/scripts/lobby_firepit.tscn" id="8_sbk1y"]
+[ext_resource type="PackedScene" uid="uid://boybbexvgy8em" path="res://scenes/scenary/scripts/firepit.tscn" id="8_sbk1y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -29,17 +30,20 @@ animations = [{
 size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbk1y"]
-size = Vector2(199, 58)
+size = Vector2(379, 37.5)
 
-[sub_resource type="Environment" id="Environment_capf1"]
+[sub_resource type="Environment" id="Environment_t5hfm"]
 background_mode = 3
 tonemap_mode = 2
-tonemap_exposure = 0.65
 glow_enabled = true
-glow_blend_mode = 0
 adjustment_enabled = true
 
 [node name="LobbyRoom" type="Node2D"]
+
+[node name="SnowEmitter" parent="." instance=ExtResource("3_hi1ba")]
+visible = false
+z_index = 10
+position = Vector2(0, -279)
 
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
 
@@ -49,23 +53,23 @@ z_index = -1
 [node name="snowground" type="TileMapLayer" parent="snow"]
 
 [node name="snow_ground" type="Sprite2D" parent="snow"]
-texture = ExtResource("1_1bwmq")
+position = Vector2(2, 5)
+texture = ExtResource("2_sbk1y")
 
 [node name="scenary" type="Node2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="instances" type="Node2D" parent="scenary"]
-
-[node name="player" parent="scenary/instances" instance=ExtResource("2_cq85v")]
-position = Vector2(91, 110)
-
-[node name="camera" parent="scenary/instances" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
-limit_left = -319
-limit_top = -283
-limit_right = 321
-limit_bottom = 279
+[node name="camera" parent="scenary" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
+position = Vector2(0, -236)
+limit_left = -544
+limit_top = -586
+limit_right = 544
+limit_bottom = 281
 player = NodePath("../player")
+
+[node name="player" parent="scenary" instance=ExtResource("2_cq85v")]
+position = Vector2(-294, 192)
 
 [node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
 position = Vector2(0, -78)
@@ -82,27 +86,28 @@ position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_dxdr2")
 
 [node name="cinematicArea" type="Area2D" parent="scenary" node_paths=PackedStringArray("player", "camera", "marker")]
+position = Vector2(-1, -111)
 collision_mask = 2
 script = ExtResource("7_6jy5w")
-player = NodePath("../instances/player")
-camera = NodePath("../instances/camera")
+player = NodePath("../player")
+camera = NodePath("../camera")
 marker = NodePath("../../desired_camera_point")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
-position = Vector2(3.5, -37)
+position = Vector2(3.5, -48.75)
 shape = SubResource("RectangleShape2D_sbk1y")
 
 [node name="firepit" parent="scenary" instance=ExtResource("8_sbk1y")]
-position = Vector2(2, 173)
+position = Vector2(0, 198)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_capf1")
+environment = SubResource("Environment_t5hfm")
 
 [node name="desired_camera_point" type="Marker2D" parent="."]
-position = Vector2(0, -150)
+position = Vector2(0, -236)
 
 [node name="npc" parent="." instance=ExtResource("8_dxdr2")]
-position = Vector2(212, -32)
+position = Vector2(233, 34)
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]

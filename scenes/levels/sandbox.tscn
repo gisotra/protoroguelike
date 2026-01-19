@@ -100,7 +100,7 @@ unique_name_in_owner = true
 position = Vector2(-1, 5)
 
 [node name="Gate" parent="scenary" instance=ExtResource("5_b4sxl")]
-position = Vector2(-114, -73)
+position = Vector2(205, 56)
 collision_mask = 2
 LocationDestiny = "res://scenes/levels/lobby_room.tscn"
 SpriteAnimation = SubResource("SpriteFrames_qm7gn")

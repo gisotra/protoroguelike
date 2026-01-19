@@ -12,8 +12,8 @@ func _on_body_entered(body: Node2D) -> void:
 		myTween.set_parallel(true)
 		myTween.set_ease(Tween.EASE_IN)
 		myTween.set_trans(Tween.TRANS_LINEAR)
-		myTween.tween_property(camera, "global_position", marker.global_position, 1.2)
-		myTween.tween_property(camera, "zoom", Vector2(1.2, 1.2), 1.2)
+		myTween.tween_property(camera, "global_position:y", marker.global_position.y, 1.2)
+		#myTween.tween_property(camera, "zoom", Vector2(1.2, 1.2), 1.2)
 
 
 
@@ -22,10 +22,10 @@ func _on_body_exited(body: Node2D) -> void:
 		
 		var myTween = create_tween()
 		myTween.set_parallel()
-		myTween.set_ease(Tween.EASE_IN)
+		myTween.set_ease(Tween.EASE_OUT)
 		myTween.set_trans(Tween.TRANS_LINEAR)
-		myTween.tween_property(camera, "global_position", player.global_position, 1.2)
-		myTween.tween_property(camera, "zoom", Vector2(2.0, 2.0), 1.2)
+		myTween.tween_property(camera, "global_position:y", player.global_position.y, 1.2)
+		#myTween.tween_property(camera, "zoom", Vector2(2.0, 2.0), 1.2)
 		
 		
 		await myTween.finished

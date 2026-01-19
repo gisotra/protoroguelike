@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_k208g"]
 
 [sub_resource type="Gradient" id="Gradient_bk34j"]
-offsets = PackedFloat32Array(0, 0.12711865, 0.5423729)
+offsets = PackedFloat32Array(0.07434053, 0.19424461, 0.5423729)
 colors = PackedColorArray(1, 1, 0.2901961, 1, 1, 0.2, 0.10980392, 0.9019608, 0.023529412, 0.015686275, 0, 0.67058825)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_5bhke"]

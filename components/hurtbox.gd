@@ -15,3 +15,5 @@ func on_area_entered(hitbox: Area2D) -> void:
 		healthData.on_change.emit(healthData.current_health, healthData.max)
 		
 		received_damage.emit(hitbox.damage)
+
+##NOT FINISHED
