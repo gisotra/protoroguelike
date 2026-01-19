@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnu7q2dmvndkm"]
+[gd_scene load_steps=14 format=3 uid="uid://cnu7q2dmvndkm"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_ij6u7"]
-[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="2_15hjv"]
+[ext_resource type="PackedScene" uid="uid://c2g72ra4gyhy7" path="res://scenes/weapons/bullets/bullet_scenes/ne_wshotgun_bullet.tscn" id="2_vhn61"]
 [ext_resource type="PackedScene" uid="uid://cwpvstasp4x1l" path="res://scenes/weapons/bullets/bullet_shell.tscn" id="3_35i7k"]
-[ext_resource type="Resource" uid="uid://bgexyxyvgd2t4" path="res://resources/bullets/ShotgunBullet.tres" id="4_xb48g"]
 [ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/weapons/TripleShotgun.tres" id="5_64lt0"]
 [ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://scenes/weapons/guns/visuals/second_gun.png" id="6_xyjxw"]
 [ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="7_jup3c"]
@@ -60,9 +59,8 @@ animations = [{
 }]
 
 [node name="TripleShotgun" instance=ExtResource("1_ij6u7")]
-bullet_scene = ExtResource("2_15hjv")
+bullet_scene = ExtResource("2_vhn61")
 shell_case_scene = ExtResource("3_35i7k")
-current_bullet_resource = ExtResource("4_xb48g")
 gun_settings = ExtResource("5_64lt0")
 
 [node name="gun_sprite" parent="." index="0"]

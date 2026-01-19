@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmwlvjfj2fxb1"]
+[gd_scene load_steps=3 format=3 uid="uid://dmwlvjfj2fxb1"]
 
 [ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scenes/weapons/guns/scripts/base/Gun.gd" id="1_76485"]
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="2_mgo42"]
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_76485")
+bullet_scene = ExtResource("2_mgo42")
 shell_case_scene = null
 
 [node name="gun_sprite" type="Sprite2D" parent="."]

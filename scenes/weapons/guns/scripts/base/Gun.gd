@@ -2,9 +2,8 @@
 class_name Gun
 extends Node2D
 
-@export var bullet_scene: PackedScene = preload(Constants.SCENE_PATHS.bullet)
+@export var bullet_scene: PackedScene 
 @export var shell_case_scene: PackedScene = preload(Constants.SCENE_PATHS.bullet_shell)
-@export var current_bullet_resource: BulletSettings 
 @export var gun_settings: GunSettings: 
 	set(value):
 		gun_settings = value
@@ -68,7 +67,7 @@ func _manage_pos():
 
 func _create_bullet():
 	var bullet_instance = bullet_scene.instantiate()
-	bullet_instance.settings = current_bullet_resource
+	#bullet_instance.settings = current_bullet_resource #o que eu quero é REMOVER isso aqui e passar uma bala JÁ PRONTA (com nodes adicionais e etc)
 	bullet_instance.global_position = muzzle.global_position
 	#apply spread
 	_apply_spread(bullet_instance, gun_settings.bullet_spread)
