@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://gn68fy31tk1k"]
+
+[ext_resource type="Texture2D" uid="uid://bfrmriwinbnlf" path="res://scenes/scenary/visuals/backgrounds/props/tree_lobby.png" id="1_nvun0"]
+
+[node name="lobby_trunk" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-72, -14)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(49, 33)
+polygon = PackedVector2Array(0, -15, 0, -31, 5, -37, 12, -42, 22, -58, 24, -72, 25, -83, 41, -83, 45, -80, 44, -50, 43, -28, 44, -23, 43, -13, 39, -2, 40, 1, 40, 4, 35, 3, 35, -14, 36, -20, 33, -26, 24, -28, 20, -26, 16, -17, 12, -12, 8, -5, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(-4, -25)
+texture = ExtResource("1_nvun0")

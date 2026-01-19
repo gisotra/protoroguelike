@@ -1,15 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=17 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
-[ext_resource type="Texture2D" uid="uid://omx6jn27882s" path="res://scenes/scenary/visuals/backgrounds/cenarioV5.png" id="2_sbk1y"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="3_hi1ba"]
+[ext_resource type="Texture2D" uid="uid://cie6bqtliitmg" path="res://scenes/scenary/visuals/backgrounds/cenario_empty.png" id="3_t5hfm"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="PackedScene" uid="uid://boybbexvgy8em" path="res://scenes/scenary/scripts/firepit.tscn" id="8_sbk1y"]
+[ext_resource type="PackedScene" uid="uid://gn68fy31tk1k" path="res://scenes/scenary/visuals/backgrounds/props/lobby_trunk.tscn" id="10_t5hfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -54,7 +55,7 @@ z_index = -1
 
 [node name="snow_ground" type="Sprite2D" parent="snow"]
 position = Vector2(2, 5)
-texture = ExtResource("2_sbk1y")
+texture = ExtResource("3_t5hfm")
 
 [node name="scenary" type="Node2D" parent="."]
 z_as_relative = false
@@ -99,6 +100,9 @@ shape = SubResource("RectangleShape2D_sbk1y")
 
 [node name="firepit" parent="scenary" instance=ExtResource("8_sbk1y")]
 position = Vector2(0, 198)
+
+[node name="lobby_trunk" parent="scenary" instance=ExtResource("10_t5hfm")]
+position = Vector2(-102.5, 214)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t5hfm")
