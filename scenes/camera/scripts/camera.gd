@@ -30,12 +30,14 @@ func _process(delta: float) -> void:
 			desired_offset.y = clamp(desired_offset.y, min_off_set / 2.0, max_off_set / 2.0)
 	
 			global_position = player.global_position + desired_offset
-			#handles shaking
-			if shake_strength > 0:
+		states.GUIDED:
+			desired_offset = (get_global_mouse_position() - position) * 0.5
+			desired_offset.x = clamp(desired_offset.x, min_off_set, max_off_set)
+			global_position.x = player.global_position.x + desired_offset.x
+	if shake_strength > 0:
 				shake_strength = lerp(shake_strength, 0.0, shake_fade * delta)
 				offset = Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
-		#states.GUIDED:
-			#print("omg")
+
 func trigger_shake(max_shake: float):
 	if camera_states == states.AIM:
 		shake_strength = max_shake
