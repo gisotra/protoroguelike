@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=20 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
@@ -39,6 +39,15 @@ background_mode = 3
 tonemap_mode = 2
 glow_enabled = true
 adjustment_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_y8spk"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_huiok"]
+gradient = SubResource("Gradient_y8spk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5103274)
 
 [node name="LobbyRoom" type="Node2D"]
 
@@ -116,6 +125,14 @@ position = Vector2(0, -236)
 
 [node name="npc" parent="." instance=ExtResource("8_dxdr2")]
 position = Vector2(233, 34)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.09403158, 0.04605917, 0.2903296, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(2.9999998, 197)
+scale = Vector2(3.3593752, 3.171875)
+texture = SubResource("GradientTexture2D_huiok")
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]

@@ -22,7 +22,13 @@ extends Node2D
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var type: GunSettings.gunType 
+@onready var current_state: GunState
 
+enum GunState {
+	HANDLED, # Está ativa
+	DROP,    # Está no chão
+	STORED   # Player guardou
+}
 
 func _ready():
 	setup_gun()

@@ -62,4 +62,4 @@ func _handle_direction():
 		central_head_point.scale.x = 1
 		
 func _pick_up_gun(gun: Gun):
-	print("Hello peter")
+	weapon_array.append(gun)

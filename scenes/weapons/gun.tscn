@@ -7,7 +7,6 @@ radius = 28.0
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_76485")
-on_floor = null
 
 [node name="gun_sprite" type="Sprite2D" parent="."]
 
