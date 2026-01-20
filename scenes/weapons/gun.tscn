@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmwlvjfj2fxb1"]
 
 [ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scenes/weapons/guns/scripts/base/Gun.gd" id="1_76485"]
-[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="2_mgo42"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_76485"]
+radius = 28.0
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_76485")
-bullet_scene = ExtResource("2_mgo42")
-shell_case_scene = null
+on_floor = null
 
 [node name="gun_sprite" type="Sprite2D" parent="."]
 
@@ -16,3 +17,13 @@ shell_case_scene = null
 
 [node name="fire_rate_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_76485")
+debug_color = Color(0.99999994, 0.18013492, 0.7610841, 0)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -2,25 +2,32 @@
 class_name Gun
 extends Node2D
 
+@export_group("Gun Configurations")
 @export var bullet_scene: PackedScene 
 @export var shell_case_scene: PackedScene = preload(Constants.SCENE_PATHS.bullet_shell)
 @export var gun_settings: GunSettings: 
 	set(value):
 		gun_settings = value
 		setup_gun()
+@export var on_floor: bool = false
 
+# Gun-Related
 @onready var gun_sprite: Sprite2D = $gun_sprite
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var fire_rate_timer: Timer = $fire_rate_timer
+@onready var player_detector: Area2D = $PlayerDetector
 
+# Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var type: GunSettings.gunType 
 
+
 func _ready():
 	setup_gun()
-
+	if !on_floor:
+		player_detector.set_collision_mask_value(1, false)
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
@@ -100,3 +107,11 @@ func _create_shell():
 	shell_instance.apply_torque_impulse(randf_range(-360, 360)) #ROTATION 
 	
 	return shell_instance
+
+# Addons
+func _on_player_detector_body_entered(body: Player) -> void:
+	if body is Player:
+		player_detector.set_collision_mask_value(1, false)
+		body._pick_up_gun(self)
+		#position = Vector2.ZERO
+		

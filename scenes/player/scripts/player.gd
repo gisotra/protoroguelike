@@ -12,6 +12,9 @@ var isWalking: bool = false
 @onready var frame_count: int = 0
 @onready var eyes_update_rate = 10
 
+@onready var weapon_array: Array[Gun] = [ null, null ] 
+
+
 func _physics_process(delta: float) -> void:
 	frame_count += 1
 	#handle the direction the player is facing
@@ -57,3 +60,6 @@ func _handle_direction():
 		sprite.scale.x = 1
 		eyes.scale.x = 1
 		central_head_point.scale.x = 1
+		
+func _pick_up_gun(gun: Gun):
+	print("Hello peter")
