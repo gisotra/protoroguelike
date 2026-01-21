@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://v4st1m4cne38"]
+
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_4qou4"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_h6tme"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivw5h"]
+atlas = ExtResource("1_h6tme")
+region = Rect2(4, 37, 29, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abf4i"]
+atlas = ExtResource("1_h6tme")
+region = Rect2(86, 38, 6, 3)
+
+[resource]
+script = ExtResource("1_4qou4")
+weapon_name = "Tommy Gun"
+fire_rate = 0.15
+bullet_spread = 2.0
+bullets_per_shot = 1
+shake_intensity = 3.0
+recoil = 4.0
+player_knockback = 2.8
+shell_amount = 1
+ejection_speed = 4.0
+life_time = 10.0
+gun_texture = SubResource("AtlasTexture_ivw5h")
+shell_texture = SubResource("AtlasTexture_abf4i")
+metadata/_custom_type_script = "uid://lq56wytnavvh"

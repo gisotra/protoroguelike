@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=4 format=3 uid="uid://hyw3r6gn4u5y"]
+
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_gcmwb"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_lhsmf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po802"]
+atlas = ExtResource("1_lhsmf")
+region = Rect2(3, 67, 41, 24)
+
+[resource]
+script = ExtResource("1_gcmwb")
+weapon_name = "Rocket Launcher"
+ammo_cap = 50
+fire_rate = 0.55
+bullets_per_shot = 1
+shake_intensity = 20.0
+recoil = 7.0
+player_knockback = 8.0
+gun_texture = SubResource("AtlasTexture_po802")
+metadata/_custom_type_script = "uid://lq56wytnavvh"

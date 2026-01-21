@@ -1,81 +1,29 @@
-[gd_resource type="Resource" script_class="GunSettings" load_steps=13 format=3 uid="uid://dwucvmt62jsw7"]
+[gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://dwucvmt62jsw7"]
 
-[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://scenes/weapons/guns/visuals/weapons.png" id="1_c5r1d"]
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_d1aer"]
-[ext_resource type="Texture2D" uid="uid://b83tufb6qofkq" path="res://scenes/weapons/guns/visuals/muzzleFlash/PistolMuzzleFlash.png" id="2_c5r1d"]
-[ext_resource type="Texture2D" uid="uid://phgtdc25drxa" path="res://scenes/weapons/bullets/visuals/shells.png" id="4_y3g45"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_k8khv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7hy3"]
-atlas = ExtResource("1_c5r1d")
-region = Rect2(66, 45, 21, 11)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6tqk"]
+atlas = ExtResource("1_k8khv")
+region = Rect2(17, 5, 11, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dhj3l"]
-atlas = ExtResource("2_c5r1d")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3g45"]
-atlas = ExtResource("2_c5r1d")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tcck"]
-atlas = ExtResource("2_c5r1d")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_red3f"]
-atlas = ExtResource("2_c5r1d")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svkac"]
-atlas = ExtResource("2_c5r1d")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_svkac"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dhj3l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y3g45")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8tcck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_red3f")
-}],
-"loop": false,
-"name": &"burst",
-"speed": 15.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_svkac")
-}],
-"loop": false,
-"name": &"sleep",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5g5h"]
-atlas = ExtResource("4_y3g45")
-region = Rect2(0, 5, 5, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5r1d"]
+atlas = ExtResource("1_k8khv")
+region = Rect2(88, 8, 5, 3)
 
 [resource]
 script = ExtResource("1_d1aer")
 weapon_name = "Pistol"
-ammo_cap = 40
-fire_rate = 0.05
-bullet_spread = 3.0
+ammo_cap = 250
+fire_rate = 0.5
+bullet_spread = 6.0
 bullets_per_shot = 1
-gun_type = 1
-shake_intensity = 2.5
-recoil = 2.5
-player_knockback = 0.9
+shake_intensity = 3.5
+recoil = 4.0
+player_knockback = 2.5
 shell_amount = 1
 ejection_speed = 5.0
-life_time = 6.0
-gun_texture = SubResource("AtlasTexture_c7hy3")
-muzzle_flash_animation = SubResource("SpriteFrames_svkac")
-shell_texture = SubResource("AtlasTexture_q5g5h")
+life_time = 10.0
+gun_texture = SubResource("AtlasTexture_q6tqk")
+shell_texture = SubResource("AtlasTexture_c5r1d")
 metadata/_custom_type_script = "uid://lq56wytnavvh"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://btwrq0c6pe32w"]
+
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_v8t0o"]
+[ext_resource type="PackedScene" uid="uid://of0phgf65t3m" path="res://scenes/weapons/bullets/bullet_scenes/sniper_bullet.tscn" id="2_l43n2"]
+[ext_resource type="Resource" uid="uid://ciwrwpk4ay4q8" path="res://resources/weapons/SniperRifle.tres" id="3_ryvo4"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_231fg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkh2w"]
+atlas = ExtResource("4_231fg")
+region = Rect2(4, 20, 42, 10)
+
+[node name="SniperRifle" instance=ExtResource("1_v8t0o")]
+bullet_scene = ExtResource("2_l43n2")
+gun_settings = ExtResource("3_ryvo4")
+on_floor = true
+editor_anchor_pos = Vector2(0, -6)
+sprite_desired_offset = Vector2(14, -1)
+
+[node name="gun_sprite" parent="." index="0"]
+texture = SubResource("AtlasTexture_qkh2w")
+
+[node name="Sprite2D" parent="Interaction_Component" index="0"]
+position = Vector2(0, -13)
+
+[editable path="Interaction_Component"]

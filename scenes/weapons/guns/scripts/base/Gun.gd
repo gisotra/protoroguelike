@@ -10,19 +10,24 @@ extends Node2D
 		gun_settings = value
 		setup_gun()
 @export var on_floor: bool = false
+### Essa variável é responsável por dar o offset preciso de onde ela deve estar deslocada no meu player
+@export_group("Preferences")
+@export var editor_anchor_pos: Vector2
+@export var sprite_desired_offset: Vector2
+
 
 # Gun-Related
 @onready var gun_sprite: Sprite2D = $gun_sprite
 @onready var muzzle: Marker2D = $muzzle
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var fire_rate_timer: Timer = $fire_rate_timer
-@onready var player_detector: Area2D = $PlayerDetector
+@onready var interaction_component: InteractionComponent = $Interaction_Component
 
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var type: GunSettings.gunType 
-@onready var current_state: GunState
+@onready var current_state: GunState = GunState.HANDLED
 
 enum GunState {
 	HANDLED, # Está ativa
@@ -32,23 +37,38 @@ enum GunState {
 
 func _ready():
 	setup_gun()
-	if !on_floor:
-		player_detector.set_collision_mask_value(1, false)
+	interaction_component.interact = Callable(self, "_on_interact")
+	
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	_manage_pos()
-	#se a arma for semi-automatica:
-	match type:
-		GunSettings.gunType.SEMIAUTO:
-			
-			if Input.is_action_just_pressed("fire") and fire_rate_timer.is_stopped():
-				shoot()
-		GunSettings.gunType.AUTO:	#se a arma for semi-automatica
-			if Input.is_action_pressed("fire") and fire_rate_timer.is_stopped():
-				shoot()
-	if gun_sprite.position.x < 20:
-		gun_sprite.position.x = lerp(gun_sprite.position.x, 20.0, 10.0 * delta)
+	if on_floor == true:
+		current_state = GunState.DROP
+	# LÓGICA DE CADA ESTADO DA ARMA
+	match current_state:
+### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
+		GunState.HANDLED:
+			_manage_pos()
+			interaction_component.monitoring = false
+			#se a arma for semi-automatica:
+			match type:
+				GunSettings.gunType.SEMIAUTO:
+					
+					if Input.is_action_just_pressed("fire") and fire_rate_timer.is_stopped():
+						shoot()
+				GunSettings.gunType.AUTO:	#se a arma for semi-automatica
+					if Input.is_action_pressed("fire") and fire_rate_timer.is_stopped():
+						shoot()
+			if gun_sprite.position.x < sprite_desired_offset.x:
+				gun_sprite.position.x = lerp(gun_sprite.position.x, sprite_desired_offset.x, 10.0 * delta)
+				
+### --------------------------------------- ARMA NO CHÃO (pickable) ---------------------------------------
+		GunState.DROP:
+			interaction_component.monitoring = true
+			gun_sprite.position = Vector2.ZERO
+### --------------------------------------- ARMA NO INVENTÁRIO (switchable) ---------------------------------------
+		GunState.STORED:
+			pass
 
 func setup_gun():
 	
@@ -80,7 +100,6 @@ func _manage_pos():
 
 func _create_bullet():
 	var bullet_instance = bullet_scene.instantiate()
-	#bullet_instance.settings = current_bullet_resource #o que eu quero é REMOVER isso aqui e passar uma bala JÁ PRONTA (com nodes adicionais e etc)
 	bullet_instance.global_position = muzzle.global_position
 	#apply spread
 	_apply_spread(bullet_instance, gun_settings.bullet_spread)
@@ -113,11 +132,23 @@ func _create_shell():
 	shell_instance.apply_torque_impulse(randf_range(-360, 360)) #ROTATION 
 	
 	return shell_instance
-
-# Addons
-func _on_player_detector_body_entered(body: Player) -> void:
-	if body is Player:
-		player_detector.set_collision_mask_value(1, false)
-		body._pick_up_gun(self)
-		#position = Vector2.ZERO
+	
+func _on_interact():
+	if current_state == GunState.DROP:
+		player._pick_up_weapon(self) #ATRIBUIR MEU NODE DA ARMA (que está no chão) PARA O MEU PLAYER 
 		
+func _transition_to_handled():
+	on_floor = false
+	position = editor_anchor_pos
+	gun_sprite.position = sprite_desired_offset
+	current_state = GunState.HANDLED
+
+func _transition_to_drop():
+	on_floor = true
+	gun_sprite.position = Vector2.ZERO
+	current_state = GunState.DROP
+
+func _transition_to_stored():
+	on_floor = false
+	gun_sprite.hide()
+	current_state = GunState.STORED

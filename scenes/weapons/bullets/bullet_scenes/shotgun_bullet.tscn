@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2g72ra4gyhy7"]
+
+[ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="1_otr8l"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_c4yeb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbpit"]
+atlas = ExtResource("2_c4yeb")
+region = Rect2(57, 51, 15, 8)
+
+[node name="shotgunBullet" instance=ExtResource("1_otr8l")]
+base_speed = 700.0
+duration = 10.5
+bullet_sprite = SubResource("AtlasTexture_kbpit")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_kbpit")

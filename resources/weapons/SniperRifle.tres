@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://ciwrwpk4ay4q8"]
+
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_dtydt"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_qthpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkh2w"]
+atlas = ExtResource("1_qthpi")
+region = Rect2(4, 20, 42, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky2pk"]
+atlas = ExtResource("1_qthpi")
+region = Rect2(86, 22, 9, 4)
+
+[resource]
+script = ExtResource("1_dtydt")
+weapon_name = "Sniper"
+ammo_cap = 70
+fire_rate = 0.65
+bullet_spread = 0.5
+bullets_per_shot = 1
+gun_type = 1
+shake_intensity = 6.5
+recoil = 10.0
+player_knockback = 8.0
+shell_amount = 1
+ejection_speed = 8.0
+life_time = 10.0
+gun_texture = SubResource("AtlasTexture_qkh2w")
+shell_texture = SubResource("AtlasTexture_ky2pk")
+metadata/_custom_type_script = "uid://lq56wytnavvh"

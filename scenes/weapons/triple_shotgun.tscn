@@ -1,13 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cnu7q2dmvndkm"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_ij6u7"]
-[ext_resource type="PackedScene" uid="uid://c2g72ra4gyhy7" path="res://scenes/weapons/bullets/bullet_scenes/ne_wshotgun_bullet.tscn" id="2_vhn61"]
+[ext_resource type="PackedScene" uid="uid://c2g72ra4gyhy7" path="res://scenes/weapons/bullets/bullet_scenes/shotgun_bullet.tscn" id="2_vhn61"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_l1xsn"]
 [ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/weapons/TripleShotgun.tres" id="5_64lt0"]
-[ext_resource type="Texture2D" uid="uid://c8jyeet72jnfj" path="res://scenes/weapons/guns/visuals/second_gun.png" id="6_xyjxw"]
 [ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="7_jup3c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkq25"]
-atlas = ExtResource("6_xyjxw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2frag"]
+atlas = ExtResource("4_l1xsn")
+region = Rect2(4, 51, 31, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoxei"]
 atlas = ExtResource("7_jup3c")
@@ -60,11 +61,11 @@ animations = [{
 [node name="TripleShotgun" instance=ExtResource("1_ij6u7")]
 bullet_scene = ExtResource("2_vhn61")
 gun_settings = ExtResource("5_64lt0")
-on_floor = false
+editor_anchor_pos = Vector2(0, -6)
+sprite_desired_offset = Vector2(19, -2)
 
 [node name="gun_sprite" parent="." index="0"]
-position = Vector2(19, -2)
-texture = SubResource("AtlasTexture_vkq25")
+texture = SubResource("AtlasTexture_2frag")
 
 [node name="muzzle" parent="." index="1"]
 position = Vector2(38, -2)
@@ -74,3 +75,8 @@ position = Vector2(56, -3)
 sprite_frames = SubResource("SpriteFrames_n1xar")
 animation = &"sleep"
 autoplay = "sleep"
+
+[node name="Sprite2D" parent="Interaction_Component" index="0"]
+position = Vector2(0, -13)
+
+[editable path="Interaction_Component"]
