@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=27 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ckkqykpeu1xr" path="res://scenes/player/scripts/eyes.gd" id="3_p47bc"]
 [ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
 [ext_resource type="PackedScene" uid="uid://bys8blhndb5le" path="res://scenes/player/dust.tscn" id="7_0owmy"]
+[ext_resource type="Script" uid="uid://bspq66q8nm4wx" path="res://scenes/player/weapon_manager.gd" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_qek5x")
@@ -133,9 +134,9 @@ position = Vector2(0, -11)
 y_sort_enabled = true
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
-animation = &"WALK"
+animation = &"IDLE"
 autoplay = "IDLE"
-frame_progress = 0.046358235
+frame_progress = 0.74391407
 
 [node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
 visible = false
@@ -190,6 +191,7 @@ emitting = false
 [node name="Trail2D" type="Line2D" parent="."]
 visible = false
 show_behind_parent = true
+z_index = -1
 position = Vector2(0, -9)
 width = 8.0
 width_curve = SubResource("Curve_75vfm")
@@ -197,3 +199,6 @@ gradient = SubResource("Gradient_75vfm")
 script = ExtResource("6_75vfm")
 length = 35
 metadata/_custom_type_script = "uid://bb7133dhhvmtg"
+
+[node name="WeaponManager" type="Node2D" parent="."]
+script = ExtResource("8_qek5x")

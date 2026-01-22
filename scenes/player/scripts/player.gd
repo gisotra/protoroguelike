@@ -13,7 +13,7 @@ var isWalking: bool = false
 @onready var eyes_update_rate = 10
 
 @onready var weapon_array: Array[Gun] = [ null, null ] 
-@onready var active_weapon: Gun
+@onready var current_weapon: Gun
 
 func _physics_process(delta: float) -> void:
 	frame_count += 1
@@ -68,9 +68,10 @@ func _pick_up_weapon(weapon: Gun):
 		Settar que o nó pai dessa arma é o player
 		Alterar o estado e a posição dela na minha mão
 	"""
-	weapon_array.append(gun)a
+	weapon_array.append(gun)
 	weapon.reparent(self, false)
 	weapon._transition_to_handled()
+	current_weapon = weapon
 	
 func _drop_weapon(gun: Gun):
 

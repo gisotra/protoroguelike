@@ -44,6 +44,7 @@ func _process(delta: float) -> void:
 		return
 	if on_floor == true:
 		current_state = GunState.DROP
+		
 	# LÓGICA DE CADA ESTADO DA ARMA
 	match current_state:
 ### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
