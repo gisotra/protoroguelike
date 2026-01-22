@@ -118,7 +118,7 @@ func _apply_recoil(recoil_value):
 
 func _apply_knockback(knockback_value):
 	player.velocity -= transform.x * knockback_value
-	
+
 func _create_shell():
 	#creation
 	var shell_instance = shell_case_scene.instantiate()
@@ -133,11 +133,11 @@ func _create_shell():
 	shell_instance.apply_torque_impulse(randf_range(-360, 360)) #ROTATION 
 	
 	return shell_instance
-	
+
 func _on_interact():
 	if current_state == GunState.DROP:
-		player._pick_up_weapon(self) #ATRIBUIR MEU NODE DA ARMA (que está no chão) PARA O MEU PLAYER 
-		
+		player.weapon_manager._pick_up_weapon(self) #ATRIBUIR MEU NODE DA ARMA (que está no chão) PARA O MEU PLAYER 
+
 func _transition_to_handled():
 	on_floor = false
 	position = editor_anchor_pos

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=28 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
 [ext_resource type="PackedScene" uid="uid://bys8blhndb5le" path="res://scenes/player/dust.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bspq66q8nm4wx" path="res://scenes/player/weapon_manager.gd" id="8_qek5x"]
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="9_5gtgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_qek5x")
@@ -202,3 +203,7 @@ metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("8_qek5x")
+
+[node name="Gun" parent="WeaponManager" instance=ExtResource("9_5gtgg")]
+editor_anchor_pos = Vector2(0, 0)
+sprite_desired_offset = Vector2(0, 0)
