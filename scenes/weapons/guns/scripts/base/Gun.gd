@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 ### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
 		GunState.HANDLED:
 			_manage_pos()
-			interaction_component.monitoring = false
+			
 			#se a arma for semi-automatica:
 			match type:
 				GunSettings.gunType.SEMIAUTO:
@@ -140,16 +140,23 @@ func _on_interact():
 
 func _transition_to_handled():
 	on_floor = false
+	interaction_component.monitoring = false
 	position = editor_anchor_pos
+	gun_sprite.show()
 	gun_sprite.position = sprite_desired_offset
 	current_state = GunState.HANDLED
 
 func _transition_to_drop():
 	on_floor = true
+	interaction_component.monitoring = false
 	gun_sprite.position = Vector2.ZERO
+	rotation = 0.0
+	scale.y = 1
+	gun_sprite.show()
 	current_state = GunState.DROP
 
 func _transition_to_stored():
 	on_floor = false
+	interaction_component.monitoring = false
 	gun_sprite.hide()
 	current_state = GunState.STORED

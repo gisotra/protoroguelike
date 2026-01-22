@@ -5,5 +5,6 @@ const SCENE_PATHS: Dictionary = {
 	"camera": "uid://bbwh752ccvdj2",
 	"bullet": "uid://dje33hf03fn4i",
 	"bullet_shell": "uid://cwpvstasp4x1l",
-	"gun": "uid://dmwlvjfj2fxb1"
+	"gun": "uid://dmwlvjfj2fxb1",
+	"normal_pistol": "uid://bq2s3apqr5xbe"
 }

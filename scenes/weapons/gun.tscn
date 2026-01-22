@@ -9,8 +9,6 @@ radius = 29.017237
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_76485")
-editor_anchor_pos = null
-sprite_desired_offset = null
 
 [node name="gun_sprite" type="Sprite2D" parent="."]
 
