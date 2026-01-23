@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b0lblw41fybev" path="res://scenes/scenary/visuals/ground_temp.png" id="5_uq7s3"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_qm7gn"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="7_ea3gy"]
-[ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/triple_shotgun.tscn" id="8_harsw"]
-[ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/pistol.tscn" id="9_uq7s3"]
-[ext_resource type="PackedScene" uid="uid://cb7tdfihvsbhj" path="res://scenes/weapons/rocket_launcher.tscn" id="10_fer5g"]
-[ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/tommy_gun.tscn" id="11_swuqm"]
-[ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/sniper_rifle.tscn" id="12_w3ud1"]
+[ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/guns/triple_shotgun.tscn" id="8_harsw"]
+[ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="9_uq7s3"]
+[ext_resource type="PackedScene" uid="uid://cb7tdfihvsbhj" path="res://scenes/weapons/guns/rocket_launcher.tscn" id="10_fer5g"]
+[ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="11_swuqm"]
+[ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/guns/sniper_rifle.tscn" id="12_w3ud1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3gy"]
 atlas = ExtResource("6_qm7gn")
@@ -132,7 +132,6 @@ position = Vector2(-225, -44)
 
 [node name="TripleShotgun" parent="scenary" instance=ExtResource("8_harsw")]
 position = Vector2(79, -57)
-on_floor = true
 
 [node name="Pistol" parent="scenary" instance=ExtResource("9_uq7s3")]
 position = Vector2(21, -57)

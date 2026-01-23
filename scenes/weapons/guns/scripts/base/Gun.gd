@@ -1,6 +1,6 @@
 @tool
 class_name Gun
-extends Node2D
+extends Weapon
 
 @export_group("Gun Configurations")
 @export var bullet_scene: PackedScene 
@@ -9,7 +9,7 @@ extends Node2D
 	set(value):
 		gun_settings = value
 		setup_gun()
-@export var on_floor: bool = false
+
 ### Essa variável é responsável por dar o offset preciso de onde ela deve estar deslocada no meu player
 @export_group("Preferences")
 @export var editor_anchor_pos: Vector2
@@ -27,13 +27,6 @@ extends Node2D
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 @onready var type: GunSettings.gunType 
-@onready var current_state: GunState = GunState.HANDLED
-
-enum GunState {
-	HANDLED, # Está ativa
-	DROP,    # Está no chão
-	STORED   # Player guardou
-}
 
 func _ready():
 	setup_gun()
@@ -43,12 +36,12 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	if on_floor == true:
-		current_state = GunState.DROP
+		current_state = WeaponState.DROP
 		
 	# LÓGICA DE CADA ESTADO DA ARMA
 	match current_state:
 ### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
-		GunState.HANDLED:
+		WeaponState.HANDLED:
 			_manage_pos()
 			
 			#se a arma for semi-automatica:
@@ -64,23 +57,20 @@ func _process(delta: float) -> void:
 				gun_sprite.position.x = lerp(gun_sprite.position.x, sprite_desired_offset.x, 10.0 * delta)
 				
 ### --------------------------------------- ARMA NO CHÃO (pickable) ---------------------------------------
-		GunState.DROP:
+		WeaponState.DROP:
 			interaction_component.monitoring = true
 			gun_sprite.position = Vector2.ZERO
 ### --------------------------------------- ARMA NO INVENTÁRIO (switchable) ---------------------------------------
-		GunState.STORED:
+		WeaponState.STORED:
 			pass
 
 func setup_gun():
-	
 	if gun_settings and gun_sprite:
 		gun_sprite.texture = gun_settings.gun_texture
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
 		
 func shoot():
-	
-	player.sprite
 	muzzle_flash.play("burst")
 	camera.trigger_shake(gun_settings.shake_intensity)
 	fire_rate_timer.start(gun_settings.fire_rate)
@@ -92,14 +82,6 @@ func shoot():
 		get_tree().root.add_child(_create_bullet())
 	for i in gun_settings.shell_amount:
 		get_tree().root.add_child(_create_shell())
-	
-func _manage_pos():
-	look_at(get_global_mouse_position())
-	rotation_degrees = wrap(rotation_degrees, 0, 360)
-	if rotation_degrees > 90 and rotation_degrees < 270:
-		scale.y = -1
-	else:
-		scale.y = 1
 
 func _create_bullet():
 	var bullet_instance = bullet_scene.instantiate()
@@ -137,17 +119,19 @@ func _create_shell():
 	return shell_instance
 
 func _on_interact():
-	if current_state == GunState.DROP:
+	if current_state == WeaponState.DROP:
 		player.weapon_manager._pick_up_weapon(self) #ATRIBUIR MEU NODE DA ARMA (que está no chão) PARA O MEU PLAYER 
 
+#Override
 func _transition_to_handled():
 	on_floor = false
 	interaction_component.monitoring = false
 	position = editor_anchor_pos
 	gun_sprite.show()
 	gun_sprite.position = sprite_desired_offset
-	current_state = GunState.HANDLED
+	current_state = WeaponState.HANDLED
 
+#Override
 func _transition_to_drop():
 	on_floor = true
 	interaction_component.monitoring = false
@@ -155,10 +139,11 @@ func _transition_to_drop():
 	rotation = 0.0
 	scale.y = 1
 	gun_sprite.show()
-	current_state = GunState.DROP
+	current_state = WeaponState.DROP
 
+#Override
 func _transition_to_stored():
 	on_floor = false
 	interaction_component.monitoring = false
 	gun_sprite.hide()
-	current_state = GunState.STORED
+	current_state = WeaponState.STORED

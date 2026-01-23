@@ -5,7 +5,7 @@ class_name WeaponManager
 ### Normalmente cada player terá a Normal Pistol como arma primária, mas haverá casos especiais. 
 @export var starting_weapon: PackedScene 
 
-@onready var weapon_slots: Array[Gun] = [ null, null ] 
+@onready var weapon_slots: Array[Weapon] = [ null, null ] 
 @onready var current_slot_index: int
 @onready var weapons_in_store: int = 0
 

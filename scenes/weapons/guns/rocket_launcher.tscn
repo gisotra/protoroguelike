@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cb7tdfihvsbhj"]
 
-[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_bqdnc"]
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_bqdnc"]
 [ext_resource type="PackedScene" uid="uid://o5asfugl26g6" path="res://scenes/weapons/bullets/bullet_scenes/rocket_bullet.tscn" id="2_f4qrc"]
 [ext_resource type="Resource" uid="uid://hyw3r6gn4u5y" path="res://resources/weapons/RocketLauncher.tres" id="3_su21n"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_nsy17"]

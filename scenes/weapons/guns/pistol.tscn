@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bq2s3apqr5xbe"]
 
-[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/gun.tscn" id="1_ivc8v"]
+[ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_ivc8v"]
 [ext_resource type="PackedScene" uid="uid://cfxs1f1gxk8g3" path="res://scenes/weapons/bullets/bullet_scenes/normal_bullet.tscn" id="2_t1ie7"]
 [ext_resource type="Resource" uid="uid://dwucvmt62jsw7" path="res://resources/weapons/Pistol.tres" id="3_61dc8"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_red3f"]
