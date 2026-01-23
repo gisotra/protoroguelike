@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpupxjsevyybh"]
+[gd_scene load_steps=8 format=3 uid="uid://bpupxjsevyybh"]
 
 [ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_k208g"]
+[ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_i14gk"]
 
 [sub_resource type="Gradient" id="Gradient_bk34j"]
 offsets = PackedFloat32Array(0.07434053, 0.19424461, 0.5423729)
@@ -39,3 +40,4 @@ lifetime = 1.1
 randomness = 0.27
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fu6u5")
+script = ExtResource("2_i14gk")

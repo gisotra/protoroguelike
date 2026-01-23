@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbpit"]
 atlas = ExtResource("2_c4yeb")
-region = Rect2(57, 51, 15, 8)
+region = Rect2(46, 49, 29, 13)
 
 [node name="shotgunBullet" instance=ExtResource("1_otr8l")]
 base_speed = 700.0

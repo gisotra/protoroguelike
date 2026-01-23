@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04s0q"]
 atlas = ExtResource("2_w23g0")
-region = Rect2(54, 21, 19, 6)
+region = Rect2(50, 18, 26, 12)
 
 [sub_resource type="Curve" id="Curve_l2nxu"]
 resource_local_to_scene = true

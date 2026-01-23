@@ -1,4 +1,4 @@
-[ ] - PICKABLE AND DROPABLE WEAPONS
+[X] - PICKABLE AND DROPABLE WEAPONS
 [ ] - life system
 [ ] - hitbox & hurtbox
 [ ] - balas que acertam e tem efeito de morte OU de impacto 

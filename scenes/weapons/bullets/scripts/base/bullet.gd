@@ -4,6 +4,7 @@ class_name Bullet
 
 @onready var bullet_texture: Sprite2D = $Sprite2D
 @export_group("Configurações da Bala")
+@export var damage_on_contact: float
 @export var base_speed: float
 @export var speed_curve: Curve
 @export var duration: float

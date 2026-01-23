@@ -79,6 +79,8 @@ func setup_gun():
 		type = gun_settings.gun_type
 		
 func shoot():
+	
+	player.sprite
 	muzzle_flash.play("burst")
 	camera.trigger_shake(gun_settings.shake_intensity)
 	fire_rate_timer.start(gun_settings.fire_rate)

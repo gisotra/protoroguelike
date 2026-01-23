@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6hgi"]
 atlas = ExtResource("2_e1uex")
-region = Rect2(58, 37, 12, 6)
+region = Rect2(55, 35, 18, 10)
 
 [node name="TommyGunBullet" instance=ExtResource("1_s3imn")]
 base_speed = 500.0

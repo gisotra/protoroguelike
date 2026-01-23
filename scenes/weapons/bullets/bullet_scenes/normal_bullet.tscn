@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfxs1f1gxk8g3"]
+[gd_scene load_steps=5 format=3 uid="uid://cfxs1f1gxk8g3"]
 
 [ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="1_v0dvv"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_q0ugs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_haqyw"]
 atlas = ExtResource("2_q0ugs")
-region = Rect2(60, 5, 9, 6)
+region = Rect2(57, 4, 14, 8)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0dvv"]
+radius = 5.0
+height = 16.0
 
 [node name="NormalBullet" instance=ExtResource("1_v0dvv")]
 base_speed = 400.0
@@ -14,3 +18,7 @@ bullet_sprite = SubResource("AtlasTexture_haqyw")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("AtlasTexture_haqyw")
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_v0dvv")
