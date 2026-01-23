@@ -5,17 +5,23 @@
 
 [ ] - somente depois disso você faz melee weapons
 [ ] - criar um inimigo com hp e hitbox
-[ ] - criar uma caixa de diálogo pro richter
+[ ] - criar uma caixa de diálogo pro Richter
 
+hitbox: Caixa contida dentro do elemento que aplica dano quando em contato com outros corpos
+hurtbox: Caixa contida que representa onde aquele elemento pode receber dano
 
-responsabilidade da arma: 
-se eu estou no meu modo "drop", minha posição (coordenadas) serão alteradas de acordo:
-na mão do player: devidamente manipulado
-drop: Vector2.ZERO
+exemplo: Inimigo
+hitbox: onde ele aplica dano em mim
+hurtbox: onde meu inimigo recebe dano
 
-responsabilidade do player:
-eu seguro duas armas, mas uso apenas 1, e as troco ao apertar tab. Eu sou responsável por 
-modificar o estado daquela arma, se ela é minha ou não. 
+exemplo: Player
+hitbox: onde eu bato nas coisas
+hurtbox: qual parte do meu corpo que vai ser machucada 
 
+https://youtu.be/NkzL7eUib18
+
+https://youtu.be/G1-a96kzlUA?si=MuHAGeCi0DXEsjOY
+
+https://youtu.be/vihIPBrP6y0?si=6dUS5bVAEmFC3JBr
 
 
