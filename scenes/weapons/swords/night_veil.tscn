@@ -12,6 +12,8 @@ region = Rect2(105, 8, 44, 17)
 swordData = ExtResource("2_d4xpm")
 editor_anchor_pos = Vector2(0, -3)
 sprite_desired_offset = Vector2(30, 0)
+wrist_strength = 0.5
+lightness = 0.15
 on_floor = true
 
 [node name="Sprite2D" parent="." index="0"]

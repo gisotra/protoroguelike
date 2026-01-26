@@ -9,8 +9,8 @@ radius = 29.02
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_26wvk")
-editor_anchor_pos = null
-sprite_desired_offset = null
+wrist_strength = null
+lightness = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

@@ -13,14 +13,24 @@ class_name Sword
 @export var editor_anchor_pos: Vector2
 @export var sprite_desired_offset: Vector2
 
+## Frescura que eu fiz pra arma apontar pro mouse com spring-lerp
+@export_group("Sword Swing")
+## a força necessária pra fazer a arma deslocar de ângulo
+@export var wrist_strength: float
+## o quão leve aquela espada é. Se o valor for pequeno, ela é pesada, se for alto, ela é leve
+@export var lightness: float 
 # Sword-Related
 @onready var sword_sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 
+
+
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
+
+var velocidade = 0.0
 
 func _ready() -> void:
 	_setup_sword()
@@ -58,14 +68,27 @@ func _on_interact():
 #  Weapon Class Overrided Methods
 
 func _manage_pos():
-	look_at(get_global_mouse_position())
+	# eu pego ONDE é o meu alvo de direção
+	var target_angle = (get_global_mouse_position() - global_position).angle()
 	
-	# apenas inverte a sprite 
-	rotation_degrees = wrap(rotation_degrees, 0, 360)
-	if rotation_degrees > 90 and rotation_degrees < 270:
-		scale.y = -1
+	# pego a direção entre o meu ângulo atual pra onde eu quero ir
+	var angle_diff = angle_difference(rotation, target_angle)
+	
+	# a velocidade de pegada a cada frame é calculada pela minha diferença de ângulos * a força do pulso,
+	# isso foi usado porque eu queria atingir um efeito de mola, que tem como conceito principal a 
+	# dificuldade em atingir a velocidade suficiente pra chegar no ponto desejado, acelerar, e PASSAR RETO
+	# pelo ponto desejado, e ter que recuar pra atingir o objetivo 
+	var desired_angular_speed = angle_diff * wrist_strength
+	
+	
+	velocidade = lerp(velocidade, desired_angular_speed, lightness)
+	rotation += velocidade
+	
+	if abs(rotation) > PI / 2: 
+		scale.y = -1 
 	else:
 		scale.y = 1
+
 
 #Override
 func _transition_to_handled():
