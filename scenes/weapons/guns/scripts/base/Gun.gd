@@ -15,7 +15,6 @@ extends Weapon
 @export var editor_anchor_pos: Vector2
 @export var sprite_desired_offset: Vector2
 
-
 # Gun-Related
 @onready var gun_sprite: Sprite2D = $gun_sprite
 @onready var muzzle: Marker2D = $muzzle

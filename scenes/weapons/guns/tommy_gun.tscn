@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_2lcsb"]
 [ext_resource type="PackedScene" uid="uid://cxvmy8b57li2u" path="res://scenes/weapons/bullets/bullet_scenes/tommy_gun_bullet.tscn" id="2_u11m6"]
-[ext_resource type="Resource" uid="uid://v4st1m4cne38" path="res://resources/weapons/TommyGun.tres" id="3_jf0rt"]
+[ext_resource type="Resource" uid="uid://v4st1m4cne38" path="res://resources/guns/TommyGun.tres" id="3_jf0rt"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_02k4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivw5h"]

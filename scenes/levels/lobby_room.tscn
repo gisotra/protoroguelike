@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/guns/sniper_rifle.tscn" id="13_fvktp"]
 [ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="14_tpf23"]
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/guns/triple_shotgun.tscn" id="15_uyl1k"]
+[ext_resource type="PackedScene" uid="uid://cx46k135omu11" path="res://scenes/weapons/swords/night_veil.tscn" id="17_bgurf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -181,6 +182,9 @@ position = Vector2(233, 34)
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2.9999998, 197)
 scale = Vector2(3.3593752, 3.171875)
+
+[node name="Night Veil" parent="." instance=ExtResource("17_bgurf")]
+position = Vector2(149, 98)
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]

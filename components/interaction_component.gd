@@ -23,7 +23,8 @@ var interact: Callable = func():
 	pass
 	
 func _sprite_setup():
-	sprite_2d = hover_sprite.texture
+	if sprite_2d:
+		sprite_2d.texture = hover_sprite
 
 func _on_body_entered(body):
 	var myTween = create_tween()

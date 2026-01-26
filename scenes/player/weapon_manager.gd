@@ -14,15 +14,13 @@ func _process(delta: float) -> void:
 		_drop_current_weapon(true)
 	if Input.is_action_just_pressed("switch_weapons"):
 		_switch_weapon()
-		
-	print(weapons_in_store)
-	
+
 
 func _ready():
 	if starting_weapon:
 		_pick_up_weapon(starting_weapon.instantiate())
 
-func _pick_up_weapon(weapon: Gun):
+func _pick_up_weapon(weapon: Weapon):
 	if weapon.get_parent():
 		weapon.reparent(self, false)
 	else:

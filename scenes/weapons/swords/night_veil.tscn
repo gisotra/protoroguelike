@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx46k135omu11"]
+
+[ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_garad"]
+[ext_resource type="Resource" uid="uid://di5oa2iupmtc8" path="res://resources/swords/Night_Veil.tres" id="2_d4xpm"]
+[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://scenes/weapons/guns/visuals/weapons.png" id="3_bihkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loucf"]
+atlas = ExtResource("3_bihkw")
+region = Rect2(105, 8, 44, 17)
+
+[node name="Night Veil" instance=ExtResource("1_garad")]
+swordData = ExtResource("2_d4xpm")
+editor_anchor_pos = Vector2(0, -3)
+sprite_desired_offset = Vector2(30, 0)
+on_floor = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_loucf")
+
+[editable path="InteractionComponent"]

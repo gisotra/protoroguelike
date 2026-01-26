@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwpryeapp5soo"]
+[gd_scene load_steps=5 format=3 uid="uid://cwpryeapp5soo"]
 
 [ext_resource type="Script" uid="uid://c20jb37gyqxd6" path="res://scenes/weapons/swords/scripts/sword.gd" id="1_26wvk"]
-[ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="1_l2qqg"]
+[ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="3_vsg1r"]
+[ext_resource type="Texture2D" uid="uid://bxm6uynhc06hf" path="res://scenes/UI/keys.png" id="4_tpw2o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpw2o"]
+radius = 29.02
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_26wvk")
+editor_anchor_pos = null
+sprite_desired_offset = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="Trail2D" type="Line2D" parent="."]
-show_behind_parent = true
-top_level = true
-script = ExtResource("1_l2qqg")
-metadata/_custom_type_script = "uid://bb7133dhhvmtg"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="InteractionComponent" parent="." instance=ExtResource("3_vsg1r")]
+hover_sprite = ExtResource("4_tpw2o")
+
+[node name="Sprite2D" parent="InteractionComponent" index="0"]
+texture = ExtResource("4_tpw2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent"]
+shape = SubResource("CircleShape2D_tpw2o")
+debug_color = Color(0, 1.0652426, 0.5715328, 0)
+
+[editable path="InteractionComponent"]

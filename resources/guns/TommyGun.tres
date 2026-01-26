@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://v4st1m4cne38"]
 
-[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/weapons/base/GunSettings.gd" id="1_4qou4"]
+[ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/guns/base/GunSettings.gd" id="1_4qou4"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_h6tme"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivw5h"]
