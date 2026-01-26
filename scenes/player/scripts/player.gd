@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		isWalking = true
 		sprite.play("WALK")
+		if direction.x == -sprite.scale.x:
+			sprite.play_backwards("WALK")
+		
 	else:	#parado
 		isWalking = false
 		sprite.play("IDLE")

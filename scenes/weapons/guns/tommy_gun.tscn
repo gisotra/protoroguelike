@@ -12,7 +12,6 @@ region = Rect2(4, 37, 29, 8)
 [node name="TommyGun" instance=ExtResource("1_2lcsb")]
 bullet_scene = ExtResource("2_u11m6")
 gun_settings = ExtResource("3_jf0rt")
-on_floor = true
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(15, 0)
 

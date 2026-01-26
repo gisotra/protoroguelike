@@ -93,6 +93,7 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 position = Vector2(17, 7)
 
 [node name="camera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_b4sxl")]
+limit_enabled = false
 player = NodePath("../scenary/player")
 
 [node name="scenary" type="Node2D" parent="."]
@@ -131,18 +132,18 @@ stretch_mode = 1
 position = Vector2(-225, -44)
 
 [node name="TripleShotgun" parent="scenary" instance=ExtResource("8_harsw")]
-position = Vector2(79, -57)
+position = Vector2(119, -123)
 
 [node name="Pistol" parent="scenary" instance=ExtResource("9_uq7s3")]
-position = Vector2(21, -57)
+position = Vector2(45, -128)
 
 [node name="RocketLauncher" parent="scenary" instance=ExtResource("10_fer5g")]
-position = Vector2(69, 49)
+position = Vector2(-34, -124)
 
 [node name="TommyGun" parent="scenary" instance=ExtResource("11_swuqm")]
-position = Vector2(132, -16)
+position = Vector2(199, -115)
 
 [node name="SniperRifle" parent="scenary" instance=ExtResource("12_w3ud1")]
-position = Vector2(-50, 49)
+position = Vector2(-147, 37)
 
 [editable path="scenary/Gate"]

@@ -1,17 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=23 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="3_hi1ba"]
-[ext_resource type="Texture2D" uid="uid://degpmialeracm" path="res://scenes/scenary/visuals/backgrounds/cenarioV9.png" id="3_y8spk"]
+[ext_resource type="Texture2D" uid="uid://f7cl8jw48rsg" path="res://scenes/scenary/visuals/newLobby.png" id="3_y8spk"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="PackedScene" uid="uid://boybbexvgy8em" path="res://scenes/scenary/scripts/firepit.tscn" id="8_sbk1y"]
-[ext_resource type="PackedScene" uid="uid://gn68fy31tk1k" path="res://scenes/scenary/visuals/backgrounds/props/lobby_trunk.tscn" id="10_t5hfm"]
-[ext_resource type="PackedScene" uid="uid://ck8vw4noc87k2" path="res://scenes/scenary/visuals/backgrounds/props/plane.tscn" id="11_y8spk"]
+[ext_resource type="Texture2D" uid="uid://dx0h3aifdpoup" path="res://scenes/scenary/visuals/newLobby_underBoard.png" id="10_t5hfm"]
+[ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="11_1bake"]
+[ext_resource type="PackedScene" uid="uid://cb7tdfihvsbhj" path="res://scenes/weapons/guns/rocket_launcher.tscn" id="12_bgurf"]
+[ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/guns/sniper_rifle.tscn" id="13_fvktp"]
+[ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="14_tpf23"]
+[ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/guns/triple_shotgun.tscn" id="15_uyl1k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -32,7 +36,10 @@ animations = [{
 size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbk1y"]
-size = Vector2(379, 52)
+size = Vector2(185, 93.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1ba"]
+size = Vector2(5, 572.25)
 
 [sub_resource type="Environment" id="Environment_t5hfm"]
 background_mode = 3
@@ -42,10 +49,11 @@ adjustment_enabled = true
 
 [node name="LobbyRoom" type="Node2D"]
 
-[node name="SnowEmitter" parent="." instance=ExtResource("3_hi1ba")]
-visible = false
+[node name="SnowEmitter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_hi1ba")]
 z_index = 10
-position = Vector2(0, -279)
+z_as_relative = false
+position = Vector2(-140, 15)
+player = NodePath("../scenary/player")
 
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
 
@@ -63,15 +71,15 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="camera" parent="scenary" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
-position = Vector2(0, -236)
-limit_left = -542
-limit_top = -586
-limit_right = 546
-limit_bottom = 286
+position = Vector2(-112, 196)
+limit_left = -318
+limit_top = -315
+limit_right = 322
+limit_bottom = 325
 player = NodePath("../player")
 
 [node name="player" parent="scenary" instance=ExtResource("2_cq85v")]
-position = Vector2(-294, 192)
+position = Vector2(-112, 196)
 
 [node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
 position = Vector2(0, -78)
@@ -96,23 +104,74 @@ camera = NodePath("../camera")
 marker = NodePath("../../desired_camera_point")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
-position = Vector2(3.5, -38)
+position = Vector2(2.5, 17.25)
 shape = SubResource("RectangleShape2D_sbk1y")
 
 [node name="firepit" parent="scenary" instance=ExtResource("8_sbk1y")]
-position = Vector2(0, 198)
+position = Vector2(0, 136)
 
-[node name="lobby_trunk" parent="scenary" instance=ExtResource("10_t5hfm")]
-position = Vector2(-102.5, 214)
+[node name="walls" type="Node2D" parent="scenary"]
 
-[node name="plane" parent="scenary" instance=ExtResource("11_y8spk")]
-position = Vector2(212, 97.5)
+[node name="StaticBody2D" type="StaticBody2D" parent="scenary/walls"]
+position = Vector2(7.5, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D"]
+position = Vector2(-289.5, 118)
+shape = SubResource("RectangleShape2D_hi1ba")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls"]
+position = Vector2(585, -4)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2"]
+position = Vector2(-299, 118)
+shape = SubResource("RectangleShape2D_hi1ba")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="scenary/walls"]
+position = Vector2(183, 43)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D3"]
+position = Vector2(-183.875, -72)
+rotation = -1.5707964
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="scenary/walls"]
+position = Vector2(183, 329)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D4"]
+position = Vector2(-183, -76)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_hi1ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="scenary/walls"]
+z_index = 3
+position = Vector2(2, 255.5)
+texture = ExtResource("10_t5hfm")
+
+[node name="Node2D" type="Node2D" parent="scenary"]
+
+[node name="Pistol" parent="scenary/Node2D" instance=ExtResource("11_1bake")]
+position = Vector2(-189, 99)
+
+[node name="RocketLauncher" parent="scenary/Node2D" instance=ExtResource("12_bgurf")]
+position = Vector2(-125, 54)
+
+[node name="SniperRifle" parent="scenary/Node2D" instance=ExtResource("13_fvktp")]
+position = Vector2(103, 163)
+
+[node name="TommyGun" parent="scenary/Node2D" instance=ExtResource("14_tpf23")]
+position = Vector2(-242, 156)
+
+[node name="TripleShotgun" parent="scenary/Node2D" instance=ExtResource("15_uyl1k")]
+position = Vector2(50, 58)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t5hfm")
 
 [node name="desired_camera_point" type="Marker2D" parent="."]
-position = Vector2(0, -236)
+position = Vector2(0, -219)
 
 [node name="npc" parent="." instance=ExtResource("8_dxdr2")]
 position = Vector2(233, 34)

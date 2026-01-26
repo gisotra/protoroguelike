@@ -12,12 +12,14 @@ region = Rect2(4, 20, 42, 10)
 [node name="SniperRifle" instance=ExtResource("1_v8t0o")]
 bullet_scene = ExtResource("2_l43n2")
 gun_settings = ExtResource("3_ryvo4")
-on_floor = true
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(14, -1)
 
 [node name="gun_sprite" parent="." index="0"]
 texture = SubResource("AtlasTexture_qkh2w")
+
+[node name="muzzle" parent="." index="1"]
+position = Vector2(25, 0)
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -13)

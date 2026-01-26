@@ -11,7 +11,6 @@ class_name Sword
 
 @onready var sword_sprite: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var interaction_component: InteractionComponent = $InteractionComponent
 
 func _ready() -> void:
 	_setup_sword()
@@ -24,13 +23,14 @@ func _process(delta: float) -> void:
 	
 
 func _setup_sword():
-	sword_sprite = spriteDaEspada.texture
+	if sword_sprite:
+		sword_sprite = spriteDaEspada.texture
 	
 
 #Override
 func _transition_to_handled():
 	on_floor = false
-	interaction_component.monitoring = false
+	#interaction_component.monitoring = false
 	position = Vector2.ZERO
 	sword_sprite.show()
 	sword_sprite.position = Vector2.ZERO
@@ -39,7 +39,7 @@ func _transition_to_handled():
 #Override
 func _transition_to_drop():
 	on_floor = true
-	interaction_component.monitoring = false
+	#interaction_component.monitoring = false
 	sword_sprite.position = Vector2.ZERO
 	rotation = 0.0
 	scale.y = 1
@@ -49,6 +49,6 @@ func _transition_to_drop():
 #Override
 func _transition_to_stored():
 	on_floor = false
-	interaction_component.monitoring = false
+	#interaction_component.monitoring = false
 	sword_sprite.hide()
 	current_state = WeaponState.STORED

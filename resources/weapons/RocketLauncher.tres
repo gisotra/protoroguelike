@@ -15,6 +15,6 @@ fire_rate = 0.55
 bullets_per_shot = 1
 shake_intensity = 20.0
 recoil = 7.0
-player_knockback = 8.0
+player_knockback = 250.0
 gun_texture = SubResource("AtlasTexture_po802")
 metadata/_custom_type_script = "uid://lq56wytnavvh"
