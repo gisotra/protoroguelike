@@ -4,7 +4,7 @@ class_name Weapon
 @export var outline_sprite: Texture2D
 # Universal para cada arma
 @onready var current_state: WeaponState = WeaponState.HANDLED
-#@onready var weaponTween = create_tween()
+@onready var myTween = create_tween()
 
 enum WeaponState {
 	HANDLED, # Está ativa
@@ -20,16 +20,21 @@ func _manage_pos():
 	else:
 		scale.y = 1
 
-"""func levitate():
-	var myTween = create_tween()
-	myTween.tween_property(self, "position:y", position.y - 8, 0.8)
-	myTween.setTrans(Tween.TRANS_SINE)
-	myTween.setEase(Tween.EASE_IN_OUT)
-	myTween.tween_property(self, "position:y", position.y + 8, 0.8)\
-		.setTrans(Tween.TRANS_SINE)\
-		.setEase(Tween.EASE_IN_OUT)
+
+
+func levitate():
+	myTween.tween_property(self, "position:y", position.y - 2, 0.8)
+	myTween.set_trans(Tween.TRANS_SINE)
+	myTween.set_ease(Tween.EASE_IN_OUT)
+	myTween.tween_property(self, "position:y", position.y + 2, 0.8)
+	myTween.set_trans(Tween.TRANS_SINE)
+	myTween.set_ease(Tween.EASE_IN_OUT)
 	myTween.set_loops()
-"""
+	myTween.play()
+	
+
+func stop_levitating():
+	myTween.pause()
 #Overridable
 func _transition_to_handled():
 	pass

@@ -5,7 +5,6 @@ const SPEED = 150.0
 const coeficiente_de_aceleracao = .15
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var eyes: Sprite2D = $eyes
-@onready var gun: Gun = $Gun
 var isWalking: bool = false
 @onready var dust: GPUParticles2D = $dust
 @onready var central_head_point: Marker2D = $central_head_point

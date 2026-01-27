@@ -24,7 +24,6 @@ class_name Sword
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var outline: Sprite2D = $sword_sprite/outline
 
-
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
@@ -33,6 +32,8 @@ var velocidade = 0.0
 
 func _ready() -> void:
 	_setup_sword()
+	if on_floor:
+		levitate()
 	interaction_component.interact = Callable(self, "_on_interact")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -51,6 +52,7 @@ func _process(delta: float) -> void:
 		WeaponState.DROP:
 			interaction_component.monitoring = true
 			sword_sprite.position = Vector2.ZERO
+			
 ### --------------------------------------- ARMA NO INVENTÁRIO (switchable) ---------------------------------------
 		WeaponState.STORED:
 			pass
@@ -108,6 +110,7 @@ func _transition_to_handled():
 	outline.hide()
 	sword_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
+	stop_levitating()
 
 #Override
 func _transition_to_drop():
@@ -119,6 +122,7 @@ func _transition_to_drop():
 	sword_sprite.show()
 	outline.show()
 	current_state = WeaponState.DROP
+	levitate()
 
 #Override
 func _transition_to_stored():
@@ -127,3 +131,4 @@ func _transition_to_stored():
 	sword_sprite.hide()
 	outline.hide()	
 	current_state = WeaponState.STORED
+	stop_levitating()

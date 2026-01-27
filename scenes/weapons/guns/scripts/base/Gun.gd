@@ -30,6 +30,8 @@ extends Weapon
 
 func _ready():
 	setup_gun()
+	if on_floor:
+		levitate()
 	interaction_component.interact = Callable(self, "_on_interact")
 	
 func _process(delta: float) -> void:
@@ -132,6 +134,7 @@ func _transition_to_handled():
 	outline.hide()
 	gun_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
+	stop_levitating()
 
 #Override
 func _transition_to_drop():
@@ -143,6 +146,7 @@ func _transition_to_drop():
 	gun_sprite.show()
 	outline.show()
 	current_state = WeaponState.DROP
+	levitate()
 	
 
 #Override
@@ -152,3 +156,4 @@ func _transition_to_stored():
 	gun_sprite.hide()
 	outline.hide()
 	current_state = WeaponState.STORED
+	stop_levitating()
