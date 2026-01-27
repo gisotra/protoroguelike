@@ -15,15 +15,14 @@ class_name Sword
 
 ## Frescura que eu fiz pra arma apontar pro mouse com spring-lerp
 @export_group("Sword Swing")
-## a força necessária pra fazer a arma deslocar de ângulo
-@export var wrist_strength: float
-## o quão leve aquela espada é. Se o valor for pequeno, ela é pesada, se for alto, ela é leve
-@export var lightness: float 
+## o quão pesada aquela espada é
+@export var weight: float 
+
 # Sword-Related
-@onready var sword_sprite: Sprite2D = $Sprite2D
+@onready var sword_sprite: Sprite2D = $sword_sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_component: InteractionComponent = $InteractionComponent
-
+@onready var outline: Sprite2D = $sword_sprite/outline
 
 
 # Addons
@@ -57,9 +56,9 @@ func _process(delta: float) -> void:
 			pass
 
 func _setup_sword():
-	if swordData and sword_sprite:
+	if swordData and sword_sprite and outline_sprite:
 		sword_sprite.texture = swordData.sword_sprite
-
+		outline.texture = outline_sprite
 
 func _on_interact():
 	if current_state == WeaponState.DROP:
@@ -68,6 +67,7 @@ func _on_interact():
 #  Weapon Class Overrided Methods
 
 func _manage_pos():
+	"""
 	# eu pego ONDE é o meu alvo de direção
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	
@@ -88,7 +88,16 @@ func _manage_pos():
 		scale.y = -1 
 	else:
 		scale.y = 1
+	"""
 
+	var target_angle = (get_global_mouse_position() - global_position).angle()
+	rotation = lerp_angle(rotation, target_angle, weight * get_process_delta_time())
+	
+	rotation_degrees = wrap(rotation_degrees, 0, 360)
+	if rotation_degrees > 90 and rotation_degrees < 270:
+		scale.y = -1
+	else:
+		scale.y = 1
 
 #Override
 func _transition_to_handled():
@@ -96,6 +105,7 @@ func _transition_to_handled():
 	interaction_component.monitoring = false
 	position = editor_anchor_pos
 	sword_sprite.show()
+	outline.hide()
 	sword_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
 
@@ -107,6 +117,7 @@ func _transition_to_drop():
 	rotation = 0.0
 	scale.y = 1
 	sword_sprite.show()
+	outline.show()
 	current_state = WeaponState.DROP
 
 #Override
@@ -114,4 +125,5 @@ func _transition_to_stored():
 	on_floor = false
 	interaction_component.monitoring = false
 	sword_sprite.hide()
+	outline.hide()	
 	current_state = WeaponState.STORED

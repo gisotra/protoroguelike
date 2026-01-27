@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb7tdfihvsbhj"]
+[gd_scene load_steps=7 format=3 uid="uid://cb7tdfihvsbhj"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_bqdnc"]
 [ext_resource type="PackedScene" uid="uid://o5asfugl26g6" path="res://scenes/weapons/bullets/bullet_scenes/rocket_bullet.tscn" id="2_f4qrc"]
 [ext_resource type="Resource" uid="uid://hyw3r6gn4u5y" path="res://resources/guns/RocketLauncher.tres" id="3_su21n"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_nsy17"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh255"]
+atlas = ExtResource("4_nsy17")
+region = Rect2(130, 66, 43, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po802"]
 atlas = ExtResource("4_nsy17")
@@ -14,6 +18,7 @@ bullet_scene = ExtResource("2_f4qrc")
 gun_settings = ExtResource("3_su21n")
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(25, -3)
+outline_sprite = SubResource("AtlasTexture_hh255")
 
 [node name="gun_sprite" parent="." index="0"]
 texture = SubResource("AtlasTexture_po802")

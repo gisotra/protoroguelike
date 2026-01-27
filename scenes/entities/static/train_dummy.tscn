@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dccw0vtliabtp"]
+[gd_scene load_steps=7 format=3 uid="uid://dccw0vtliabtp"]
 
 [ext_resource type="Texture2D" uid="uid://daidwjj08hqu" path="res://scenes/entities/static/dummy.png" id="1_yi337"]
 [ext_resource type="Script" uid="uid://dcckxc1y1rtu1" path="res://components/hitbox_component.gd" id="2_b8p6b"]
 [ext_resource type="Script" uid="uid://8qd3d5jqh3da" path="res://components/hurtbox_component.gd" id="3_aj23i"]
+[ext_resource type="PackedScene" uid="uid://d0sia5n585lmr" path="res://components/comp_scenes/health_component.tscn" id="4_aj23i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0mlo"]
 atlas = ExtResource("1_yi337")
@@ -32,3 +33,5 @@ script = ExtResource("3_aj23i")
 metadata/_custom_type_script = "uid://8qd3d5jqh3da"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_aj23i")]

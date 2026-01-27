@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=25 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="14_tpf23"]
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/guns/triple_shotgun.tscn" id="15_uyl1k"]
 [ext_resource type="PackedScene" uid="uid://cx46k135omu11" path="res://scenes/weapons/swords/night_veil.tscn" id="17_bgurf"]
+[ext_resource type="PackedScene" uid="uid://dccw0vtliabtp" path="res://scenes/entities/static/train_dummy.tscn" id="18_fvktp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
 atlas = ExtResource("6_capf1")
@@ -168,6 +169,10 @@ position = Vector2(-242, 156)
 [node name="TripleShotgun" parent="scenary/Node2D" instance=ExtResource("15_uyl1k")]
 position = Vector2(50, 58)
 
+[node name="Night Veil" parent="scenary/Node2D" instance=ExtResource("17_bgurf")]
+position = Vector2(149, 98)
+sprite_desired_offset = Vector2(25, 0)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t5hfm")
 
@@ -183,8 +188,8 @@ position = Vector2(233, 34)
 position = Vector2(2.9999998, 197)
 scale = Vector2(3.3593752, 3.171875)
 
-[node name="Night Veil" parent="." instance=ExtResource("17_bgurf")]
-position = Vector2(149, 98)
+[node name="train_dummy" parent="." instance=ExtResource("18_fvktp")]
+position = Vector2(-46, 214)
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]

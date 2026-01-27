@@ -21,6 +21,7 @@ extends Weapon
 @onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
 @onready var fire_rate_timer: Timer = $fire_rate_timer
 @onready var interaction_component: InteractionComponent = $Interaction_Component
+@onready var outline: Sprite2D = $gun_sprite/outline
 
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
@@ -64,10 +65,11 @@ func _process(delta: float) -> void:
 			pass
 
 func setup_gun():
-	if gun_settings and gun_sprite:
+	if gun_settings and gun_sprite and outline_sprite:
 		gun_sprite.texture = gun_settings.gun_texture
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
+		outline.texture = outline_sprite
 		
 func shoot():
 	muzzle_flash.play("burst")
@@ -127,6 +129,7 @@ func _transition_to_handled():
 	interaction_component.monitoring = false
 	position = editor_anchor_pos
 	gun_sprite.show()
+	outline.hide()
 	gun_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
 
@@ -138,11 +141,14 @@ func _transition_to_drop():
 	rotation = 0.0
 	scale.y = 1
 	gun_sprite.show()
+	outline.show()
 	current_state = WeaponState.DROP
+	
 
 #Override
 func _transition_to_stored():
 	on_floor = false
 	interaction_component.monitoring = false
 	gun_sprite.hide()
+	outline.hide()
 	current_state = WeaponState.STORED

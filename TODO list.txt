@@ -6,6 +6,7 @@
 [ ] - somente depois disso você faz melee weapons
 [ ] - criar um inimigo com hp e hitbox
 [ ] - criar uma caixa de diálogo pro Richter
+[ ] - criar UI
 
 hitbox: Caixa contida dentro do elemento que aplica dano quando em contato com outros corpos
 hurtbox: Caixa contida que representa onde aquele elemento pode receber dano

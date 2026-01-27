@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://boybbexvgy8em"]
 
-[ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/scenary/scripts/lobby_firepit.tscn" id="1_8hg47"]
+[ext_resource type="PackedScene" uid="uid://dm7544al7i108" path="res://scenes/scenary/scripts/fire_particle.tscn" id="1_8hg47"]
 [ext_resource type="Texture2D" uid="uid://i5kngp716ljq" path="res://scenes/scenary/visuals/logs.png" id="2_4y6vj"]
 
 [sub_resource type="Gradient" id="Gradient_k74y4"]
@@ -19,10 +19,10 @@ height = 46.0
 [node name="firepit" type="Node2D"]
 position = Vector2(0, -4)
 
-[node name="firepit" parent="." instance=ExtResource("1_8hg47")]
+[node name="firepit2" parent="." instance=ExtResource("1_8hg47")]
 position = Vector2(0, -10)
 
-[node name="PointLight2D" type="PointLight2D" parent="firepit"]
+[node name="PointLight2D" type="PointLight2D" parent="firepit2"]
 position = Vector2(-2.1175824e-22, 0)
 scale = Vector2(0.21484375, 0.2099609)
 color = Color(1, 1, 0.6431373, 1)
@@ -31,15 +31,15 @@ shadow_enabled = true
 shadow_color = Color(0.32641876, 0, 0, 0)
 texture = SubResource("GradientTexture2D_ecac8")
 
-[node name="fire_pit_wood" type="Sprite2D" parent="firepit"]
+[node name="fire_pit_wood" type="Sprite2D" parent="firepit2"]
 show_behind_parent = true
 position = Vector2(0, 13)
 texture = ExtResource("2_4y6vj")
 offset = Vector2(0, 5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="firepit"]
+[node name="StaticBody2D" type="StaticBody2D" parent="firepit2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="firepit/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="firepit2/StaticBody2D"]
 position = Vector2(0, 10)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_vwqfc")

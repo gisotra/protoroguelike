@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="SwordSettings" load_steps=4 format=3 uid="uid://di5oa2iupmtc8"]
+[gd_resource type="Resource" script_class="SwordSettings" load_steps=5 format=3 uid="uid://di5oa2iupmtc8"]
 
 [ext_resource type="Script" uid="uid://hcjoj7k40n5o" path="res://resources/swords/base/SwordSettings.gd" id="1_y58xb"]
-[ext_resource type="Texture2D" uid="uid://dbtlrcmltbwl7" path="res://scenes/weapons/guns/visuals/weapons.png" id="2_acrwt"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_loucf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1af4m"]
+atlas = ExtResource("2_loucf")
+region = Rect2(131, 166, 46, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_loucf"]
-atlas = ExtResource("2_acrwt")
-region = Rect2(105, 8, 44, 17)
+atlas = ExtResource("2_loucf")
+region = Rect2(3, 168, 44, 17)
 
 [resource]
 script = ExtResource("1_y58xb")
 combo_size = 3
 sword_sprite = SubResource("AtlasTexture_loucf")
+sword_outline = SubResource("AtlasTexture_1af4m")
 metadata/_custom_type_script = "uid://hcjoj7k40n5o"

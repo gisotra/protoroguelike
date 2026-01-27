@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpupxjsevyybh"]
+
+[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_k208g"]
+[ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_i14gk"]
+
+[sub_resource type="Curve" id="Curve_juon5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.712209), 0.0, 0.0, 0, 0, Vector2(0.33894944, 0.56686014), 0.0, 0.0, 0, 0, Vector2(0.8444004, 0.24709272), -1.6447492, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_juon5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu6u5"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rbehg")
+
+[node name="firepit" type="GPUParticles2D"]
+amount = 10
+texture = ExtResource("1_k208g")
+lifetime = 0.85
+explosiveness = 0.22
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_fu6u5")
+script = ExtResource("2_i14gk")

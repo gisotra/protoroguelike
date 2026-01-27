@@ -13,6 +13,8 @@ on_floor = true
 
 [node name="gun_sprite" type="Sprite2D" parent="."]
 
+[node name="outline" type="Sprite2D" parent="gun_sprite"]
+
 [node name="muzzle" type="Marker2D" parent="."]
 
 [node name="muzzleFlash" type="AnimatedSprite2D" parent="."]
@@ -22,9 +24,6 @@ one_shot = true
 
 [node name="Interaction_Component" parent="." instance=ExtResource("2_mgo42")]
 hover_sprite = ExtResource("3_imjbj")
-
-[node name="Sprite2D" parent="Interaction_Component" index="0"]
-texture = ExtResource("3_imjbj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
 shape = SubResource("CircleShape2D_mfrst")
