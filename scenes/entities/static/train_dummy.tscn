@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dccw0vtliabtp"]
 
 [ext_resource type="Texture2D" uid="uid://daidwjj08hqu" path="res://scenes/entities/static/dummy.png" id="1_yi337"]
-[ext_resource type="Script" uid="uid://dcckxc1y1rtu1" path="res://components/hitbox_component.gd" id="2_b8p6b"]
 [ext_resource type="Script" uid="uid://8qd3d5jqh3da" path="res://components/hurtbox_component.gd" id="3_aj23i"]
 [ext_resource type="PackedScene" uid="uid://d0sia5n585lmr" path="res://components/comp_scenes/health_component.tscn" id="4_aj23i"]
 
@@ -13,25 +12,32 @@ region = Rect2(5, 2, 22, 44)
 radius = 7.0
 height = 18.0
 
-[node name="train_dummy" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aj23i"]
+radius = 12.0
+height = 48.0
+
+[node name="train_dummy" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
 texture = SubResource("AtlasTexture_i0mlo")
 offset = Vector2(0, -16)
 
-[node name="HitboxComponent" type="Area2D" parent="."]
-script = ExtResource("2_b8p6b")
-metadata/_custom_type_script = "uid://dcckxc1y1rtu1"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_1k7kt")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 384
 script = ExtResource("3_aj23i")
 metadata/_custom_type_script = "uid://8qd3d5jqh3da"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_aj23i")
+debug_color = Color(1, 0.15294118, 0.49019608, 0)
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_aj23i")]

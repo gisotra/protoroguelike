@@ -110,8 +110,9 @@ animations = [{
 atlas = ExtResource("2_0owmy")
 region = Rect2(43, 14, 8, 2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qek5x"]
+radius = 5.0
+height = 14.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5gtgg"]
 particles_animation = true
@@ -139,6 +140,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
+collision_mask = 33
 script = ExtResource("1_dovo2")
 
 [node name="central_head_point" type="Marker2D" parent="."]
@@ -160,9 +162,10 @@ texture = SubResource("AtlasTexture_lvxji")
 script = ExtResource("3_p47bc")
 central_head_point = NodePath("../central_head_point")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_g2els")
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_qek5x")
 
 [node name="shadow" type="Sprite2D" parent="."]
 z_index = -1

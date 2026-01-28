@@ -4,19 +4,22 @@
 [ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_i14gk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4jm6u"]
+resource_local_to_scene = true
 particles_animation = true
 particles_anim_h_frames = 6
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_yyswi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
-point_count = 3
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
 curve = SubResource("Curve_yyswi")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu6u5"]
+resource_local_to_scene = true
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(10, 2, 1)
@@ -28,13 +31,13 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[node name="firepit" type="GPUParticles2D"]
+[node name="drop_shine" type="GPUParticles2D"]
 z_index = -1
 material = SubResource("CanvasItemMaterial_4jm6u")
 amount = 10
 texture = ExtResource("1_jdnan")
-lifetime = 0.85
-explosiveness = 0.22
+lifetime = 1.4
+explosiveness = 0.1
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fu6u5")
 script = ExtResource("2_i14gk")

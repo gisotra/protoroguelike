@@ -93,7 +93,8 @@ drop_weapon={
 2d_physics/layer_5="player_hurtbox"
 2d_physics/layer_6="enemy_hitbox"
 2d_physics/layer_7="enemy_hurtbox"
-2d_physics/layer_9="enemy"
+2d_physics/layer_8="bullets"
+2d_physics/layer_9="slash"
 
 [rendering]
 

@@ -22,6 +22,7 @@ extends Weapon
 @onready var fire_rate_timer: Timer = $fire_rate_timer
 @onready var interaction_component: InteractionComponent = $Interaction_Component
 @onready var outline: Sprite2D = $gun_sprite/outline
+@onready var shine_drop: GPUParticles2D = $gun_sprite/shine_drop
 
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
@@ -73,6 +74,11 @@ func setup_gun():
 		type = gun_settings.gun_type
 		outline.texture = outline_sprite
 		
+		
+			
+		
+		
+
 func shoot():
 	muzzle_flash.play("burst")
 	camera.trigger_shake(gun_settings.shake_intensity)
@@ -132,6 +138,7 @@ func _transition_to_handled():
 	position = editor_anchor_pos
 	gun_sprite.show()
 	outline.hide()
+	shine_drop.emitting = false
 	gun_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
 	stop_levitating()
@@ -145,6 +152,7 @@ func _transition_to_drop():
 	scale.y = 1
 	gun_sprite.show()
 	outline.show()
+	shine_drop.emitting = true
 	current_state = WeaponState.DROP
 	levitate()
 	
@@ -155,5 +163,6 @@ func _transition_to_stored():
 	interaction_component.monitoring = false
 	gun_sprite.hide()
 	outline.hide()
+	shine_drop.emitting = false
 	current_state = WeaponState.STORED
 	stop_levitating()

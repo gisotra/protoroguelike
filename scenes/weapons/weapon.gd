@@ -2,6 +2,7 @@ extends Node2D
 class_name Weapon
 @export var on_floor: bool = false
 @export var outline_sprite: Texture2D
+@export var drop_shine: GPUParticles2D
 # Universal para cada arma
 @onready var current_state: WeaponState = WeaponState.HANDLED
 @onready var myTween = create_tween()

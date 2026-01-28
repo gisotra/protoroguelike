@@ -23,6 +23,7 @@ class_name Sword
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var outline: Sprite2D = $sword_sprite/outline
+@onready var shine_drop: GPUParticles2D = $sword_sprite/shine_drop
 
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
@@ -108,6 +109,7 @@ func _transition_to_handled():
 	position = editor_anchor_pos
 	sword_sprite.show()
 	outline.hide()
+	shine_drop.emitting = false
 	sword_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
 	stop_levitating()
@@ -121,6 +123,7 @@ func _transition_to_drop():
 	scale.y = 1
 	sword_sprite.show()
 	outline.show()
+	shine_drop.emitting = true
 	current_state = WeaponState.DROP
 	levitate()
 
@@ -129,6 +132,7 @@ func _transition_to_stored():
 	on_floor = false
 	interaction_component.monitoring = false
 	sword_sprite.hide()
-	outline.hide()	
+	outline.hide()
+	shine_drop.emitting = false
 	current_state = WeaponState.STORED
 	stop_levitating()

@@ -9,10 +9,13 @@
 radius = 29.017237
 
 [node name="Gun" type="Node2D"]
+position = Vector2(0, -0.9480543)
 script = ExtResource("1_76485")
 on_floor = true
 
 [node name="gun_sprite" type="Sprite2D" parent="."]
+
+[node name="shine_drop" parent="gun_sprite" instance=ExtResource("4_eb8y7")]
 
 [node name="outline" type="Sprite2D" parent="gun_sprite"]
 
@@ -29,7 +32,5 @@ hover_sprite = ExtResource("3_imjbj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
 shape = SubResource("CircleShape2D_mfrst")
 debug_color = Color(0, 0.6509804, 0.13333334, 0)
-
-[node name="firepit" parent="." instance=ExtResource("4_eb8y7")]
 
 [editable path="Interaction_Component"]

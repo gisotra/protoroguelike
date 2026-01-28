@@ -141,26 +141,29 @@ z_index = 3
 position = Vector2(2, 255.5)
 texture = ExtResource("10_t5hfm")
 
-[node name="Node2D" type="Node2D" parent="scenary"]
+[node name="weapons_on_floor" type="Node2D" parent="scenary"]
 
-[node name="Pistol" parent="scenary/Node2D" instance=ExtResource("11_1bake")]
-position = Vector2(-187, 85)
+[node name="Pistol" parent="scenary/weapons_on_floor" instance=ExtResource("11_1bake")]
+position = Vector2(-187, 86.87651)
 
-[node name="RocketLauncher" parent="scenary/Node2D" instance=ExtResource("12_bgurf")]
-position = Vector2(-125, 54)
+[node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
+position = Vector2(-125, 55.876507)
 
-[node name="SniperRifle" parent="scenary/Node2D" instance=ExtResource("13_fvktp")]
-position = Vector2(103, 163)
+[node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
+position = Vector2(103, 164.87651)
 
-[node name="TommyGun" parent="scenary/Node2D" instance=ExtResource("14_tpf23")]
-position = Vector2(-170, 156)
+[node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
+position = Vector2(-170, 157.87651)
 
-[node name="TripleShotgun" parent="scenary/Node2D" instance=ExtResource("15_uyl1k")]
-position = Vector2(50, 58)
+[node name="TripleShotgun" parent="scenary/weapons_on_floor" instance=ExtResource("15_uyl1k")]
+position = Vector2(50, 59.876507)
 
-[node name="Night Veil" parent="scenary/Node2D" instance=ExtResource("17_bgurf")]
-position = Vector2(149, 98)
+[node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("17_bgurf")]
+position = Vector2(149, 99.87651)
 sprite_desired_offset = Vector2(25, 0)
+
+[node name="train_dummy" parent="scenary" instance=ExtResource("18_fvktp")]
+position = Vector2(-46, 214)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t5hfm")
@@ -172,13 +175,6 @@ position = Vector2(0, -219)
 position = Vector2(233, 34)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(2.9999998, 197)
-scale = Vector2(3.3593752, 3.171875)
-
-[node name="train_dummy" parent="." instance=ExtResource("18_fvktp")]
-position = Vector2(-46, 214)
 
 [connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]
