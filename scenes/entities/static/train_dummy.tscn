@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dccw0vtliabtp"]
+[gd_scene load_steps=6 format=3 uid="uid://dccw0vtliabtp"]
 
 [ext_resource type="Texture2D" uid="uid://daidwjj08hqu" path="res://scenes/entities/static/dummy.png" id="1_yi337"]
-[ext_resource type="Script" uid="uid://8qd3d5jqh3da" path="res://components/hurtbox_component.gd" id="3_aj23i"]
 [ext_resource type="PackedScene" uid="uid://d0sia5n585lmr" path="res://components/comp_scenes/health_component.tscn" id="4_aj23i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0mlo"]
@@ -29,11 +28,7 @@ offset = Vector2(0, -16)
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_1k7kt")
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 384
-script = ExtResource("3_aj23i")
-metadata/_custom_type_script = "uid://8qd3d5jqh3da"
+[node name="HurtboxComponent" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -14)

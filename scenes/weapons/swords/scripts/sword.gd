@@ -29,12 +29,13 @@ class_name Sword
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
+@onready var attacking: bool = false
 var velocidade = 0.0
 
 func _ready() -> void:
 	_setup_sword()
-	if on_floor:
-		levitate()
+
+	
 	interaction_component.interact = Callable(self, "_on_interact")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,6 +50,8 @@ func _process(delta: float) -> void:
 ### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
 		WeaponState.HANDLED:
 			_manage_pos()
+			if Input.is_action_just_pressed("fire"):
+				animation_player.play("attack1")
 ### --------------------------------------- ARMA NO CHÃO (pickable) ---------------------------------------
 		WeaponState.DROP:
 			interaction_component.monitoring = true

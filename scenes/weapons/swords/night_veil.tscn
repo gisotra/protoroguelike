@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx46k135omu11"]
+[gd_scene load_steps=15 format=3 uid="uid://cx46k135omu11"]
 
 [ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_garad"]
 [ext_resource type="Resource" uid="uid://di5oa2iupmtc8" path="res://resources/swords/Night_Veil.tres" id="2_d4xpm"]
@@ -13,9 +13,93 @@ region = Rect2(131, 166, 46, 19)
 atlas = ExtResource("3_bihkw")
 region = Rect2(3, 168, 44, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1af4m"]
-atlas = ExtResource("3_bihkw")
-region = Rect2(131, 166, 46, 19)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jj02w"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrtwu"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
+
+[sub_resource type="Animation" id="Animation_7d6x8"]
+resource_name = "attack1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-13, -28.5569), Vector2(21, 26.443102), Vector2(-7, 26.4431)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.1673577, 1.0110594, 1.819877]
+}
+
+[sub_resource type="Animation" id="Animation_jj02w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3.0000005, -29.5569)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.1673577]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6i4d3"]
+_data = {
+&"RESET": SubResource("Animation_jj02w"),
+&"attack1": SubResource("Animation_7d6x8")
+}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kb7pb"]
 particle_flag_disable_z = true
@@ -24,6 +108,7 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 98, 0)
 
 [node name="Night Veil" instance=ExtResource("1_garad")]
+position = Vector2(0, -0.44309998)
 swordData = ExtResource("2_d4xpm")
 editor_anchor_pos = Vector2(0, -3)
 sprite_desired_offset = Vector2(30, 0)
@@ -32,13 +117,29 @@ on_floor = true
 outline_sprite = SubResource("AtlasTexture_jj02w")
 
 [node name="sword_sprite" parent="." index="0"]
+position = Vector2(-3.0000005, -29.5569)
+rotation = -2.1673577
 texture = SubResource("AtlasTexture_loucf")
 
-[node name="outline_sprite" parent="sword_sprite" index="0"]
-texture = SubResource("AtlasTexture_1af4m")
+[node name="outline" parent="sword_sprite" index="0"]
+visible = false
+texture = SubResource("AtlasTexture_jj02w")
+
+[node name="shine_drop" parent="sword_sprite" index="1"]
+visible = false
+material = SubResource("CanvasItemMaterial_jj02w")
+process_material = SubResource("ParticleProcessMaterial_vrtwu")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_6i4d3")
+}
 
 [node name="Sprite2D" parent="InteractionComponent" index="0"]
 position = Vector2(0, -21)
+
+[node name="CollisionShape2D" parent="InteractionComponent" index="2"]
+visible = false
 
 [node name="drop_shine" type="GPUParticles2D" parent="." index="3"]
 visible = false

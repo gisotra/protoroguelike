@@ -73,11 +73,6 @@ func setup_gun():
 		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
 		outline.texture = outline_sprite
-		
-		
-			
-		
-		
 
 func shoot():
 	muzzle_flash.play("burst")

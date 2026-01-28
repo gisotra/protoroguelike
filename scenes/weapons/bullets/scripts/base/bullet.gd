@@ -14,7 +14,6 @@ class_name Bullet
 		show_in_editor()
 @export var impact_on_flesh: PackedScene
 @export var impact_on_wall: PackedScene
-@export var bullet_smoke: PackedScene
 @onready var disappear_timer: Timer = $disappear_timer
 
 var direction = Vector2.ZERO
@@ -42,6 +41,8 @@ func _physics_process(delta):
 		return
 	time_elapsed += delta
 	var collision_result = move_and_collide(direction * base_speed * delta)
+	if collision_result != null:
+		queue_free()
 
 func _on_disappear_timer_timeout() -> void:
 	queue_free()

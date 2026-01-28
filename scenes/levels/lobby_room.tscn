@@ -144,22 +144,22 @@ texture = ExtResource("10_t5hfm")
 [node name="weapons_on_floor" type="Node2D" parent="scenary"]
 
 [node name="Pistol" parent="scenary/weapons_on_floor" instance=ExtResource("11_1bake")]
-position = Vector2(-187, 86.87651)
+position = Vector2(-187, 88.37358)
 
 [node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
-position = Vector2(-125, 55.876507)
+position = Vector2(-125, 57.373577)
 
 [node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
-position = Vector2(103, 164.87651)
+position = Vector2(103, 166.37358)
 
 [node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
-position = Vector2(-170, 157.87651)
+position = Vector2(-170, 159.37358)
 
 [node name="TripleShotgun" parent="scenary/weapons_on_floor" instance=ExtResource("15_uyl1k")]
-position = Vector2(50, 59.876507)
+position = Vector2(99, 61.373577)
 
 [node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("17_bgurf")]
-position = Vector2(149, 99.87651)
+position = Vector2(149, 101.37358)
 sprite_desired_offset = Vector2(25, 0)
 
 [node name="train_dummy" parent="scenary" instance=ExtResource("18_fvktp")]
