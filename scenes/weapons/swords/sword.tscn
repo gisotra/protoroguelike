@@ -15,6 +15,7 @@ script = ExtResource("1_26wvk")
 [node name="outline" type="Sprite2D" parent="sword_sprite"]
 
 [node name="firepit" parent="sword_sprite" instance=ExtResource("3_tpw2o")]
+z_index = -1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

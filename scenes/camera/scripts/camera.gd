@@ -10,8 +10,8 @@ enum states {
 
 #Mouse Oriented Camera
 var desired_offset: Vector2
-var min_off_set = -50
-var max_off_set = 50
+var min_off_set = -150
+var max_off_set = 150
 
 #Shake
 var shake_fade: float = 10.0

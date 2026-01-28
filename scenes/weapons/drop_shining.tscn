@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpupxjsevyybh"]
+[gd_scene load_steps=7 format=3 uid="uid://bpupxjsevyybh"]
 
-[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_k208g"]
+[ext_resource type="Texture2D" uid="uid://dfx2vmd4wcs74" path="res://scenes/weapons/FX/drop_shine_particles.png" id="1_jdnan"]
 [ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_i14gk"]
 
-[sub_resource type="Curve" id="Curve_juon5"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.712209), 0.0, 0.0, 0, 0, Vector2(0.33894944, 0.56686014), 0.0, 0.0, 0, 0, Vector2(0.8444004, 0.24709272), -1.6447492, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 5
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4jm6u"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
-curve = SubResource("Curve_juon5")
+curve = SubResource("Curve_yyswi")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu6u5"]
 particle_flag_disable_z = true
@@ -19,13 +25,14 @@ spread = 0.0
 initial_velocity_min = 5.0
 initial_velocity_max = 10.0
 gravity = Vector3(0, -10, 0)
-scale_min = 0.19999999
-scale_max = 0.5
 scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
 
 [node name="firepit" type="GPUParticles2D"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_4jm6u")
 amount = 10
-texture = ExtResource("1_k208g")
+texture = ExtResource("1_jdnan")
 lifetime = 0.85
 explosiveness = 0.22
 fixed_fps = 60
