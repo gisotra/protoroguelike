@@ -95,12 +95,17 @@ func shoot():
 func _create_bullet():
 	var bullet_instance = bullet_scene.instantiate()
 	bullet_instance.global_position = muzzle.global_position
+	bullet_instance.direction = (get_global_mouse_position() - global_position).normalized()
 	#apply spread
 	_apply_spread(bullet_instance, gun_settings.bullet_spread)
 	return bullet_instance
 
 func _apply_spread(bullet_instance, spread_value):
-	bullet_instance.rotation = global_rotation + deg_to_rad(randi_range(-spread_value, spread_value))
+	var local_dir = bullet_instance.direction
+	var spread_rad = deg_to_rad(randf_range(-spread_value, spread_value))
+	bullet_instance.direction = local_dir.rotated(spread_rad)
+	bullet_instance.rotation = bullet_instance.direction.angle()
+	
 	
 func _apply_recoil(recoil_value):
 	match type:
@@ -155,7 +160,6 @@ func _transition_to_drop():
 	shine_drop.emitting = true
 	current_state = WeaponState.DROP
 	levitate()
-	
 
 #Override
 func _transition_to_stored():
