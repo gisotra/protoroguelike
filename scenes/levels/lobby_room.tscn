@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
+[ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="Texture2D" uid="uid://cbrccbiqiteut" path="res://scenes/scenary/visuals/newLobby2.png" id="2_1bake"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
@@ -46,8 +47,12 @@ background_mode = 3
 tonemap_mode = 2
 glow_enabled = true
 adjustment_enabled = true
+adjustment_saturation = 1.09
 
 [node name="LobbyRoom" type="Node2D"]
+
+[node name="SnowEmitter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_bgurf")]
+player = NodePath("../scenary/player")
 
 [node name="cursor" parent="." instance=ExtResource("1_e5vng")]
 
@@ -113,6 +118,7 @@ shape = SubResource("RectangleShape2D_hi1ba")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls"]
 position = Vector2(585, -4)
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2"]
@@ -144,19 +150,19 @@ texture = ExtResource("10_t5hfm")
 [node name="weapons_on_floor" type="Node2D" parent="scenary"]
 
 [node name="Pistol" parent="scenary/weapons_on_floor" instance=ExtResource("11_1bake")]
-position = Vector2(-187, 87.98824)
+position = Vector2(-187, 87.70678)
 
 [node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
-position = Vector2(-125, 56.98823)
+position = Vector2(-125, 56.70678)
 
 [node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
-position = Vector2(103, 165.98824)
+position = Vector2(103, 165.70679)
 
 [node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
-position = Vector2(-170, 158.98824)
+position = Vector2(-170, 158.70679)
 
 [node name="TripleShotgun" parent="scenary/weapons_on_floor" instance=ExtResource("15_uyl1k")]
-position = Vector2(99, 60.98823)
+position = Vector2(99, 60.70678)
 
 [node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("17_bgurf")]
 position = Vector2(149, 101.37358)

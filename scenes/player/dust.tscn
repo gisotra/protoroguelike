@@ -1,8 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bys8blhndb5le"]
 
-[ext_resource type="Texture2D" uid="uid://dth68visi4bpo" path="res://scenes/player/visuals/dust_particles.png" id="1_1vtmn"]
+[ext_resource type="Texture2D" uid="uid://cyybuuywpluxa" path="res://scenes/player/visuals/smoke.png" id="1_ks4uv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1vtmn"]
+blend_mode = 1
 particles_animation = true
 particles_anim_h_frames = 5
 particles_anim_v_frames = 1
@@ -16,8 +17,8 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_hvgcl")
 
 [sub_resource type="Curve" id="Curve_gaq67"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12106299, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.008103609), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12106299, 1), 0.0, 0.0, 0, 0, Vector2(0.8101386, 0.5072216), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_veaii"]
 curve = SubResource("Curve_gaq67")
@@ -29,8 +30,8 @@ emission_box_extents = Vector3(7, 2, 1)
 direction = Vector3(0, -1, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 17.0
-angular_velocity_min = -143.16002
-angular_velocity_max = 164.15997
+angular_velocity_min = 0.9999839
+angular_velocity_max = 359.99997
 gravity = Vector3(0, -30, 0)
 scale_min = 0.72999996
 scale_max = 1.35
@@ -40,7 +41,7 @@ anim_offset_max = 1.0
 
 [node name="dust" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_1vtmn")
-texture = ExtResource("1_1vtmn")
+texture = ExtResource("1_ks4uv")
 lifetime = 0.6900000000000001
 fixed_fps = 60
 draw_order = 0

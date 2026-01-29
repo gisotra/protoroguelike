@@ -108,7 +108,6 @@ emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 98, 0)
 
 [node name="Night Veil" instance=ExtResource("1_garad")]
-position = Vector2(0, -0.44309998)
 swordData = ExtResource("2_d4xpm")
 editor_anchor_pos = Vector2(0, -3)
 sprite_desired_offset = Vector2(30, 0)
