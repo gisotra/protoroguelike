@@ -5,7 +5,7 @@ class_name Weapon
 @export var drop_shine: GPUParticles2D
 # Universal para cada arma
 @onready var current_state: WeaponState = WeaponState.HANDLED
-@onready var myTween = create_tween()
+
 
 enum WeaponState {
 	HANDLED, # Está ativa
@@ -21,21 +21,6 @@ func _manage_pos():
 	else:
 		scale.y = 1
 
-
-
-func levitate():
-	myTween.tween_property(self, "position:y", position.y - 2, 0.8)
-	myTween.set_trans(Tween.TRANS_SINE)
-	myTween.set_ease(Tween.EASE_IN_OUT)
-	myTween.tween_property(self, "position:y", position.y + 2, 0.8)
-	myTween.set_trans(Tween.TRANS_SINE)
-	myTween.set_ease(Tween.EASE_IN_OUT)
-	myTween.set_loops()
-	myTween.play()
-	
-
-func stop_levitating():
-	myTween.pause()
 #Overridable
 func _transition_to_handled():
 	pass

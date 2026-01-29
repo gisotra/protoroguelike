@@ -17,7 +17,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_hvgcl")
 
 [sub_resource type="Curve" id="Curve_gaq67"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12106299, 1), 0.0, 0.0, 0, 0, Vector2(0.8101386, 0.5072216), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11781427, 0.69479775), 0.0, 0.0, 0, 0, Vector2(0.8101386, 0.5072216), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_veaii"]
@@ -43,6 +43,7 @@ anim_offset_max = 1.0
 material = SubResource("CanvasItemMaterial_1vtmn")
 texture = ExtResource("1_ks4uv")
 lifetime = 0.6900000000000001
+explosiveness = 0.14
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_hvgcl")

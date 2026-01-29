@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
+[ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="Texture2D" uid="uid://dx0h3aifdpoup" path="res://scenes/scenary/visuals/newLobby_underBoard.png" id="10_t5hfm"]
 [ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="11_1bake"]
@@ -34,6 +35,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxdr2"]
 size = Vector2(36, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbk1y"]
+size = Vector2(185, 93.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1ba"]
 size = Vector2(5, 572.25)
@@ -90,6 +94,18 @@ animation = &"closed"
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_dxdr2")
 
+[node name="cinematicArea" type="Area2D" parent="scenary" node_paths=PackedStringArray("player", "camera", "marker")]
+position = Vector2(-1, -111)
+collision_mask = 2
+script = ExtResource("7_6jy5w")
+player = NodePath("../player")
+camera = NodePath("../camera")
+marker = NodePath("../../desired_camera_point")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/cinematicArea"]
+position = Vector2(2.5, 17.25)
+shape = SubResource("RectangleShape2D_sbk1y")
+
 [node name="walls" type="Node2D" parent="scenary"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="scenary/walls"]
@@ -102,6 +118,7 @@ shape = SubResource("RectangleShape2D_hi1ba")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls"]
 position = Vector2(585, -4)
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2"]
@@ -136,7 +153,7 @@ texture = ExtResource("10_t5hfm")
 position = Vector2(-187, 89.11056)
 
 [node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
-position = Vector2(-61, 21)
+position = Vector2(-125, 58.110558)
 
 [node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
 position = Vector2(103, 167.11057)
@@ -164,5 +181,8 @@ position = Vector2(0, -219)
 position = Vector2(233, 34)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="body_entered" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_entered"]
+[connection signal="body_exited" from="scenary/cinematicArea" to="scenary/cinematicArea" method="_on_body_exited"]
 
 [editable path="scenary/Gate"]

@@ -31,7 +31,7 @@ func _pick_up_weapon(weapon: Weapon):
 		weapon_slots[empty_slot] = weapon
 		current_slot_index = empty_slot
 	else: 
-		_drop_current_weapon(false)  # esse tá sendo o problema
+		_drop_current_weapon(false) 
 		weapon_slots[current_slot_index] = weapon
 	_update_weapon_states()
 

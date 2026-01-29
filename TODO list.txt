@@ -10,7 +10,8 @@ animar um muzzle flash pra cada arma pré existente;
 -> melhorar o cenario 
 -> piso melhorado
 -> esse lobby é escuro. é uma ótima oportunidade pra você estudar luz e shaders
+-> fazer os impactos das balas e os muzzle flashes
+-> boneco devia ter um knockback de acordo com a bala 
+
 
 foca na parte visual agora, pra estudar
-
-e principalmente faz as sprites de impacto 

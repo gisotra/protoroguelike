@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb7tdfihvsbhj"]
+[gd_scene load_steps=11 format=3 uid="uid://cb7tdfihvsbhj"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_bqdnc"]
 [ext_resource type="PackedScene" uid="uid://o5asfugl26g6" path="res://scenes/weapons/bullets/bullet_scenes/rocket_bullet.tscn" id="2_f4qrc"]
@@ -13,6 +13,34 @@ region = Rect2(130, 66, 43, 26)
 atlas = ExtResource("4_nsy17")
 region = Rect2(3, 67, 41, 24)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hh255"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tp7ur"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
+
 [node name="RocketLauncher" instance=ExtResource("1_bqdnc")]
 bullet_scene = ExtResource("2_f4qrc")
 gun_settings = ExtResource("3_su21n")
@@ -22,6 +50,13 @@ outline_sprite = SubResource("AtlasTexture_hh255")
 
 [node name="gun_sprite" parent="." index="0"]
 texture = SubResource("AtlasTexture_po802")
+
+[node name="shine_drop" parent="gun_sprite" index="0"]
+material = SubResource("CanvasItemMaterial_hh255")
+process_material = SubResource("ParticleProcessMaterial_tp7ur")
+
+[node name="outline" parent="gun_sprite" index="1"]
+texture = SubResource("AtlasTexture_hh255")
 
 [node name="muzzle" parent="." index="1"]
 position = Vector2(46, 0)

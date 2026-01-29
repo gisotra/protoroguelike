@@ -31,8 +31,6 @@ extends Weapon
 
 func _ready():
 	setup_gun()
-	if on_floor:
-		levitate()
 	interaction_component.interact = Callable(self, "_on_interact")
 	
 func _process(delta: float) -> void:
@@ -141,7 +139,7 @@ func _transition_to_handled():
 	shine_drop.emitting = false
 	gun_sprite.position = sprite_desired_offset
 	current_state = WeaponState.HANDLED
-	stop_levitating()
+	
 
 #Override
 func _transition_to_drop():
@@ -154,7 +152,6 @@ func _transition_to_drop():
 	outline.show()
 	shine_drop.emitting = true
 	current_state = WeaponState.DROP
-	levitate()
 
 #Override
 func _transition_to_stored():
@@ -164,4 +161,3 @@ func _transition_to_stored():
 	outline.hide()
 	shine_drop.emitting = false
 	current_state = WeaponState.STORED
-	stop_levitating()

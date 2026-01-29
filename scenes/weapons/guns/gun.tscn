@@ -1,9 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmwlvjfj2fxb1"]
+[gd_scene load_steps=10 format=3 uid="uid://dmwlvjfj2fxb1"]
 
 [ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scenes/weapons/guns/scripts/base/Gun.gd" id="1_76485"]
 [ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="2_mgo42"]
 [ext_resource type="Texture2D" uid="uid://bxm6uynhc06hf" path="res://scenes/UI/keys.png" id="3_imjbj"]
 [ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/weapons/drop_shining.tscn" id="4_eb8y7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eb8y7"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fp03h"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mfrst"]
 radius = 29.017237
@@ -16,6 +44,8 @@ on_floor = true
 [node name="gun_sprite" type="Sprite2D" parent="."]
 
 [node name="shine_drop" parent="gun_sprite" instance=ExtResource("4_eb8y7")]
+material = SubResource("CanvasItemMaterial_eb8y7")
+process_material = SubResource("ParticleProcessMaterial_fp03h")
 
 [node name="outline" type="Sprite2D" parent="gun_sprite"]
 

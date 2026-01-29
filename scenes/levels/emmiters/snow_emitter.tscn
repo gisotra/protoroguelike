@@ -7,7 +7,7 @@
 particles_animation = true
 particles_anim_h_frames = 8
 particles_anim_v_frames = 1
-particles_anim_loop = false
+particles_anim_loop = true
 
 [sub_resource type="Curve" id="Curve_xr2yj"]
 _data = [Vector2(0, 0.48735207), 0.0, 0.0, 0, 0, Vector2(0.15837532, 1), 0.0, 0.0, 0, 0, Vector2(0.27487403, 0), 0.0, 0.0, 0, 0, Vector2(0.4197103, 1), 0.0, 0.0, 0, 0, Vector2(0.5110202, 0), 0.0, 0.0, 0, 0, Vector2(0.64326197, 0.974169), 0.0, 0.0, 0, 0]
@@ -27,7 +27,7 @@ curve = SubResource("Curve_cssu6")
 lifetime_randomness = 0.19
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(220, 1, 1)
+emission_box_extents = Vector3(250, 1, 1)
 angle_min = -77.399994
 angle_max = 77.40001
 direction = Vector3(-1, 1, 0)
@@ -45,7 +45,7 @@ scale_min = 0.7
 scale_max = 1.1999999
 scale_curve = SubResource("CurveTexture_y0djq")
 anim_speed_min = 1.0
-anim_speed_max = 1.0
+anim_speed_max = 3.0
 anim_offset_max = 1.0
 
 [node name="SnowEmitter" type="Node2D"]
@@ -55,10 +55,10 @@ script = ExtResource("1_cssu6")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_xr2yj")
-position = Vector2(22, 0)
-amount = 100
+position = Vector2(27, 0)
+amount = 50
 texture = ExtResource("1_0ys3s")
-lifetime = 9.129999999999999
+lifetime = 9.13
 explosiveness = 0.08
 randomness = 1.0
 fixed_fps = 120
