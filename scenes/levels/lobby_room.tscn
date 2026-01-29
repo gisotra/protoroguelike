@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
+[ext_resource type="Texture2D" uid="uid://cbrccbiqiteut" path="res://scenes/scenary/visuals/newLobby2.png" id="2_1bake"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
-[ext_resource type="Texture2D" uid="uid://f7cl8jw48rsg" path="res://scenes/scenary/visuals/newLobby.png" id="3_y8spk"]
 [ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="Script" uid="uid://fxd2qv6cevdu" path="res://scenes/camera/scripts/cinematic_area.gd" id="7_6jy5w"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
@@ -58,7 +58,7 @@ z_index = -1
 
 [node name="snow_ground" type="Sprite2D" parent="snow"]
 position = Vector2(2, 5)
-texture = ExtResource("3_y8spk")
+texture = ExtResource("2_1bake")
 
 [node name="scenary" type="Node2D" parent="."]
 z_as_relative = false
@@ -144,19 +144,19 @@ texture = ExtResource("10_t5hfm")
 [node name="weapons_on_floor" type="Node2D" parent="scenary"]
 
 [node name="Pistol" parent="scenary/weapons_on_floor" instance=ExtResource("11_1bake")]
-position = Vector2(-187, 88.37358)
+position = Vector2(-187, 87.98824)
 
 [node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
-position = Vector2(-125, 57.373577)
+position = Vector2(-125, 56.98823)
 
 [node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
-position = Vector2(103, 166.37358)
+position = Vector2(103, 165.98824)
 
 [node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
-position = Vector2(-170, 159.37358)
+position = Vector2(-170, 158.98824)
 
 [node name="TripleShotgun" parent="scenary/weapons_on_floor" instance=ExtResource("15_uyl1k")]
-position = Vector2(99, 61.373577)
+position = Vector2(99, 60.98823)
 
 [node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("17_bgurf")]
 position = Vector2(149, 101.37358)

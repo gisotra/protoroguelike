@@ -1,28 +1,16 @@
-[X] - PICKABLE AND DROPABLE WEAPONS
-[ ] - life system
-[ ] - hitbox & hurtbox
-[ ] - balas que acertam e tem efeito de morte OU de impacto 
-
-[ ] - somente depois disso você faz melee weapons
-[ ] - criar um inimigo com hp e hitbox
-[ ] - criar uma caixa de diálogo pro Richter
-[ ] - criar UI
-
-hitbox: Caixa contida dentro do elemento que aplica dano quando em contato com outros corpos
-hurtbox: Caixa contida que representa onde aquele elemento pode receber dano
-
-exemplo: Inimigo
-hitbox: onde ele aplica dano em mim
-hurtbox: onde meu inimigo recebe dano
-
-exemplo: Player
-hitbox: onde eu bato nas coisas
-hurtbox: qual parte do meu corpo que vai ser machucada 
-
 https://youtu.be/NkzL7eUib18
 
 https://youtu.be/G1-a96kzlUA?si=MuHAGeCi0DXEsjOY
 
 https://youtu.be/vihIPBrP6y0?si=6dUS5bVAEmFC3JBr
 
+animar um muzzle flash pra cada arma pré existente;
 
+-> a partir de agora, quando eu for criar uma arma, eu vou fazer começo meio e fim, não vou deixar ponta solta
+-> melhorar o cenario 
+-> piso melhorado
+-> esse lobby é escuro. é uma ótima oportunidade pra você estudar luz e shaders
+
+foca na parte visual agora, pra estudar
+
+e principalmente faz as sprites de impacto 
