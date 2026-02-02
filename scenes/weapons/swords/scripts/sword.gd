@@ -112,17 +112,19 @@ func _transition_to_handled():
 	sword_sprite.show()
 	outline.hide()
 	shine_drop.emitting = false
-	sword_sprite.position = sprite_desired_offset
+	sword_sprite.offset.x = sprite_desired_offset.x
+	sword_sprite.rotation = -40
 	current_state = WeaponState.HANDLED
 
 #Override
 func _transition_to_drop():
 	on_floor = true
 	interaction_component.monitoring = false
-	sword_sprite.position = Vector2.ZERO
+	sword_sprite.offset = Vector2.ZERO
 	rotation = 0.0
 	scale.y = 1
 	sword_sprite.show()
+	sword_sprite.rotation = 0
 	outline.show()
 	shine_drop.emitting = true
 	current_state = WeaponState.DROP
