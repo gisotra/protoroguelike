@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfx2vmd4wcs74"
-path="res://.godot/imported/drop_shine_particles.png-545c6cf82c9b5def66365a73e893e350.ctex"
+uid="uid://rg4gjhgdlgdp"
+path="res://.godot/imported/cursor2.png-62f56fb03bf1dc65cfb00066f448333c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/weapons/FX/drop_shine_particles.png"
-dest_files=["res://.godot/imported/drop_shine_particles.png-545c6cf82c9b5def66365a73e893e350.ctex"]
+source_file="res://scenes/UI/visuals/cursor2.png"
+dest_files=["res://.godot/imported/cursor2.png-62f56fb03bf1dc65cfb00066f448333c.ctex"]
 
 [params]
 

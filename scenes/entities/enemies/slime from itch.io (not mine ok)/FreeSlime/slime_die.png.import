@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f7cl8jw48rsg"
-path="res://.godot/imported/newLobby.png-a273602df2bd12aff8770f949236e53f.ctex"
+uid="uid://yme7qe2gp0tx"
+path="res://.godot/imported/slime_die.png-74194493962e8a938d70452978980bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/scenary/visuals/newLobby.png"
-dest_files=["res://.godot/imported/newLobby.png-a273602df2bd12aff8770f949236e53f.ctex"]
+source_file="res://scenes/entities/enemies/slime from itch.io (not mine ok)/FreeSlime/slime_die.png"
+dest_files=["res://.godot/imported/slime_die.png-74194493962e8a938d70452978980bfc.ctex"]
 
 [params]
 

@@ -1,20 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwpryeapp5soo"]
+[gd_scene load_steps=9 format=3 uid="uid://cwpryeapp5soo"]
 
 [ext_resource type="Script" uid="uid://c20jb37gyqxd6" path="res://scenes/weapons/swords/scripts/sword.gd" id="1_26wvk"]
 [ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/weapons/drop_shining.tscn" id="3_tpw2o"]
 [ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="3_vsg1r"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vsg1r"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tpw2o"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpw2o"]
 radius = 29.02
 
 [node name="Sword" type="Node2D"]
 script = ExtResource("1_26wvk")
+on_floor = true
 
 [node name="sword_sprite" type="Sprite2D" parent="."]
 
 [node name="outline" type="Sprite2D" parent="sword_sprite"]
 
 [node name="shine_drop" parent="sword_sprite" instance=ExtResource("3_tpw2o")]
+material = SubResource("CanvasItemMaterial_vsg1r")
+process_material = SubResource("ParticleProcessMaterial_tpw2o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

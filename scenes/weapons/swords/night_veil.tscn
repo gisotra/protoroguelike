@@ -46,53 +46,31 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sword_sprite:position")
+tracks/0/path = NodePath("sword_sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3.0000005, -29.5569)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sword_sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-2.1673577]
+"values": [-1.844813]
 }
 
 [sub_resource type="Animation" id="Animation_7d6x8"]
 resource_name = "attack1"
+length = 0.5
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sword_sprite:position")
+tracks/0/path = NodePath("sword_sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(5.6568513, -2, 1),
 "update": 0,
-"values": [Vector2(-13, -28.5569), Vector2(21, 26.443102), Vector2(-7, 26.4431)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sword_sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-2.1673577, 1.0110594, 1.819877]
+"values": [0.0, -1.3788101090755203, 1.3823007]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6i4d3"]
@@ -112,12 +90,10 @@ swordData = ExtResource("2_d4xpm")
 editor_anchor_pos = Vector2(0, -3)
 sprite_desired_offset = Vector2(30, 0)
 weight = 50.0
-on_floor = true
 outline_sprite = SubResource("AtlasTexture_jj02w")
 
 [node name="sword_sprite" parent="." index="0"]
-position = Vector2(-3.0000005, -29.5569)
-rotation = -2.1673577
+rotation = -1.844813
 texture = SubResource("AtlasTexture_loucf")
 
 [node name="outline" parent="sword_sprite" index="0"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxbjhx4udq4gq"]
+
+[ext_resource type="PackedScene" uid="uid://4ku5lldutc6q" path="res://scenes/weapons/guns/FX/Muzzle_FX.tscn" id="1_tshcr"]
+[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="2_sy21l"]
+
+[sub_resource type="Animation" id="Animation_8bk83"]
+resource_name = "FX"
+length = 0.24
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.19),
+"transitions": PackedFloat32Array(2, 2, 2, 2),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.24),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_stq2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6j7a"]
+_data = {
+&"FX": SubResource("Animation_8bk83"),
+&"RESET": SubResource("Animation_stq2h")
+}
+
+[node name="Triple_Shotgun_MF_FX" instance=ExtResource("1_tshcr")]
+texture = ExtResource("2_sy21l")
+hframes = 4
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_e6j7a")
+}
+autoplay = "FX"
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="1"]

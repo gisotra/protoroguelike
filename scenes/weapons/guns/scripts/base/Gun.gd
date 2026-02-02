@@ -9,6 +9,7 @@ extends Weapon
 	set(value):
 		gun_settings = value
 		setup_gun()
+@export var muzzle_burst_FX: PackedScene
 
 ### Essa variável é responsável por dar o offset preciso de onde ela deve estar deslocada no meu player
 @export_group("Preferences")
@@ -17,8 +18,8 @@ extends Weapon
 
 # Gun-Related
 @onready var gun_sprite: Sprite2D = $gun_sprite
-@onready var muzzle: Marker2D = $muzzle
-@onready var muzzle_flash: AnimatedSprite2D = $muzzleFlash
+@onready var muzzle: Marker2D = $muzzle # onde a bala sai
+@onready var flash_point: Marker2D = $flash_point # onde o flash spawna
 @onready var fire_rate_timer: Timer = $fire_rate_timer
 @onready var interaction_component: InteractionComponent = $Interaction_Component
 @onready var outline: Sprite2D = $gun_sprite/outline
@@ -68,12 +69,16 @@ func _process(delta: float) -> void:
 func setup_gun():
 	if gun_settings and gun_sprite and outline_sprite:
 		gun_sprite.texture = gun_settings.gun_texture
-		muzzle_flash.sprite_frames = gun_settings.muzzle_flash_animation
 		type = gun_settings.gun_type
 		outline.texture = outline_sprite
 
 func shoot():
-	muzzle_flash.play("burst")
+	if muzzle_burst_FX:
+		var flash_FX = muzzle_burst_FX.instantiate()
+		get_parent().add_child(flash_FX)
+		flash_FX.global_position = flash_point.global_position 
+		flash_FX.rotation = rotation
+	
 	camera.trigger_shake(gun_settings.shake_intensity)
 	fire_rate_timer.start(gun_settings.fire_rate)
 	_apply_recoil(gun_settings.recoil)

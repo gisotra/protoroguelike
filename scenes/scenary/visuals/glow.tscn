@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpcj5ak71njtd"]
+
+[ext_resource type="Texture2D" uid="uid://j1vdfgu1av35" path="res://scenes/scenary/visuals/FX/glow_particles.png" id="1_u8oi4"]
+
+[sub_resource type="Curve" id="Curve_logtx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14895636, 1), 0.0, 0.0, 0, 0, Vector2(0.68026567, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mrpm3"]
+curve = SubResource("Curve_logtx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h21da"]
+lifetime_randomness = 0.43
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 100, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = -7.0
+initial_velocity_max = 7.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.08
+scale_curve = SubResource("CurveTexture_mrpm3")
+turbulence_noise_speed_random = 1.98
+
+[node name="glow" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.7938977, 0.31199285, 0, 1)
+texture = ExtResource("1_u8oi4")
+randomness = 0.44
+process_material = SubResource("ParticleProcessMaterial_h21da")

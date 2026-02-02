@@ -32,7 +32,6 @@ debug_color = Color(0.9764706, 0, 0.41960785, 0)
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("5_cyk10")
-max = 50
 metadata/_custom_type_script = "uid://fpfu63mlr5lt"
 
 [editable path="Interaction_Component"]

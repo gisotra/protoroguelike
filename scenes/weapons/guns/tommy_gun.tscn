@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6o2515oorlsj"]
+[gd_scene load_steps=11 format=3 uid="uid://b6o2515oorlsj"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_2lcsb"]
-[ext_resource type="PackedScene" uid="uid://cxvmy8b57li2u" path="res://scenes/weapons/bullets/bullet_scenes/tommy_gun_bullet.tscn" id="2_u11m6"]
-[ext_resource type="Resource" uid="uid://v4st1m4cne38" path="res://resources/guns/TommyGun.tres" id="3_jf0rt"]
+[ext_resource type="PackedScene" uid="uid://cfxs1f1gxk8g3" path="res://scenes/weapons/bullets/bullet_scenes/normal_bullet.tscn" id="2_j4w8x"]
+[ext_resource type="PackedScene" uid="uid://0mfi24bva164" path="res://scenes/weapons/guns/FX/pistol_muzzle_fx.tscn" id="3_cres3"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_02k4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cres3"]
@@ -13,9 +13,37 @@ region = Rect2(131, 36, 31, 10)
 atlas = ExtResource("4_02k4d")
 region = Rect2(4, 37, 29, 8)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eb8y7"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fp03h"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
+
 [node name="TommyGun" instance=ExtResource("1_2lcsb")]
-bullet_scene = ExtResource("2_u11m6")
-gun_settings = ExtResource("3_jf0rt")
+bullet_scene = ExtResource("2_j4w8x")
+muzzle_burst_FX = ExtResource("3_cres3")
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(15, 0)
 outline_sprite = SubResource("AtlasTexture_cres3")
@@ -23,8 +51,18 @@ outline_sprite = SubResource("AtlasTexture_cres3")
 [node name="gun_sprite" parent="." index="0"]
 texture = SubResource("AtlasTexture_ivw5h")
 
+[node name="shine_drop" parent="gun_sprite" index="0"]
+material = SubResource("CanvasItemMaterial_eb8y7")
+process_material = SubResource("ParticleProcessMaterial_fp03h")
+
+[node name="outline" parent="gun_sprite" index="1"]
+texture = SubResource("AtlasTexture_cres3")
+
 [node name="muzzle" parent="." index="1"]
-position = Vector2(24, -2.5)
+position = Vector2(33, -2.5)
+
+[node name="flash_point" parent="." index="2"]
+position = Vector2(31, -2.5)
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -14)

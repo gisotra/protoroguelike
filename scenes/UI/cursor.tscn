@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtbcxe7mm1u4b"]
 
-[ext_resource type="Texture2D" uid="uid://bf5kjgcfd452" path="res://scenes/UI/visuals/cursor.png" id="1_4knn1"]
+[ext_resource type="Texture2D" uid="uid://rg4gjhgdlgdp" path="res://scenes/UI/visuals/cursor2.png" id="1_4knn1"]
 [ext_resource type="Script" uid="uid://c5mqqjuxijcmp" path="res://scenes/UI/scripts/cursor.gd" id="2_4knn1"]
 
 [node name="cursor" type="Sprite2D"]
 z_index = 1024
 texture = ExtResource("1_4knn1")
-region_enabled = true
 region_rect = Rect2(10, 74, 12, 12)
 script = ExtResource("2_4knn1")

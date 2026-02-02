@@ -1,60 +1,11 @@
-[gd_resource type="Resource" script_class="GunSettings" load_steps=12 format=3 uid="uid://dnidydwa051lx"]
+[gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://dnidydwa051lx"]
 
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_vkq25"]
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/guns/base/GunSettings.gd" id="2_m5b33"]
-[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="2_vkq25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2frag"]
 atlas = ExtResource("1_vkq25")
 region = Rect2(4, 51, 31, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoxei"]
-atlas = ExtResource("2_vkq25")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8eun5"]
-atlas = ExtResource("2_vkq25")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgh1v"]
-atlas = ExtResource("2_vkq25")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
-atlas = ExtResource("2_vkq25")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
-atlas = ExtResource("2_vkq25")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n1xar"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eoxei")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8eun5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgh1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fm80t")
-}],
-"loop": false,
-"name": &"burst",
-"speed": 40.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_je7p5")
-}],
-"loop": false,
-"name": &"sleep",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5b33"]
 atlas = ExtResource("1_vkq25")
@@ -74,6 +25,5 @@ shell_amount = 1
 ejection_speed = 1.0
 life_time = 12.0
 gun_texture = SubResource("AtlasTexture_2frag")
-muzzle_flash_animation = SubResource("SpriteFrames_n1xar")
 shell_texture = SubResource("AtlasTexture_m5b33")
 metadata/_custom_type_script = "uid://lq56wytnavvh"

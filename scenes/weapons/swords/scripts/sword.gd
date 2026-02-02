@@ -34,7 +34,6 @@ var velocidade = 0.0
 
 func _ready() -> void:
 	_setup_sword()
-
 	
 	interaction_component.interact = Callable(self, "_on_interact")
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq2s3apqr5xbe"]
+[gd_scene load_steps=12 format=3 uid="uid://bq2s3apqr5xbe"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_ivc8v"]
 [ext_resource type="PackedScene" uid="uid://cfxs1f1gxk8g3" path="res://scenes/weapons/bullets/bullet_scenes/normal_bullet.tscn" id="2_t1ie7"]
 [ext_resource type="Resource" uid="uid://dwucvmt62jsw7" path="res://resources/guns/Pistol.tres" id="3_61dc8"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_red3f"]
+[ext_resource type="PackedScene" uid="uid://0mfi24bva164" path="res://scenes/weapons/guns/FX/pistol_muzzle_fx.tscn" id="4_yvdiv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j1rgb"]
 atlas = ExtResource("4_red3f")
@@ -13,9 +14,38 @@ region = Rect2(144, 4, 13, 9)
 atlas = ExtResource("4_red3f")
 region = Rect2(17, 5, 11, 7)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eb8y7"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fp03h"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
+
 [node name="Pistol" instance=ExtResource("1_ivc8v")]
 bullet_scene = ExtResource("2_t1ie7")
 gun_settings = ExtResource("3_61dc8")
+muzzle_burst_FX = ExtResource("4_yvdiv")
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(10, 0)
 outline_sprite = SubResource("AtlasTexture_j1rgb")
@@ -23,8 +53,19 @@ outline_sprite = SubResource("AtlasTexture_j1rgb")
 [node name="gun_sprite" parent="." index="0"]
 texture = SubResource("AtlasTexture_q6tqk")
 
+[node name="shine_drop" parent="gun_sprite" index="0"]
+material = SubResource("CanvasItemMaterial_eb8y7")
+process_material = SubResource("ParticleProcessMaterial_fp03h")
+
+[node name="outline" parent="gun_sprite" index="1"]
+texture = SubResource("AtlasTexture_j1rgb")
+
 [node name="muzzle" parent="." index="1"]
 position = Vector2(17, -1.5)
+
+[node name="flash_point" parent="." index="2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(20, -1.5)
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -9)

@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnu7q2dmvndkm"]
+[gd_scene load_steps=12 format=3 uid="uid://cnu7q2dmvndkm"]
 
 [ext_resource type="PackedScene" uid="uid://dmwlvjfj2fxb1" path="res://scenes/weapons/guns/gun.tscn" id="1_ij6u7"]
 [ext_resource type="PackedScene" uid="uid://c2g72ra4gyhy7" path="res://scenes/weapons/bullets/bullet_scenes/shotgun_bullet.tscn" id="2_vhn61"]
+[ext_resource type="PackedScene" uid="uid://dxbjhx4udq4gq" path="res://scenes/weapons/guns/FX/triple_shotgun_mf_fx.tscn" id="4_ba1le"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="4_l1xsn"]
 [ext_resource type="Resource" uid="uid://dnidydwa051lx" path="res://resources/guns/TripleShotgun.tres" id="5_64lt0"]
-[ext_resource type="Texture2D" uid="uid://6eyoah04kiod" path="res://scenes/weapons/guns/visuals/muzzleFlash/TripleShotgunMuzzleFlash.png" id="7_jup3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koccc"]
 atlas = ExtResource("4_l1xsn")
@@ -42,58 +42,11 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoxei"]
-atlas = ExtResource("7_jup3c")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8eun5"]
-atlas = ExtResource("7_jup3c")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgh1v"]
-atlas = ExtResource("7_jup3c")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fm80t"]
-atlas = ExtResource("7_jup3c")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
-atlas = ExtResource("7_jup3c")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n1xar"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eoxei")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8eun5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgh1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fm80t")
-}],
-"loop": false,
-"name": &"burst",
-"speed": 40.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_je7p5")
-}],
-"loop": false,
-"name": &"sleep",
-"speed": 5.0
-}]
-
 [node name="TripleShotgun" instance=ExtResource("1_ij6u7")]
 position = Vector2(0, -2.812131)
 bullet_scene = ExtResource("2_vhn61")
 gun_settings = ExtResource("5_64lt0")
+muzzle_burst_FX = ExtResource("4_ba1le")
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(19, -2)
 outline_sprite = SubResource("AtlasTexture_koccc")
@@ -109,13 +62,11 @@ process_material = SubResource("ParticleProcessMaterial_ba1le")
 texture = SubResource("AtlasTexture_koccc")
 
 [node name="muzzle" parent="." index="1"]
-position = Vector2(38, -2)
+position = Vector2(35, -0.18786907)
 
-[node name="muzzleFlash" parent="." index="2"]
-position = Vector2(56, -3)
-sprite_frames = SubResource("SpriteFrames_n1xar")
-animation = &"sleep"
-autoplay = "sleep"
+[node name="flash_point" parent="." index="2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(49, 0)
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -13)

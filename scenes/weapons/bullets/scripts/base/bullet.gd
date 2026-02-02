@@ -42,7 +42,26 @@ func _physics_process(delta):
 	time_elapsed += delta
 	var collision_result = move_and_collide(direction * base_speed * delta)
 	if collision_result != null:
+		var target = collision_result.get_collider() 
+		if target.is_in_group("enemy"):
+			IMPACT_FX_FLESH(collision_result)
+		else:
+			IMPACT_FX_FLESH(collision_result)
 		queue_free()
 
+func IMPACT_FX_WALL():
+	if impact_on_wall == null:
+		return
+	pass
+
+func IMPACT_FX_FLESH(cr): 
+	if impact_on_flesh == null: # não tem
+		return
+	var impact_flesh_FX = impact_on_flesh.instantiate()
+	get_parent().add_child(impact_flesh_FX)
+	impact_flesh_FX.global_position = cr.get_position()
+
+	
+	
 func _on_disappear_timer_timeout() -> void:
-	queue_free()
+	queue_free()	

@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://0mfi24bva164"]
+
+[ext_resource type="PackedScene" uid="uid://4ku5lldutc6q" path="res://scenes/weapons/guns/FX/Muzzle_FX.tscn" id="1_baikg"]
+[ext_resource type="Texture2D" uid="uid://0n14sve617ja" path="res://scenes/weapons/guns/FX/pistol_MF_FX.png" id="2_qwcqt"]
+
+[sub_resource type="Animation" id="Animation_64gul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D2:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.47]
+}
+
+[sub_resource type="Animation" id="Animation_l4t1u"]
+resource_name = "fx"
+length = 0.14
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.09),
+"transitions": PackedFloat32Array(1, 2, 2),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.14),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D2:texture_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.08912405),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.47, 0.57, 0.67]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vo7y"]
+_data = {
+&"RESET": SubResource("Animation_64gul"),
+&"fx": SubResource("Animation_l4t1u")
+}
+
+[sub_resource type="Gradient" id="Gradient_r6o07"]
+colors = PackedColorArray(1.1091899, 1.013986, 0.48171082, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_baikg"]
+gradient = SubResource("Gradient_r6o07")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Pistol_MF_FX" instance=ExtResource("1_baikg")]
+modulate = Color(1, 1, 1, 0.6627451)
+texture = ExtResource("2_qwcqt")
+hframes = 3
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_1vo7y")
+}
+autoplay = "fx"
+
+[node name="PointLight2D2" type="PointLight2D" parent="." index="1"]
+energy = 0.65
+texture = SubResource("GradientTexture2D_baikg")
+texture_scale = 0.47

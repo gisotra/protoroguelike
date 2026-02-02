@@ -23,7 +23,6 @@ class_name GunSettings
 
 @export_group("Weapon Sprites")
 @export var gun_texture: Texture2D
-@export var muzzle_flash_animation: SpriteFrames
 @export var shell_texture: Texture2D
 
 enum gunType{

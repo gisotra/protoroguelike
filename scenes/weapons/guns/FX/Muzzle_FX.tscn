@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://4ku5lldutc6q"]
+
+[node name="MuzzleFx" type="Sprite2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

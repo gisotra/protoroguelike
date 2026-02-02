@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpupxjsevyybh"]
 
-[ext_resource type="Texture2D" uid="uid://dfx2vmd4wcs74" path="res://scenes/weapons/FX/drop_shine_particles.png" id="1_jdnan"]
+[ext_resource type="Texture2D" uid="uid://dfx2vmd4wcs74" path="res://scenes/weapons/guns/FX/drop_shine_particles.png" id="1_jdnan"]
 [ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_i14gk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4jm6u"]
