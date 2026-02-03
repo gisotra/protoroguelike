@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cx46k135omu11"]
+[gd_scene load_steps=18 format=3 uid="uid://cx46k135omu11"]
 
 [ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_garad"]
 [ext_resource type="Resource" uid="uid://di5oa2iupmtc8" path="res://resources/swords/Night_Veil.tres" id="2_d4xpm"]
@@ -41,6 +41,10 @@ initial_velocity_max = 10.0
 gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
+
+[sub_resource type="Curve" id="Curve_kb7pb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18463027, 1), 0.0, 0.0, 0, 0, Vector2(0.8467859, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Animation" id="Animation_jj02w"]
 length = 0.001
@@ -158,10 +162,9 @@ material = SubResource("CanvasItemMaterial_jj02w")
 process_material = SubResource("ParticleProcessMaterial_vrtwu")
 
 [node name="Trail2D" type="Line2D" parent="sword_sprite" index="2"]
-visible = false
 position = Vector2(49, 0)
+width_curve = SubResource("Curve_kb7pb")
 script = ExtResource("4_kb7pb")
-length = 7
 metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="AnimationPlayer" parent="." index="1"]
