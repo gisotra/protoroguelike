@@ -4,7 +4,7 @@ class_name Bullet
 
 @onready var bullet_texture: Sprite2D = $Sprite2D
 @export_group("Configurações da Bala")
-@export var damage_on_contact: float
+@export var damage: float
 @export var base_speed: float
 @export var speed_curve: Curve
 @export var duration: float
@@ -39,10 +39,18 @@ func show_in_editor():
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
-	time_elapsed += delta
-	var collision_result = move_and_collide(direction * base_speed * delta)
+	# Speed Curve treatment
+	time_elapsed += delta 
+	var current_speed = base_speed
+	
+	if speed_curve: 
+		var t = clamp(time_elapsed / duration, 0.0, 1)
+		current_speed = base_speed * speed_curve.sample(t)
+	
+	var collision_result = move_and_collide(direction * current_speed * delta)
 	if collision_result != null:
 		var target = collision_result.get_collider() 
+		
 		if target.is_in_group("enemy"):
 			IMPACT_FX_FLESH(collision_result)
 		else:

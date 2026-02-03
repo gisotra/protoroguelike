@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://o5asfugl26g6"]
+[gd_scene load_steps=10 format=3 uid="uid://o5asfugl26g6"]
 
 [ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="1_j1ykh"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_muhtf"]
 [ext_resource type="PackedScene" uid="uid://hieuae2t4l8i" path="res://scenes/scenary/scripts/rocket_trail.tscn" id="3_cxi1m"]
+
+[sub_resource type="Curve" id="Curve_1o8q5"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -0.009118557), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.051671743), 0.0, 0.0, 0, 0, Vector2(0.0941267, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_douvp"]
 atlas = ExtResource("2_muhtf")
@@ -100,7 +105,8 @@ _data = {
 
 [node name="RocketBullet" instance=ExtResource("1_j1ykh")]
 show_behind_parent = true
-base_speed = 300.0
+base_speed = 500.0
+speed_curve = SubResource("Curve_1o8q5")
 duration = 20.0
 bullet_sprite = SubResource("AtlasTexture_douvp")
 

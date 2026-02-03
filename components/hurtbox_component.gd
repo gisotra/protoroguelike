@@ -1,13 +1,12 @@
-extends Node2D
+extends AnimatableBody2D
 class_name HurtboxComponent
 
-@export var HealthComponent: PackedScene
+@export var Health: HealthComponent
+
+
+func takeDamage(object):
+	Health._take_damage(object.damage)
+	print(object.damage)
 
 """tem a responsabilidade de receber dano dentro da sua área, e dar o signal pro healthManager, que 
-vai falar 'ah, o elemento levou dano'"""
-
-
-
-func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-	
+vai falar 'ah, o elemento levou dano X' """

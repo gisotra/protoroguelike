@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfxs1f1gxk8g3"]
+[gd_scene load_steps=9 format=3 uid="uid://cfxs1f1gxk8g3"]
 
 [ext_resource type="PackedScene" uid="uid://dje33hf03fn4i" path="res://scenes/weapons/bullets/bullet.tscn" id="1_v0dvv"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_q0ugs"]
 [ext_resource type="PackedScene" uid="uid://bctqlsgfum23e" path="res://scenes/weapons/bullets/FX/impact_flesh/scenes/normal_bullet_impact.tscn" id="3_q0ugs"]
+
+[sub_resource type="Curve" id="Curve_q0ugs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6358696, 1), 0.0, 0.0, 0, 0, Vector2(0.91996056, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_haqyw"]
 atlas = ExtResource("2_q0ugs")
@@ -22,8 +26,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="NormalBullet" instance=ExtResource("1_v0dvv")]
-base_speed = 400.0
-duration = 10.0
+damage = 20.0
+base_speed = 300.0
+speed_curve = SubResource("Curve_q0ugs")
+duration = 2.0
 bullet_sprite = SubResource("AtlasTexture_haqyw")
 impact_on_flesh = ExtResource("3_q0ugs")
 

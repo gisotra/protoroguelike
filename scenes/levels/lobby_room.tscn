@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=26 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/guns/sniper_rifle.tscn" id="13_fvktp"]
 [ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="14_tpf23"]
 [ext_resource type="Texture2D" uid="uid://coef7gendavq5" path="res://scenes/scenary/visuals/exit.png" id="15_1bake"]
+[ext_resource type="PackedScene" uid="uid://cx46k135omu11" path="res://scenes/weapons/swords/night_veil.tscn" id="15_fvktp"]
 [ext_resource type="PackedScene" uid="uid://cnu7q2dmvndkm" path="res://scenes/weapons/guns/triple_shotgun.tscn" id="15_uyl1k"]
 [ext_resource type="PackedScene" uid="uid://bpcj5ak71njtd" path="res://scenes/scenary/visuals/glow.tscn" id="16_bgurf"]
 [ext_resource type="PackedScene" uid="uid://dccw0vtliabtp" path="res://scenes/entities/static/train_dummy.tscn" id="18_fvktp"]
@@ -183,6 +184,9 @@ position = Vector2(128, 7)
 position = Vector2(209, 135)
 
 [node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
+
+[node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("15_fvktp")]
+position = Vector2(40, 110)
 
 [node name="props" type="Node2D" parent="scenary"]
 

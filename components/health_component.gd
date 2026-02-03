@@ -21,12 +21,12 @@ signal on_take_damage()
 func _ready():
 	current_health = maxHealth
 	
-func _take_damage(damage : int):
+func _take_damage(damage : float):
 	current_health -= damage
 	on_change.emit(current_health, max)
 	on_take_damage.emit()	
 
-func heal(amount: int):
+func heal(amount: float):
 	_take_damage(-amount)
 
 func initHealth():

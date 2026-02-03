@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dccw0vtliabtp"]
+[gd_scene load_steps=8 format=3 uid="uid://dccw0vtliabtp"]
 
+[ext_resource type="Script" uid="uid://bs6lfipeofvbt" path="res://scenes/entities/static/train_dummy.gd" id="1_aj23i"]
 [ext_resource type="Texture2D" uid="uid://daidwjj08hqu" path="res://scenes/entities/static/dummy.png" id="1_yi337"]
+[ext_resource type="PackedScene" uid="uid://cukc82vtfn24w" path="res://components/comp_scenes/hurtbox_component.tscn" id="3_b8p6b"]
 [ext_resource type="PackedScene" uid="uid://d0sia5n585lmr" path="res://components/comp_scenes/health_component.tscn" id="4_aj23i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0mlo"]
@@ -12,12 +14,13 @@ radius = 7.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aj23i"]
-radius = 12.0
-height = 48.0
+radius = 11.0
+height = 44.0
 
 [node name="train_dummy" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 3
+script = ExtResource("1_aj23i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2)
@@ -28,13 +31,15 @@ offset = Vector2(0, -16)
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_1k7kt")
 
-[node name="HurtboxComponent" type="AnimatableBody2D" parent="." groups=["enemy"]]
+[node name="HealthComponent" parent="." instance=ExtResource("4_aj23i")]
+maxHealth = 70.0
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("HealthComponent") instance=ExtResource("3_b8p6b")]
 collision_layer = 64
 collision_mask = 384
+HealthComponent = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_aj23i")
-debug_color = Color(1, 0.15294118, 0.49019608, 0)
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_aj23i")]
+debug_color = Color(18.328726, 0, 0, 0)
