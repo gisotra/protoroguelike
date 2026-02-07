@@ -51,15 +51,20 @@ func _physics_process(delta):
 	if collision_result != null:
 		var target = collision_result.get_collider() 
 		
-		if target.is_in_group("enemy"):
+		if target.name == "EnemyHurtbox":
 			IMPACT_FX_FLESH(collision_result)
+			var enemy_target = target.owner
+			enemy_target.health._take_damage(damage)
 		else:
-			IMPACT_FX_FLESH(collision_result)
+			IMPACT_FX_WALL()
 		queue_free()
 
 func IMPACT_FX_WALL():
 	if impact_on_wall == null:
 		return
+	var impact_wall_FX = impact_on_wall.instantiate()
+	get_parent().add_child(impact_wall_FX)
+	impact_wall_FX.global_position = global_position 
 	pass
 
 func IMPACT_FX_FLESH(cr): 

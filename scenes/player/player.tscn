@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=31 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -36,6 +36,10 @@ region = Rect2(160, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
 atlas = ExtResource("2_qek5x")
 region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
+atlas = ExtResource("2_qek5x")
+region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qek5x"]
 atlas = ExtResource("2_qek5x")
@@ -80,10 +84,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lgqa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydkj")
 }],
 "loop": true,
 "name": &"IDLE",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -138,6 +145,9 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.4826087)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qek5x"]
+polygon = PackedVector2Array(-6, 0, -4, -3, 3, -3, 6, 0, 3, 0)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 33
@@ -152,8 +162,7 @@ position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"IDLE"
 autoplay = "IDLE"
-frame = 4
-frame_progress = 0.3769834
+frame_progress = 0.23760931
 
 [node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
 visible = false
@@ -222,3 +231,6 @@ metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="WeaponManager" type="Node2D" parent="."]
 script = ExtResource("8_qek5x")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_qek5x")

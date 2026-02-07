@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://drvwppr5qeene"]
+
+[ext_resource type="Texture2D" uid="uid://d33xycuomjjo5" path="res://scenes/FX/explosion_twirls.png" id="1_4g6sd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xjqwn"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_a1hqx"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.19642857, 0.51785713, 0.86160713, 1)
+colors = PackedColorArray(1, 1, 1, 1, 2.8266656, 1.6408635, 0.7210355, 1, 1.3820163, 0.43655813, 0, 1, 0.53678125, 0.14761388, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4g6sd"]
+gradient = SubResource("Gradient_a1hqx")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_svcv8"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.03327922, 2.450489), 0.0, 0.0, 0, 0, Vector2(0.05357143, 1.8399216), 0.0, 0.0, 0, 0, Vector2(0.8742762, 1.2645338), 0.0, 0.0, 0, 0, Vector2(0.99998, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_xjqwn"]
+curve = SubResource("Curve_svcv8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mbgmp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 23.93
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
+angular_velocity_min = 149.99998
+angular_velocity_max = 149.99998
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 20.0
+scale_min = 0.7
+scale_curve = SubResource("CurveTexture_xjqwn")
+color_ramp = SubResource("GradientTexture1D_4g6sd")
+anim_offset_max = 1.0
+
+[node name="main_blow" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="explosion" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_xjqwn")
+emitting = false
+amount = 20
+texture = ExtResource("1_4g6sd")
+lifetime = 1.8499999999999999
+one_shot = true
+explosiveness = 0.97
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_mbgmp")

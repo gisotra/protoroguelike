@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://rprlj0utuyr5"]
+
+[ext_resource type="Shader" uid="uid://wlqw04cbo3ad" path="res://scenes/FX/fogueira.gdshader" id="1_8fmsc"]
+[ext_resource type="Texture2D" uid="uid://diydhx81rhvld" path="res://scenes/FX/fogueira.png" id="1_rcdar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrct0"]
+shader = ExtResource("1_8fmsc")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fmsc"]
+radius = 3.5
+height = 23.0
+
+[sub_resource type="Gradient" id="Gradient_rcdar"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fmsc"]
+gradient = SubResource("Gradient_rcdar")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_8fmsc"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vrct0"]
+gradient = SubResource("Gradient_8fmsc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_vrct0"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aerak"]
+gradient = SubResource("Gradient_vrct0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="fogueira" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vrct0")
+position = Vector2(0, -8)
+texture = ExtResource("1_rcdar")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 3)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_8fmsc")
+
+[node name="luz1" type="PointLight2D" parent="."]
+position = Vector2(0, 3.0000002)
+scale = Vector2(1.3, 0.656)
+color = Color(0.99607843, 0.7254902, 0.21568628, 1)
+energy = 0.15
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_8fmsc")
+
+[node name="luz4" type="PointLight2D" parent="."]
+position = Vector2(0, 2.9999998)
+scale = Vector2(1.45, 0.75)
+color = Color(0.99607843, 0.7254902, 0.21568628, 1)
+energy = 0.15
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_8fmsc")
+
+[node name="luz2" type="PointLight2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(2.6, 1.333)
+color = Color(0.99607843, 0.7254902, 0.21568628, 1)
+energy = 0.14
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_vrct0")
+
+[node name="luz3" type="PointLight2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(2.9, 1.5)
+color = Color(0.99607843, 0.7254902, 0.21568628, 1)
+energy = 0.12
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_aerak")

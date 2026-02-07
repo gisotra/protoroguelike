@@ -6,5 +6,5 @@ extends StaticBody2D
 
 
 func _process(delta: float) -> void:
-	#print(health.current_health)
+	print("Hp do boneco: ", health.current_health)
 	pass

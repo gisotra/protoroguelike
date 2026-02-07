@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpcj5ak71njtd"]
 
-[ext_resource type="Texture2D" uid="uid://j1vdfgu1av35" path="res://scenes/scenary/visuals/FX/glow_particles.png" id="1_u8oi4"]
+[ext_resource type="Texture2D" uid="uid://j1vdfgu1av35" path="res://scenes/scenary/visuals/FX/boom/glow_particles.png" id="1_u8oi4"]
 
 [sub_resource type="Curve" id="Curve_logtx"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14895636, 1), 0.0, 0.0, 0, 0, Vector2(0.68026567, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

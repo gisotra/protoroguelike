@@ -5,7 +5,7 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xr2yj"]
 particles_animation = true
-particles_anim_h_frames = 8
+particles_anim_h_frames = 5
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
@@ -41,8 +41,6 @@ directional_velocity_min = 1.0
 directional_velocity_max = 1.0
 directional_velocity_curve = SubResource("CurveXYZTexture_cssu6")
 gravity = Vector3(0, 0, 0)
-scale_min = 0.7
-scale_max = 1.1999999
 scale_curve = SubResource("CurveTexture_y0djq")
 anim_speed_min = 1.0
 anim_speed_max = 3.0

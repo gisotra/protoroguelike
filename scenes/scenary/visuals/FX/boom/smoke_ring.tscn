@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://csm7ahvw0v0jm"]
+
+[ext_resource type="Texture2D" uid="uid://d33xycuomjjo5" path="res://scenes/FX/explosion_twirls.png" id="1_7cv0t"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l4kaq"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_l4kaq"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.071633235, 0.11461318, 0.7723214)
+colors = PackedColorArray(1, 1, 1, 1, 2.8266656, 1.6408635, 0.7210355, 1, 1.3820163, 0.43655813, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_woaa6"]
+gradient = SubResource("Gradient_l4kaq")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_t2tgr"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12572373, 1.3953476), 0.0, 0.0, 0, 0, Vector2(0.5268817, 1.1337197), 0.0, 0.0, 0, 0, Vector2(0.853598, 0.78488255), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_3s6ju"]
+curve = SubResource("Curve_t2tgr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlqjm"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 0, 1)
+direction = Vector3(1, -1, 0)
+spread = 180.0
+initial_velocity_min = 35.0
+initial_velocity_max = 35.0
+angular_velocity_min = 149.99998
+angular_velocity_max = 149.99998
+gravity = Vector3(0, 0, 0)
+damping_min = 20.0
+damping_max = 20.0
+scale_curve = SubResource("CurveTexture_3s6ju")
+color_ramp = SubResource("GradientTexture1D_woaa6")
+anim_offset_max = 1.0
+
+[node name="smoke_ring" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_l4kaq")
+emitting = false
+amount = 12
+texture = ExtResource("1_7cv0t")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.71
+process_material = SubResource("ParticleProcessMaterial_vlqjm")
