@@ -3,6 +3,7 @@ class_name HealthComponent
 
 signal on_change(current : int, max : int)
 signal on_take_damage()
+signal on_die
 
 @onready var current_health : float: 
 	set(value):
@@ -25,6 +26,9 @@ func _take_damage(damage : float):
 	current_health -= damage
 	on_change.emit(current_health, max)
 	on_take_damage.emit()	
+	if current_health <= 0.0:
+		# is dead 
+		emit_signal("on_die")
 
 func heal(amount: float):
 	_take_damage(-amount)

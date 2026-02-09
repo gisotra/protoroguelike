@@ -6,5 +6,10 @@ extends StaticBody2D
 
 
 func _process(delta: float) -> void:
-	print("Hp do boneco: ", health.current_health)
+	print(health.current_health)
 	pass
+
+
+func _on_health_component_on_die() -> void:
+	print("boneco MORREU ")
+	queue_free()

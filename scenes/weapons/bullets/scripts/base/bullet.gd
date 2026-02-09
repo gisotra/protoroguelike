@@ -57,6 +57,7 @@ func _physics_process(delta):
 			enemy_target.health._take_damage(damage)
 		else:
 			IMPACT_FX_WALL()
+			print("Atingi o muro")
 		queue_free()
 
 func IMPACT_FX_WALL():

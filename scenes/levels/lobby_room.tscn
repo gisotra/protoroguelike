@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
@@ -58,35 +58,35 @@ glow_bloom = 0.61
 adjustment_enabled = true
 adjustment_saturation = 1.09
 
-[node name="LobbyRoom" type="Node2D"]
+[node name="LobbyRoom" type="Node2D" unique_id=9407459]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=867878925]
 scale = Vector2(1.5, 1.5)
 transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
-[node name="cursor" parent="UI" instance=ExtResource("1_e5vng")]
+[node name="cursor" parent="UI" unique_id=514293533 instance=ExtResource("1_e5vng")]
 position = Vector2(17, 7)
 
-[node name="SnowEmitter" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_bgurf")]
+[node name="SnowEmitter" parent="." unique_id=880001876 node_paths=PackedStringArray("player") instance=ExtResource("1_bgurf")]
 player = NodePath("../scenary/player")
 
-[node name="snow" type="Node2D" parent="."]
+[node name="snow" type="Node2D" parent="." unique_id=1846400493]
 z_index = -1
 
-[node name="snowground" type="TileMapLayer" parent="snow"]
+[node name="snowground" type="TileMapLayer" parent="snow" unique_id=1952404163]
 
-[node name="snow_ground" type="Sprite2D" parent="snow"]
+[node name="snow_ground" type="Sprite2D" parent="snow" unique_id=472481703]
 position = Vector2(2, 5)
 texture = ExtResource("3_tpf23")
 
-[node name="scenary" type="Node2D" parent="."]
+[node name="scenary" type="Node2D" parent="." unique_id=208052174]
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="train_dummy" parent="scenary" instance=ExtResource("18_fvktp")]
+[node name="train_dummy" parent="scenary" unique_id=1557616478 instance=ExtResource("18_fvktp")]
 position = Vector2(173, 66)
 
-[node name="camera" parent="scenary" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
+[node name="camera" parent="scenary" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 position = Vector2(-112, 196)
 zoom = Vector2(1.5, 1.5)
 limit_left = -318
@@ -95,10 +95,10 @@ limit_right = 322
 limit_bottom = 325
 player = NodePath("../player")
 
-[node name="player" parent="scenary" instance=ExtResource("2_cq85v")]
+[node name="player" parent="scenary" unique_id=1107309087 instance=ExtResource("2_cq85v")]
 position = Vector2(-112, 196)
 
-[node name="Gate" parent="scenary" instance=ExtResource("1_5wg5b")]
+[node name="Gate" parent="scenary" unique_id=328494228 instance=ExtResource("1_5wg5b")]
 position = Vector2(206, -48)
 collision_mask = 2
 LocationDestiny = "res://scenes/levels/sandbox.tscn"
@@ -113,105 +113,105 @@ animation = &"closed"
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_dxdr2")
 
-[node name="walls" type="Node2D" parent="scenary"]
+[node name="walls" type="Node2D" parent="scenary" unique_id=1012725034]
 position = Vector2(0, -32)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="scenary/walls"]
+[node name="StaticBody2D" type="StaticBody2D" parent="scenary/walls" unique_id=1358670655]
 position = Vector2(7.5, 0)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D" unique_id=1506954774]
 position = Vector2(-289.25, 113.71484)
 shape = SubResource("RectangleShape2D_hi1ba")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls" unique_id=1288904887]
 position = Vector2(585, -4)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2" unique_id=333513402]
 position = Vector2(-299, 131.71289)
 shape = SubResource("RectangleShape2D_hi1ba")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="scenary/walls"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="scenary/walls" unique_id=1829089609]
 position = Vector2(183, 43)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D3" unique_id=664468015]
 position = Vector2(-183.875, -72)
 rotation = -1.5707964
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="scenary/walls"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="scenary/walls" unique_id=1463935644]
 position = Vector2(183, 329)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D4" unique_id=1393372233]
 position = Vector2(-183, -76)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_hi1ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="scenary/walls"]
+[node name="Sprite2D" type="Sprite2D" parent="scenary/walls" unique_id=1860279775]
 z_index = 3
 position = Vector2(2, 255.5)
 texture = ExtResource("10_t5hfm")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="scenary/walls/Sprite2D"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="scenary/walls/Sprite2D" unique_id=98779406]
 occluder = SubResource("OccluderPolygon2D_tpf23")
 
-[node name="upper_walls" type="StaticBody2D" parent="scenary/walls"]
+[node name="upper_walls" type="StaticBody2D" parent="scenary/walls" unique_id=1855740705]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/upper_walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/upper_walls" unique_id=855141628]
 position = Vector2(2.75, -27.5)
 shape = SubResource("RectangleShape2D_6qtkm")
 
-[node name="weapons_on_floor" type="Node2D" parent="scenary"]
+[node name="weapons_on_floor" type="Node2D" parent="scenary" unique_id=1161166599]
 
-[node name="Pistol" parent="scenary/weapons_on_floor" instance=ExtResource("11_1bake")]
+[node name="Pistol" parent="scenary/weapons_on_floor" unique_id=1504785492 instance=ExtResource("11_1bake")]
 position = Vector2(209, 98)
 
-[node name="RocketLauncher" parent="scenary/weapons_on_floor" instance=ExtResource("12_bgurf")]
+[node name="RocketLauncher" parent="scenary/weapons_on_floor" unique_id=118527196 instance=ExtResource("12_bgurf")]
 position = Vector2(194, 9)
 
-[node name="SniperRifle" parent="scenary/weapons_on_floor" instance=ExtResource("13_fvktp")]
+[node name="SniperRifle" parent="scenary/weapons_on_floor" unique_id=282255719 instance=ExtResource("13_fvktp")]
 position = Vector2(128, 7)
 
-[node name="TripleShotgun" parent="scenary/weapons_on_floor" instance=ExtResource("15_uyl1k")]
+[node name="TripleShotgun" parent="scenary/weapons_on_floor" unique_id=1799085510 instance=ExtResource("15_uyl1k")]
 position = Vector2(209, 135)
 
-[node name="TommyGun" parent="scenary/weapons_on_floor" instance=ExtResource("14_tpf23")]
+[node name="TommyGun" parent="scenary/weapons_on_floor" unique_id=697728395 instance=ExtResource("14_tpf23")]
 
-[node name="Night Veil" parent="scenary/weapons_on_floor" instance=ExtResource("15_fvktp")]
+[node name="Night Veil" parent="scenary/weapons_on_floor" unique_id=1959438198 instance=ExtResource("15_fvktp")]
 position = Vector2(40, 110)
 
-[node name="props" type="Node2D" parent="scenary"]
+[node name="props" type="Node2D" parent="scenary" unique_id=381100850]
 y_sort_enabled = true
 
-[node name="exit" type="StaticBody2D" parent="scenary/props"]
+[node name="exit" type="StaticBody2D" parent="scenary/props" unique_id=1173004525]
 position = Vector2(-189, -19)
 
-[node name="Sprite2D" type="Sprite2D" parent="scenary/props/exit"]
+[node name="Sprite2D" type="Sprite2D" parent="scenary/props/exit" unique_id=931178351]
 position = Vector2(0, -40)
 texture = ExtResource("15_1bake")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/props/exit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/props/exit" unique_id=658774670]
 position = Vector2(0.5, -23.5)
 shape = SubResource("RectangleShape2D_bgurf")
 
-[node name="fogueira" parent="scenary/props" instance=ExtResource("17_tpf23")]
+[node name="fogueira" parent="scenary/props" unique_id=1055096373 instance=ExtResource("17_tpf23")]
 position = Vector2(0, 182)
 
-[node name="glow" parent="scenary" instance=ExtResource("16_bgurf")]
+[node name="glow" parent="scenary" unique_id=687736012 instance=ExtResource("16_bgurf")]
 position = Vector2(0, 105)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1347950732]
 environment = SubResource("Environment_t5hfm")
 
-[node name="desired_camera_point" type="Marker2D" parent="."]
+[node name="desired_camera_point" type="Marker2D" parent="." unique_id=41066590]
 position = Vector2(0, -219)
 
-[node name="npc" parent="." instance=ExtResource("8_dxdr2")]
+[node name="npc" parent="." unique_id=1110486136 instance=ExtResource("8_dxdr2")]
 position = Vector2(-223, 207)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1225028590]
 color = Color(0.8565899, 0.85659, 0.8565899, 1)
 
 [editable path="scenary/Gate"]
