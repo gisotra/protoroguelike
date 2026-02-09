@@ -39,7 +39,7 @@ animations = [{
 size = Vector2(36, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1ba"]
-size = Vector2(5, 572.25)
+size = Vector2(4.5, 309.42578)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tpf23"]
 polygon = PackedVector2Array(-288, -5.5, 288, -5.5, 288, 5.5, -288, 5.5)
@@ -61,8 +61,8 @@ adjustment_saturation = 1.09
 [node name="LobbyRoom" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 
 [node name="cursor" parent="UI" instance=ExtResource("1_e5vng")]
 position = Vector2(17, 7)
@@ -88,6 +88,7 @@ position = Vector2(173, 66)
 
 [node name="camera" parent="scenary" node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 position = Vector2(-112, 196)
+zoom = Vector2(1.5, 1.5)
 limit_left = -318
 limit_top = -315
 limit_right = 322
@@ -120,7 +121,7 @@ position = Vector2(7.5, 0)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D"]
-position = Vector2(-289.5, 118)
+position = Vector2(-289.25, 113.71484)
 shape = SubResource("RectangleShape2D_hi1ba")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="scenary/walls"]
@@ -128,7 +129,7 @@ position = Vector2(585, -4)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D2"]
-position = Vector2(-299, 118)
+position = Vector2(-299, 131.71289)
 shape = SubResource("RectangleShape2D_hi1ba")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="scenary/walls"]

@@ -163,6 +163,7 @@ process_material = SubResource("ParticleProcessMaterial_vrtwu")
 
 [node name="Trail2D" type="Line2D" parent="sword_sprite" index="2"]
 position = Vector2(49, 0)
+points = PackedVector2Array(0, 0)
 width_curve = SubResource("Curve_kb7pb")
 script = ExtResource("4_kb7pb")
 metadata/_custom_type_script = "uid://bb7133dhhvmtg"
@@ -183,5 +184,8 @@ visible = false
 visible = false
 texture = ExtResource("4_jj02w")
 process_material = SubResource("ParticleProcessMaterial_kb7pb")
+
+[node name="cut" type="Marker2D" parent="." index="4"]
+position = Vector2(51, 0)
 
 [editable path="InteractionComponent"]

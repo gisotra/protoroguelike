@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drvwppr5qeene"]
+[gd_scene load_steps=14 format=3 uid="uid://drvwppr5qeene"]
 
 [ext_resource type="Texture2D" uid="uid://d33xycuomjjo5" path="res://scenes/FX/explosion_twirls.png" id="1_4g6sd"]
 
@@ -43,6 +43,42 @@ scale_curve = SubResource("CurveTexture_xjqwn")
 color_ramp = SubResource("GradientTexture1D_4g6sd")
 anim_offset_max = 1.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4g6sd"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_xjqwn"]
+offsets = PackedFloat32Array(0, 0.0955414, 0.29299363, 0.84713376)
+colors = PackedColorArray(1, 1, 1, 1, 0.9490196, 0.9490196, 0.38431373, 1, 1, 0.3529412, 0.23921569, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a1hqx"]
+gradient = SubResource("Gradient_xjqwn")
+
+[sub_resource type="Curve" id="Curve_a1hqx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.36842105, 0.23255777), 0.0, 0.0, 0, 0, Vector2(0.7288329, 0.17441821), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_svcv8"]
+curve = SubResource("Curve_a1hqx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hco4"]
+lifetime_randomness = 0.32
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 28.515
+initial_velocity_min = 38.5
+initial_velocity_max = 38.5
+gravity = Vector3(0, 60, 0)
+scale_min = 1.1999999
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_svcv8")
+color_ramp = SubResource("GradientTexture1D_a1hqx")
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+
 [node name="main_blow" type="Node2D"]
 z_as_relative = false
 y_sort_enabled = true
@@ -52,9 +88,22 @@ material = SubResource("CanvasItemMaterial_xjqwn")
 emitting = false
 amount = 20
 texture = ExtResource("1_4g6sd")
-lifetime = 1.8499999999999999
+lifetime = 1.85
 one_shot = true
 explosiveness = 0.97
 randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_mbgmp")
+
+[node name="fragments" type="GPUParticles2D" parent="."]
+visible = false
+z_index = 1
+material = SubResource("CanvasItemMaterial_4g6sd")
+emitting = false
+amount = 5
+amount_ratio = 0.7712
+texture = ExtResource("1_4g6sd")
+one_shot = true
+explosiveness = 0.84
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5hco4")
