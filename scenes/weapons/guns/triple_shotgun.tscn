@@ -42,7 +42,7 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[node name="TripleShotgun" instance=ExtResource("1_ij6u7")]
+[node name="TripleShotgun" unique_id=1344206848 instance=ExtResource("1_ij6u7")]
 position = Vector2(0, -2.812131)
 bullet_scene = ExtResource("2_vhn61")
 gun_settings = ExtResource("5_64lt0")

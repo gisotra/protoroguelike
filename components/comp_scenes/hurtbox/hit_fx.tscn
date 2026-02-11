@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://d20cf0sxbvlux"]
+
+[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_1cmwg"]
+
+[sub_resource type="Curve" id="Curve_15cxu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.762255, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5hjp5"]
+curve = SubResource("Curve_15cxu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n3rcf"]
+particle_flag_disable_z = true
+angle_min = 5.000011
+angle_max = 50.00001
+spread = 30.53
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+angular_velocity_min = 69.999985
+angular_velocity_max = 69.999985
+gravity = Vector3(0, 0, 0)
+damping_min = 100.00001
+damping_max = 280.0
+scale_min = 0.5
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_5hjp5")
+
+[node name="hit_FX" type="GPUParticles2D" unique_id=605734333]
+emitting = false
+amount = 6
+amount_ratio = 0.8541
+texture = ExtResource("1_1cmwg")
+lifetime = 0.15000000000000002
+one_shot = true
+explosiveness = 0.85
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_n3rcf")

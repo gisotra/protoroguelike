@@ -53,19 +53,18 @@ func _physics_process(delta):
 		
 		if target.name == "EnemyHurtbox":
 			IMPACT_FX_FLESH(collision_result)
-			var enemy_target = target.owner
-			enemy_target.health._take_damage(damage)
+			target.takeDamage(damage)
 		else:
-			IMPACT_FX_WALL()
-			print("Atingi o muro")
+			IMPACT_FX_WALL(collision_result)
 		queue_free()
 
-func IMPACT_FX_WALL():
+func IMPACT_FX_WALL(cr):
 	if impact_on_wall == null:
 		return
 	var impact_wall_FX = impact_on_wall.instantiate()
 	get_parent().add_child(impact_wall_FX)
-	impact_wall_FX.global_position = global_position 
+	impact_wall_FX.global_position = cr.get_position() 
+	impact_wall_FX.rotation = cr.get_normal().angle()
 	pass
 
 func IMPACT_FX_FLESH(cr): 
@@ -75,7 +74,5 @@ func IMPACT_FX_FLESH(cr):
 	get_parent().add_child(impact_flesh_FX)
 	impact_flesh_FX.global_position = cr.get_position()
 
-	
-	
 func _on_disappear_timer_timeout() -> void:
 	queue_free()	

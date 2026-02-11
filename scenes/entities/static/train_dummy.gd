@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var health: HealthComponent = $HealthComponent
 @onready var hurtbox: HurtboxComponent = $HurtboxComponent
@@ -8,8 +8,3 @@ extends StaticBody2D
 func _process(delta: float) -> void:
 	print(health.current_health)
 	pass
-
-
-func _on_health_component_on_die() -> void:
-	print("boneco MORREU ")
-	queue_free()

@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=23 format=3 uid="uid://dacrcyjtpm36g"]
 
-[ext_resource type="PackedScene" uid="uid://bfn5x154t8bag" path="res://scenes/scenary/Gate.tscn" id="1_5wg5b"]
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="Texture2D" uid="uid://28ux7f4r2bbb" path="res://scenes/scenary/visuals/newLobby4.png" id="3_tpf23"]
-[ext_resource type="Texture2D" uid="uid://c0tdowp71tidy" path="res://scenes/scenary/visuals/gate.png" id="6_capf1"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="Texture2D" uid="uid://dx0h3aifdpoup" path="res://scenes/scenary/visuals/newLobby_underBoard.png" id="10_t5hfm"]
 [ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="11_1bake"]
@@ -20,26 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://rprlj0utuyr5" path="res://scenes/FX/fogueira.tscn" id="17_tpf23"]
 [ext_resource type="PackedScene" uid="uid://dccw0vtliabtp" path="res://scenes/entities/static/train_dummy.tscn" id="18_fvktp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jy5w"]
-atlas = ExtResource("6_capf1")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5wg5b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6jy5w")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxdr2"]
-size = Vector2(36, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1ba"]
-size = Vector2(4.5, 309.42578)
+size = Vector2(4.5, 564)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tpf23"]
 polygon = PackedVector2Array(-288, -5.5, 288, -5.5, 288, 5.5, -288, 5.5)
@@ -54,7 +34,7 @@ size = Vector2(123, 75)
 background_mode = 3
 tonemap_mode = 2
 glow_enabled = true
-glow_bloom = 0.61
+glow_bloom = 0.5
 adjustment_enabled = true
 adjustment_saturation = 1.09
 
@@ -83,8 +63,16 @@ texture = ExtResource("3_tpf23")
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="train_dummy" parent="scenary" unique_id=1557616478 instance=ExtResource("18_fvktp")]
-position = Vector2(173, 66)
+[node name="enemies" type="Node2D" parent="scenary" unique_id=1901318921]
+
+[node name="train_dummy" parent="scenary/enemies" unique_id=1557616478 instance=ExtResource("18_fvktp")]
+position = Vector2(85, 50)
+
+[node name="train_dummy2" parent="scenary/enemies" unique_id=936238532 instance=ExtResource("18_fvktp")]
+position = Vector2(133, 126)
+
+[node name="train_dummy3" parent="scenary/enemies" unique_id=1661474702 instance=ExtResource("18_fvktp")]
+position = Vector2(160, 66)
 
 [node name="camera" parent="scenary" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 position = Vector2(-112, 196)
@@ -97,21 +85,6 @@ player = NodePath("../player")
 
 [node name="player" parent="scenary" unique_id=1107309087 instance=ExtResource("2_cq85v")]
 position = Vector2(-112, 196)
-
-[node name="Gate" parent="scenary" unique_id=328494228 instance=ExtResource("1_5wg5b")]
-position = Vector2(206, -48)
-collision_mask = 2
-LocationDestiny = "res://scenes/levels/sandbox.tscn"
-SpriteAnimation = SubResource("SpriteFrames_5wg5b")
-
-[node name="gate_sprite" parent="scenary/Gate" index="0"]
-position = Vector2(0, -20)
-sprite_frames = SubResource("SpriteFrames_5wg5b")
-animation = &"closed"
-
-[node name="gate_collision" parent="scenary/Gate" index="1"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_dxdr2")
 
 [node name="walls" type="Node2D" parent="scenary" unique_id=1012725034]
 position = Vector2(0, -32)
@@ -145,11 +118,12 @@ position = Vector2(183, 329)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scenary/walls/StaticBody2D4" unique_id=1393372233]
-position = Vector2(-183, -76)
+position = Vector2(-180, -76)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_hi1ba")
 
 [node name="Sprite2D" type="Sprite2D" parent="scenary/walls" unique_id=1860279775]
+visible = false
 z_index = 3
 position = Vector2(2, 255.5)
 texture = ExtResource("10_t5hfm")
@@ -213,5 +187,3 @@ position = Vector2(-223, 207)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1225028590]
 color = Color(0.8565899, 0.85659, 0.8565899, 1)
-
-[editable path="scenary/Gate"]

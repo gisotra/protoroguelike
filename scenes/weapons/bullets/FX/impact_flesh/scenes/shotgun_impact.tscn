@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bge0f44aish3j"]
+
+[ext_resource type="PackedScene" uid="uid://dtcha5v2mkgt5" path="res://scenes/weapons/bullets/FX/impact_flesh/impact_flesh.tscn" id="1_0g1mu"]
+[ext_resource type="Texture2D" uid="uid://dqm5cv1br0y2c" path="res://scenes/weapons/bullets/visuals/impact_animations/shotgun_impact.png" id="2_r2r7s"]
+
+[sub_resource type="Animation" id="Animation_t6psl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f34n2"]
+resource_name = "impact"
+length = 0.15
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a35sm"]
+_data = {
+&"RESET": SubResource("Animation_t6psl"),
+&"impact": SubResource("Animation_f34n2")
+}
+
+[node name="shotgun_impact" unique_id=2105965904 instance=ExtResource("1_0g1mu")]
+texture = ExtResource("2_r2r7s")
+hframes = 5
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_a35sm")
+}
+autoplay = &"impact"
