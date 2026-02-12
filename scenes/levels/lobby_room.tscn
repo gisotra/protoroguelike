@@ -64,6 +64,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="enemies" type="Node2D" parent="scenary" unique_id=1901318921]
+y_sort_enabled = true
 
 [node name="train_dummy" parent="scenary/enemies" unique_id=1557616478 instance=ExtResource("18_fvktp")]
 position = Vector2(85, 50)

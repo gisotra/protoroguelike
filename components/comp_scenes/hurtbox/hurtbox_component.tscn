@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cukc82vtfn24w"]
+[gd_scene load_steps=2 format=3 uid="uid://cukc82vtfn24w"]
 
 [ext_resource type="Script" uid="uid://8qd3d5jqh3da" path="res://components/hurtbox_component.gd" id="1_exj6j"]
-[ext_resource type="PackedScene" uid="uid://d20cf0sxbvlux" path="res://components/comp_scenes/hurtbox/hit_fx.tscn" id="2_gniyp"]
 
 [node name="HurtboxComponent" type="AnimatableBody2D" unique_id=64858125]
 script = ExtResource("1_exj6j")
-
-[node name="hit_FX" parent="." unique_id=605734333 instance=ExtResource("2_gniyp")]

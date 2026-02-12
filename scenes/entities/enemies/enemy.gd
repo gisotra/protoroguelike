@@ -12,7 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_health_component_on_die() -> void:
-	"""
-	se ele possuir uma animação de morte (componente) passado no inspector, o executa 
-	"""
 	queue_free()

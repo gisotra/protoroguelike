@@ -16,7 +16,7 @@ class_name Bullet
 @export var impact_on_wall: PackedScene
 @onready var disappear_timer: Timer = $disappear_timer
 
-var direction = Vector2.ZERO
+var direction = Vector2.ZERO #é tratada no script da arma, a bala "não sabe" onde está indo
 
 #manutenção da velocidade com base no gráfico
 var time_elapsed: float = 0.0
@@ -53,7 +53,7 @@ func _physics_process(delta):
 		
 		if target.name == "EnemyHurtbox":
 			IMPACT_FX_FLESH(collision_result)
-			target.takeDamage(damage)
+			target.takeDamage(damage, collision_result.get_position(), direction)
 		else:
 			IMPACT_FX_WALL(collision_result)
 		queue_free()

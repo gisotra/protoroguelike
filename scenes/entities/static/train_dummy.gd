@@ -1,10 +1,8 @@
-extends CharacterBody2D
+extends Enemy
 
-@onready var health: HealthComponent = $HealthComponent
-@onready var hurtbox: HurtboxComponent = $HurtboxComponent
-
+@onready var hit_fx: GPUParticles2D = $hit_FX
 
 
-func _process(delta: float) -> void:
-	print(health.current_health)
-	pass
+func _on_enemy_hurtbox_collided(damage, pos, knockback_vec) -> void:
+	hit_fx.rotation = knockback_vec.angle()
+	hit_fx.emitting = true
