@@ -2,7 +2,7 @@ extends Node
 class_name HealthComponent
 
 signal on_change(current : int, max : int)
-signal on_take_damage()
+signal on_take_damage(current_health_value: float)
 signal on_die
 
 @onready var current_health : float: 
@@ -24,7 +24,7 @@ func _ready():
 func _take_damage(damage : float):
 	current_health -= damage
 	on_change.emit(current_health, max)
-	on_take_damage.emit()
+	on_take_damage.emit(current_health)
 	if current_health <= 0.0:
 		# is dead 
 		emit_signal("on_die")

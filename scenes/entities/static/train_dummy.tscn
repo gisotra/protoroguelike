@@ -35,6 +35,7 @@ position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_1k7kt")
 
 [node name="HealthComponent" parent="." unique_id=1691061936 instance=ExtResource("4_aj23i")]
+position = Vector2(0, -40)
 maxHealth = 200.0
 
 [node name="EnemyHurtbox" parent="." unique_id=1772643002 node_paths=PackedStringArray("Health") instance=ExtResource("3_b8p6b")]
