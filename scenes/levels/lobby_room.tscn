@@ -66,14 +66,8 @@ y_sort_enabled = true
 [node name="enemies" type="Node2D" parent="scenary" unique_id=1901318921]
 y_sort_enabled = true
 
-[node name="train_dummy" parent="scenary/enemies" unique_id=1557616478 instance=ExtResource("18_fvktp")]
-position = Vector2(85, 50)
-
 [node name="train_dummy2" parent="scenary/enemies" unique_id=936238532 instance=ExtResource("18_fvktp")]
 position = Vector2(133, 126)
-
-[node name="train_dummy3" parent="scenary/enemies" unique_id=1661474702 instance=ExtResource("18_fvktp")]
-position = Vector2(160, 66)
 
 [node name="camera" parent="scenary" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 position = Vector2(-112, 196)
