@@ -4,6 +4,29 @@ class_name HealthBar
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var health: HealthComponent = $".."
 
+var show: bool = false
+"""
+por default ela é transparente
+
+ao tomar dano, ela fica visível (usar lerp) 
+
+timer reseta toda vez que toma dano 
+
+deu 6 segundos que não tomou dano? volta a ficar transparente
+
+se o player (menace area) se aproxima, volta a ficar visível
+"""
+
+func _process(delta: float) -> void:
+	if show:
+		if modulate.a <= 1.0:
+			modulate.a = lerp(modulate.a, 1.0, delta * 10)
+		
+	else: #não devo mostrar
+		if modulate.a > 0.0:
+			modulate.a = lerp(modulate.a, 0.0, delta * 10)
+	pass
+	
 func _ready() -> void:
 	setup_bar()
 	
@@ -18,8 +41,6 @@ func change_health_value(current_health_value: float):
 		pass
 	progress_bar.value = current_health_value
 
-func change_bar_opacity():
-	pass
 
 func _on_health_component_on_take_damage(health_value) -> void:
 	change_health_value(health_value)

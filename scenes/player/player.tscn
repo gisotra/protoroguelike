@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=33 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bb7133dhhvmtg" path="res://addons/trail_2d/trail_2d.gd" id="6_75vfm"]
 [ext_resource type="PackedScene" uid="uid://bys8blhndb5le" path="res://scenes/player/dust.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bspq66q8nm4wx" path="res://scenes/player/weapon_manager.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://x4vl70pm2yoq" path="res://scenes/player/menace_area.gd" id="9_5gtgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_qek5x")
@@ -148,15 +149,18 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qek5x"]
 polygon = PackedVector2Array(-6, 0, -4, -3, 3, -3, 6, 0, 3, 0)
 
-[node name="player" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qek5x"]
+radius = 31.016125
+
+[node name="player" type="CharacterBody2D" unique_id=345459282 groups=["Player"]]
 collision_layer = 2
-collision_mask = 33
+collision_mask = 1057
 script = ExtResource("1_dovo2")
 
-[node name="central_head_point" type="Marker2D" parent="."]
+[node name="central_head_point" type="Marker2D" parent="." unique_id=331780470]
 position = Vector2(0, -11)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1781831729]
 y_sort_enabled = true
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
@@ -164,25 +168,25 @@ animation = &"IDLE"
 autoplay = "IDLE"
 frame_progress = 0.23760931
 
-[node name="eyes" type="Sprite2D" parent="." node_paths=PackedStringArray("central_head_point")]
+[node name="eyes" type="Sprite2D" parent="." unique_id=2067688981 node_paths=PackedStringArray("central_head_point")]
 visible = false
 position = Vector2(0, -11)
 texture = SubResource("AtlasTexture_lvxji")
 script = ExtResource("3_p47bc")
 central_head_point = NodePath("../central_head_point")
 
-[node name="hitbox" type="CollisionShape2D" parent="."]
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1720452892]
 position = Vector2(0, -3)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_qek5x")
 
-[node name="shadow" type="Sprite2D" parent="."]
+[node name="shadow" type="Sprite2D" parent="." unique_id=1448254715]
 z_index = -1
 texture = ExtResource("2_0owmy")
 region_enabled = true
 region_rect = Rect2(42, 24, 12, 5)
 
-[node name="dust_emmiter" type="CPUParticles2D" parent="."]
+[node name="dust_emmiter" type="CPUParticles2D" parent="." unique_id=103976307]
 material = SubResource("CanvasItemMaterial_5gtgg")
 emitting = false
 amount = 10
@@ -213,11 +217,11 @@ scale_amount_curve = SubResource("Curve_h17s1")
 color = Color(1, 1, 1, 0.78039217)
 anim_offset_max = 1.0
 
-[node name="dust" parent="." instance=ExtResource("7_0owmy")]
+[node name="dust" parent="." unique_id=1499358255 instance=ExtResource("7_0owmy")]
 z_index = -1
 emitting = false
 
-[node name="Trail2D" type="Line2D" parent="."]
+[node name="Trail2D" type="Line2D" parent="." unique_id=9302870]
 visible = false
 show_behind_parent = true
 z_index = -1
@@ -229,8 +233,21 @@ script = ExtResource("6_75vfm")
 length = 35
 metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
-[node name="WeaponManager" type="Node2D" parent="."]
+[node name="WeaponManager" type="Node2D" parent="." unique_id=184456515]
 script = ExtResource("8_qek5x")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2036417583]
 occluder = SubResource("OccluderPolygon2D_qek5x")
+
+[node name="menace_area" type="Area2D" parent="." unique_id=1774113303]
+collision_layer = 2
+collision_mask = 64
+script = ExtResource("9_5gtgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menace_area" unique_id=780782768]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_qek5x")
+debug_color = Color(0, 0.77254903, 0.9019608, 0)
+
+[connection signal="body_entered" from="menace_area" to="menace_area" method="_on_body_entered"]
+[connection signal="body_exited" from="menace_area" to="menace_area" method="_on_body_exited"]

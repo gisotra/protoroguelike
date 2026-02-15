@@ -102,6 +102,7 @@ drop_weapon={
 2d_physics/layer_8="bullets"
 2d_physics/layer_9="slash"
 2d_physics/layer_10="enemy_bullets"
+2d_physics/layer_11="npc_hitbox"
 
 [rendering]
 

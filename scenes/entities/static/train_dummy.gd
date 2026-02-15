@@ -9,7 +9,7 @@ func _process(delta: float) -> void :
 	if health.current_health < health.maxHealth and time_to_heal.is_stopped():
 		print("current health: ", health.current_health)
 		print("max health: ", health.maxHealth)
-		health.heal(1.5)
+		health.heal(0.8)
 		
 
 func _on_enemy_hurtbox_collided(damage, pos, knockback_vec) -> void:

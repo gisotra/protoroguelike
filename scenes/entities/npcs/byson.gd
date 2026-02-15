@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 @onready var interaction_component: InteractionComponent = $Interaction_Component
 

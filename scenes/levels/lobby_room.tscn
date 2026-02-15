@@ -48,7 +48,7 @@ transform = Transform2D(1.5, 0, 0, 1.5, 0, 0)
 position = Vector2(17, 7)
 
 [node name="SnowEmitter" parent="." unique_id=880001876 node_paths=PackedStringArray("player") instance=ExtResource("1_bgurf")]
-player = NodePath("../scenary/player")
+player = NodePath("../scenary/player/player")
 
 [node name="snow" type="Node2D" parent="." unique_id=1846400493]
 z_index = -1
@@ -66,20 +66,14 @@ y_sort_enabled = true
 [node name="enemies" type="Node2D" parent="scenary" unique_id=1901318921]
 y_sort_enabled = true
 
+[node name="train_dummy1" parent="scenary/enemies" unique_id=786815038 instance=ExtResource("18_fvktp")]
+position = Vector2(84, 72)
+
 [node name="train_dummy2" parent="scenary/enemies" unique_id=936238532 instance=ExtResource("18_fvktp")]
 position = Vector2(133, 126)
 
-[node name="camera" parent="scenary" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
-position = Vector2(-112, 196)
-zoom = Vector2(1.5, 1.5)
-limit_left = -318
-limit_top = -315
-limit_right = 322
-limit_bottom = 325
-player = NodePath("../player")
-
-[node name="player" parent="scenary" unique_id=1107309087 instance=ExtResource("2_cq85v")]
-position = Vector2(-112, 196)
+[node name="train_dummy3" parent="scenary/enemies" unique_id=271624257 instance=ExtResource("18_fvktp")]
+position = Vector2(224, 8)
 
 [node name="walls" type="Node2D" parent="scenary" unique_id=1012725034]
 position = Vector2(0, -32)
@@ -138,7 +132,7 @@ shape = SubResource("RectangleShape2D_6qtkm")
 position = Vector2(209, 98)
 
 [node name="RocketLauncher" parent="scenary/weapons_on_floor" unique_id=118527196 instance=ExtResource("12_bgurf")]
-position = Vector2(194, 9)
+position = Vector2(-197, 145)
 
 [node name="SniperRifle" parent="scenary/weapons_on_floor" unique_id=282255719 instance=ExtResource("13_fvktp")]
 position = Vector2(128, 7)
@@ -171,14 +165,38 @@ position = Vector2(0, 182)
 [node name="glow" parent="scenary" unique_id=687736012 instance=ExtResource("16_bgurf")]
 position = Vector2(0, 105)
 
+[node name="npcs" type="Node2D" parent="scenary" unique_id=176393525]
+y_sort_enabled = true
+
+[node name="byson" parent="scenary/npcs" unique_id=1110486136 instance=ExtResource("8_dxdr2")]
+position = Vector2(-199, 109)
+
+[node name="carpet" parent="scenary/npcs/byson" index="3" unique_id=620429569]
+position = Vector2(1, 39)
+
+[node name="player" type="Node2D" parent="scenary" unique_id=96449503]
+y_sort_enabled = true
+
+[node name="player" parent="scenary/player" unique_id=1107309087 instance=ExtResource("2_cq85v")]
+position = Vector2(-112, 196)
+
+[node name="camera" parent="scenary/player" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
+position = Vector2(-112, 196)
+zoom = Vector2(1.5, 1.5)
+limit_left = -318
+limit_top = -315
+limit_right = 322
+limit_bottom = 325
+player = NodePath("../player")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1347950732]
 environment = SubResource("Environment_t5hfm")
 
 [node name="desired_camera_point" type="Marker2D" parent="." unique_id=41066590]
 position = Vector2(0, -219)
 
-[node name="npc" parent="." unique_id=1110486136 instance=ExtResource("8_dxdr2")]
-position = Vector2(-223, 207)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1225028590]
 color = Color(0.8565899, 0.85659, 0.8565899, 1)
+
+[editable path="scenary/npcs/byson"]
+[editable path="scenary/npcs/byson/Interaction_Component"]

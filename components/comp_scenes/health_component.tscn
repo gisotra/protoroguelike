@@ -8,4 +8,8 @@ script = ExtResource("1_fvuvf")
 
 [node name="HealthBar" parent="." unique_id=496066527 instance=ExtResource("2_ghre4")]
 
+[node name="visibility_timer" type="Timer" parent="." unique_id=751203228]
+one_shot = true
+
 [connection signal="on_take_damage" from="." to="HealthBar" method="_on_health_component_on_take_damage"]
+[connection signal="timeout" from="visibility_timer" to="." method="_on_visibility_timer_timeout"]

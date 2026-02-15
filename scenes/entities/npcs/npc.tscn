@@ -1,37 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2tsr6a16pfw4"]
+[gd_scene load_steps=8 format=3 uid="uid://d2tsr6a16pfw4"]
 
-[ext_resource type="Texture2D" uid="uid://dvsgrmwc6riti" path="res://scenes/entities/npcs/merchant.png" id="1_ii721"]
-[ext_resource type="Script" uid="uid://cn3kvfoddxpfn" path="res://scenes/entities/npcs/npc.gd" id="1_kcbfn"]
+[ext_resource type="Script" uid="uid://cn3kvfoddxpfn" path="res://scenes/entities/npcs/byson.gd" id="1_kcbfn"]
+[ext_resource type="Texture2D" uid="uid://ctmmltsk15yjv" path="res://scenes/entities/npcs/merchant/byson.png" id="2_kcbfn"]
 [ext_resource type="Texture2D" uid="uid://bxm6uynhc06hf" path="res://scenes/UI/keys.png" id="3_cyk10"]
 [ext_resource type="PackedScene" uid="uid://dahyafqvjnpxn" path="res://components/comp_scenes/interaction_component.tscn" id="3_ii721"]
-[ext_resource type="Script" uid="uid://fpfu63mlr5lt" path="res://components/health_component.gd" id="5_cyk10"]
+[ext_resource type="Texture2D" uid="uid://7fy4bbpku4eu" path="res://scenes/entities/npcs/merchant/carpet.png" id="5_cyk10"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyk10"]
 radius = 30.805843
 
-[node name="npc" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kcbfn"]
+radius = 8.0
+
+[node name="byson_merchant2" type="StaticBody2D" unique_id=1980809926]
+collision_layer = 1024
+collision_mask = 0
 script = ExtResource("1_kcbfn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -13)
-texture = ExtResource("1_ii721")
-region_enabled = true
+[node name="byson_sprite" type="Sprite2D" parent="." unique_id=1364820336]
+position = Vector2(0, -9)
+texture = ExtResource("2_kcbfn")
+offset = Vector2(0, -4)
 region_rect = Rect2(144, 54, 38, 38)
 
-[node name="Interaction_Component" parent="." instance=ExtResource("3_ii721")]
+[node name="Interaction_Component" parent="." unique_id=1837301284 instance=ExtResource("3_ii721")]
 hover_sprite = ExtResource("3_cyk10")
 
 [node name="Sprite2D" parent="Interaction_Component" index="0"]
 position = Vector2(0, -40)
 texture = ExtResource("3_cyk10")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component" unique_id=839647202]
 position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_cyk10")
 debug_color = Color(0.9764706, 0, 0.41960785, 0)
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("5_cyk10")
-metadata/_custom_type_script = "uid://fpfu63mlr5lt"
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=2044417781]
+position = Vector2(1, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_kcbfn")
+
+[node name="carpet" type="Sprite2D" parent="." unique_id=620429569]
+z_index = -1
+position = Vector2(1, 43)
+texture = ExtResource("5_cyk10")
 
 [editable path="Interaction_Component"]

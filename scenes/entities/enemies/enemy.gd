@@ -9,7 +9,5 @@ class_name Enemy
 func _process(delta: float) -> void:
 	pass
 
-
-
 func _on_health_component_on_die() -> void:
 	queue_free()
