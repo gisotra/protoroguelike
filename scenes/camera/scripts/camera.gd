@@ -3,6 +3,7 @@ class_name GameCamera
 
 @export var player: Node2D
 @export var camera_states: states
+
 enum states {
 	AIM,
 	GUIDED

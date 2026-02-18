@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SwordSettings" load_steps=4 format=3 uid="uid://dcijbguu4k6pn"]
+
+[ext_resource type="Script" uid="uid://hcjoj7k40n5o" path="res://resources/swords/base/SwordSettings.gd" id="1_lrcro"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_dhht2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wip7g"]
+atlas = ExtResource("2_dhht2")
+region = Rect2(7, 195, 62, 25)
+
+[resource]
+script = ExtResource("1_lrcro")
+combo_size = 3
+sword_sprite = SubResource("AtlasTexture_wip7g")
+metadata/_custom_type_script = "uid://hcjoj7k40n5o"

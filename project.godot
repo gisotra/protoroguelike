@@ -28,7 +28,8 @@ InteractionManager="*res://components/autoload/InteractionManager.tscn"
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_height=320
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/size/window_width_override=1280
@@ -97,12 +98,13 @@ drop_weapon={
 2d_physics/layer_3="item"
 2d_physics/layer_4="player_hitbox"
 2d_physics/layer_5="player_hurtbox"
-2d_physics/layer_6="enemy_hitbox"
+2d_physics/layer_6="enemy"
 2d_physics/layer_7="enemy_hurtbox"
-2d_physics/layer_8="bullets"
+2d_physics/layer_8="enemy_hitbox"
 2d_physics/layer_9="slash"
-2d_physics/layer_10="enemy_bullets"
+2d_physics/layer_10="bullets"
 2d_physics/layer_11="npc_hitbox"
+2d_physics/layer_12="enemy_bullets"
 
 [rendering]
 

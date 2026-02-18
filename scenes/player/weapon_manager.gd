@@ -4,24 +4,24 @@ class_name WeaponManager
 
 ### Normalmente cada player terá a Normal Pistol como arma primária, mas haverá casos especiais. 
 @export var starting_weapon: PackedScene 
+@export var second_starting_weapon: PackedScene
 
 @onready var weapon_slots: Array[Weapon] = [ null, null ] 
 @onready var current_slot_index: int
-@onready var weapons_in_store: int = 0
 
-func _process(delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("drop_weapon"):
 		_drop_current_weapon(true)
 	if Input.is_action_just_pressed("switch_weapons"):
 		_switch_weapon()
 
-
 func _ready():
-	if starting_weapon:
+	if starting_weapon and second_starting_weapon:
 		_pick_up_weapon(starting_weapon.instantiate())
+		_pick_up_weapon(second_starting_weapon.instantiate())
 
 func _pick_up_weapon(weapon: Weapon):
-	if weapon.get_parent():
+	if weapon.get_parent(): # encontrei minha arma NO CHÃO 
 		weapon.reparent(self, false)
 	else:
 		add_child(weapon) #veio da memória (starting weapon)
@@ -54,7 +54,6 @@ func _switch_weapon():
 		return 
 	current_slot_index = 1 - current_slot_index # basicamente, inverto
 	_update_weapon_states()
-
 
 # array tools
 func _number_of_weapons_in_inventory() -> int:

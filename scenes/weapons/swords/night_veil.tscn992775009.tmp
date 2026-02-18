@@ -84,22 +84,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SlashArea:monitoring")
+tracks/3/path = NodePath("attackArea:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlashArea:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -149,26 +137,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SlashArea:monitoring")
+tracks/3/path = NodePath("attackArea:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.23),
+"times": PackedFloat32Array(0, 0.08408293, 0.16756095),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SlashArea:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_vrtwu"]
@@ -221,18 +197,16 @@ position = Vector2(20.86, -1)
 texture = ExtResource("5_kb7pb")
 hframes = 7
 
-[node name="SlashArea" type="Area2D" parent="." index="5" unique_id=1611693864]
-visible = false
+[node name="attackArea" type="Area2D" parent="." index="5" unique_id=1611693864]
 collision_layer = 256
-collision_mask = 65
+collision_mask = 2144
 monitoring = false
 script = ExtResource("6_vrtwu")
-damage = 50.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlashArea" index="0" unique_id=15631491]
-polygon = PackedVector2Array(3, -14, 7, 16, 27, 27, 37, 22, 44, 15, 45, 0, 37, -19, 24, -31, 1, -38)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="attackArea" index="0" unique_id=15631491]
+polygon = PackedVector2Array(3, -14, 7, 16, 27, 27, 41, 14, 32, -24, 1, -38)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="SlashArea" to="SlashArea" method="_on_body_entered"]
+[connection signal="body_entered" from="attackArea" to="attackArea" method="_on_body_entered"]
 
 [editable path="InteractionComponent"]

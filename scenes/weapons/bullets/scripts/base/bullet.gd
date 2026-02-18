@@ -51,7 +51,7 @@ func _physics_process(delta):
 	if collision_result != null:
 		var target = collision_result.get_collider() 
 		
-		if target.name == "EnemyHurtbox":
+		if target.has_method("takeDamage"): # é uma Enemy Hurtbox
 			IMPACT_FX_FLESH(collision_result)
 			target.takeDamage(damage, collision_result.get_position(), direction)
 		else:

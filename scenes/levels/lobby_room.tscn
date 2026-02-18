@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="Texture2D" uid="uid://dx0h3aifdpoup" path="res://scenes/scenary/visuals/newLobby_underBoard.png" id="10_t5hfm"]
 [ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="11_1bake"]
+[ext_resource type="PackedScene" uid="uid://smr3xcfbsy50" path="res://scenes/weapons/swords/dragon_melter.tscn" id="11_fvktp"]
 [ext_resource type="PackedScene" uid="uid://cb7tdfihvsbhj" path="res://scenes/weapons/guns/rocket_launcher.tscn" id="12_bgurf"]
 [ext_resource type="PackedScene" uid="uid://btwrq0c6pe32w" path="res://scenes/weapons/guns/sniper_rifle.tscn" id="13_fvktp"]
 [ext_resource type="PackedScene" uid="uid://b6o2515oorlsj" path="res://scenes/weapons/guns/tommy_gun.tscn" id="14_tpf23"]
@@ -144,6 +145,9 @@ position = Vector2(209, 135)
 
 [node name="Night Veil" parent="scenary/weapons_on_floor" unique_id=1959438198 instance=ExtResource("15_fvktp")]
 position = Vector2(40, 110)
+
+[node name="DragonMelter" parent="scenary/weapons_on_floor" unique_id=1172011209 instance=ExtResource("11_fvktp")]
+position = Vector2(-52, 94)
 
 [node name="props" type="Node2D" parent="scenary" unique_id=381100850]
 y_sort_enabled = true

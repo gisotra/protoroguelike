@@ -41,27 +41,28 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[node name="RocketLauncher" instance=ExtResource("1_bqdnc")]
+[node name="RocketLauncher" unique_id=758291586 instance=ExtResource("1_bqdnc")]
 bullet_scene = ExtResource("2_f4qrc")
 gun_settings = ExtResource("3_su21n")
 editor_anchor_pos = Vector2(0, -6)
 sprite_desired_offset = Vector2(25, -3)
 outline_sprite = SubResource("AtlasTexture_hh255")
 
-[node name="gun_sprite" parent="." index="0"]
+[node name="gun_sprite" parent="." index="0" unique_id=837767937]
 texture = SubResource("AtlasTexture_po802")
 
-[node name="shine_drop" parent="gun_sprite" index="0"]
+[node name="shine_drop" parent="gun_sprite" index="0" unique_id=1116682318]
 material = SubResource("CanvasItemMaterial_hh255")
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_tp7ur")
 
-[node name="outline" parent="gun_sprite" index="1"]
+[node name="outline" parent="gun_sprite" index="1" unique_id=55873763]
 texture = SubResource("AtlasTexture_hh255")
 
-[node name="muzzle" parent="." index="1"]
+[node name="muzzle" parent="." index="1" unique_id=313242942]
 position = Vector2(46, 0)
 
-[node name="Sprite2D" parent="Interaction_Component" index="0"]
+[node name="Sprite2D" parent="Interaction_Component" parent_id_path=PackedInt32Array(881789986) index="0"]
 position = Vector2(0, -19)
 
 [editable path="Interaction_Component"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ctl5ov2xsk68e"]
+[gd_scene load_steps=34 format=3 uid="uid://ctl5ov2xsk68e"]
 
 [ext_resource type="Script" uid="uid://cg5uw5br15moe" path="res://scenes/player/scripts/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bpemg75w6d76x" path="res://scenes/player/visuals/newplayersheet.png" id="2_0owmy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bys8blhndb5le" path="res://scenes/player/dust.tscn" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bspq66q8nm4wx" path="res://scenes/player/weapon_manager.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://x4vl70pm2yoq" path="res://scenes/player/menace_area.gd" id="9_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="9_h17s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("2_qek5x")
@@ -235,6 +236,7 @@ metadata/_custom_type_script = "uid://bb7133dhhvmtg"
 
 [node name="WeaponManager" type="Node2D" parent="." unique_id=184456515]
 script = ExtResource("8_qek5x")
+starting_weapon = ExtResource("9_h17s1")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2036417583]
 occluder = SubResource("OccluderPolygon2D_qek5x")

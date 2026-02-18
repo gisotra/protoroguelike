@@ -20,8 +20,8 @@ height = 44.0
 
 [node name="train_dummy" type="CharacterBody2D" unique_id=786815038]
 y_sort_enabled = true
-collision_layer = 32
-collision_mask = 3
+collision_layer = 160
+collision_mask = 259
 script = ExtResource("1_aj23i")
 metadata/_custom_type_script = "uid://b1yogkj2s51bj"
 

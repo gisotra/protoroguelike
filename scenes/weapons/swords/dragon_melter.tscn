@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://smr3xcfbsy50"]
+
+[ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_sqj1a"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_53iuo"]
+[ext_resource type="Script" uid="uid://bb3014eixsj38" path="res://scenes/weapons/swords/dragon_melter.gd" id="2_woh5h"]
+[ext_resource type="Resource" uid="uid://dcijbguu4k6pn" path="res://resources/swords/Dragon_Melter.tres" id="2_xu3a7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woh5h"]
+atlas = ExtResource("2_53iuo")
+region = Rect2(7, 195, 62, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu3a7"]
+atlas = ExtResource("2_53iuo")
+region = Rect2(113, 194, 64, 27)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vsg1r"]
+resource_local_to_scene = true
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_yyswi"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0353567, 1.9684544), 0.0, 0.0, 0, 0, Vector2(0.17928663, 0.96291864), 0.0, 0.0, 0, 0, Vector2(0.8478477, 0.93023217), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.6613204, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
+curve = SubResource("Curve_yyswi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tpw2o"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_rbehg")
+anim_offset_max = 1.0
+
+[node name="DragonMelter" unique_id=1172011209 instance=ExtResource("1_sqj1a")]
+script = ExtResource("2_woh5h")
+swordData = ExtResource("2_xu3a7")
+
+[node name="sword_sprite" parent="." index="0" unique_id=820839760]
+texture = SubResource("AtlasTexture_woh5h")
+
+[node name="outline" parent="sword_sprite" index="0" unique_id=2048506612]
+texture = SubResource("AtlasTexture_xu3a7")
+
+[node name="shine_drop" parent="sword_sprite" index="1" unique_id=655887570]
+material = SubResource("CanvasItemMaterial_vsg1r")
+process_material = SubResource("ParticleProcessMaterial_tpw2o")
+
+[editable path="InteractionComponent"]

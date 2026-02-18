@@ -41,7 +41,7 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[node name="TommyGun" instance=ExtResource("1_2lcsb")]
+[node name="TommyGun" unique_id=1297311963 instance=ExtResource("1_2lcsb")]
 bullet_scene = ExtResource("2_j4w8x")
 muzzle_burst_FX = ExtResource("3_cres3")
 editor_anchor_pos = Vector2(0, -6)

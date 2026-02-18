@@ -24,6 +24,7 @@ class_name Sword
 @onready var interaction_component: InteractionComponent = $InteractionComponent
 @onready var outline: Sprite2D = $sword_sprite/outline
 @onready var shine_drop: GPUParticles2D = $sword_sprite/shine_drop
+@onready var slash_sprite: Sprite2D = $slash_sprite
 
 # Addons
 @onready var camera: Camera2D = get_tree().get_first_node_in_group("Camera") #node global
@@ -37,7 +38,6 @@ func _ready() -> void:
 	
 	interaction_component.interact = Callable(self, "_on_interact")
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
@@ -49,8 +49,8 @@ func _process(delta: float) -> void:
 ### --------------------------------------- ARMA ATIVA NA MÃO DO PLAYER ---------------------------------------
 		WeaponState.HANDLED:
 			_manage_pos()
-			if Input.is_action_just_pressed("fire"):
-				animation_player.play("attack1")
+			
+			
 ### --------------------------------------- ARMA NO CHÃO (pickable) ---------------------------------------
 		WeaponState.DROP:
 			interaction_component.monitoring = true
@@ -69,7 +69,16 @@ func _on_interact():
 	if current_state == WeaponState.DROP:
 		player.weapon_manager._pick_up_weapon(self) #ATRIBUIR MEU NODE DA ARMA (que está no chão) PARA O MEU PLAYER 
 
+func _input(event: InputEvent) -> void:
+	if current_state == WeaponState.HANDLED:
+		if Input.is_action_just_pressed("fire"):
+			_attack()
+	
 #  Weapon Class Overrided Methods
+
+func _attack():
+	# terá override
+	print("ataque")
 
 func _manage_pos():
 	"""
@@ -113,7 +122,7 @@ func _transition_to_handled():
 	outline.hide()
 	shine_drop.emitting = false
 	sword_sprite.offset.x = sprite_desired_offset.x
-	sword_sprite.rotation = -40
+	sword_sprite.rotation = 0
 	current_state = WeaponState.HANDLED
 
 #Override

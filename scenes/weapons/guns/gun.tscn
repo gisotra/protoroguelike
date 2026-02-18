@@ -38,32 +38,32 @@ anim_offset_max = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_mfrst"]
 radius = 29.017237
 
-[node name="Gun" type="Node2D"]
+[node name="Gun" type="Node2D" unique_id=1094384031]
 position = Vector2(0, -0.9480543)
 script = ExtResource("1_76485")
 bullet_scene = ExtResource("2_vdc87")
 gun_settings = ExtResource("3_3fbfd")
 on_floor = true
 
-[node name="gun_sprite" type="Sprite2D" parent="."]
+[node name="gun_sprite" type="Sprite2D" parent="." unique_id=837767937]
 
-[node name="shine_drop" parent="gun_sprite" instance=ExtResource("4_eb8y7")]
+[node name="shine_drop" parent="gun_sprite" unique_id=1116682318 instance=ExtResource("4_eb8y7")]
 material = SubResource("CanvasItemMaterial_eb8y7")
 process_material = SubResource("ParticleProcessMaterial_fp03h")
 
-[node name="outline" type="Sprite2D" parent="gun_sprite"]
+[node name="outline" type="Sprite2D" parent="gun_sprite" unique_id=55873763]
 
-[node name="muzzle" type="Marker2D" parent="."]
+[node name="muzzle" type="Marker2D" parent="." unique_id=313242942]
 
-[node name="flash_point" type="Marker2D" parent="."]
+[node name="flash_point" type="Marker2D" parent="." unique_id=1901676333]
 
-[node name="fire_rate_timer" type="Timer" parent="."]
+[node name="fire_rate_timer" type="Timer" parent="." unique_id=844035944]
 one_shot = true
 
-[node name="Interaction_Component" parent="." instance=ExtResource("2_mgo42")]
+[node name="Interaction_Component" parent="." unique_id=881789986 instance=ExtResource("2_mgo42")]
 hover_sprite = ExtResource("3_imjbj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Component" unique_id=621324421]
 shape = SubResource("CircleShape2D_mfrst")
 debug_color = Color(0, 0.6509804, 0.13333334, 0)
 
