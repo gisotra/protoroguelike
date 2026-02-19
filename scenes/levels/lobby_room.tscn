@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://dacrcyjtpm36g"]
+[gd_scene load_steps=25 format=3 uid="uid://dacrcyjtpm36g"]
 
 [ext_resource type="PackedScene" uid="uid://culccqnh0ukgy" path="res://scenes/levels/emmiters/snow_emitter.tscn" id="1_bgurf"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="1_e5vng"]
 [ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_cq85v"]
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_e5vng"]
 [ext_resource type="Texture2D" uid="uid://28ux7f4r2bbb" path="res://scenes/scenary/visuals/newLobby4.png" id="3_tpf23"]
+[ext_resource type="PackedScene" uid="uid://bwfqh1u2ydg0e" path="res://scenes/weapons/swords/Masamune.tscn" id="6_tpf23"]
 [ext_resource type="PackedScene" uid="uid://d2tsr6a16pfw4" path="res://scenes/entities/npcs/npc.tscn" id="8_dxdr2"]
 [ext_resource type="Texture2D" uid="uid://dx0h3aifdpoup" path="res://scenes/scenary/visuals/newLobby_underBoard.png" id="10_t5hfm"]
 [ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="11_1bake"]
@@ -129,6 +130,9 @@ shape = SubResource("RectangleShape2D_6qtkm")
 
 [node name="weapons_on_floor" type="Node2D" parent="scenary" unique_id=1161166599]
 
+[node name="Masamune" parent="scenary/weapons_on_floor" unique_id=1172011209 instance=ExtResource("6_tpf23")]
+position = Vector2(26.207382, 59.25847)
+
 [node name="Pistol" parent="scenary/weapons_on_floor" unique_id=1504785492 instance=ExtResource("11_1bake")]
 position = Vector2(209, 98)
 
@@ -146,7 +150,7 @@ position = Vector2(209, 135)
 [node name="Night Veil" parent="scenary/weapons_on_floor" unique_id=1959438198 instance=ExtResource("15_fvktp")]
 position = Vector2(40, 110)
 
-[node name="DragonMelter" parent="scenary/weapons_on_floor" unique_id=1172011209 instance=ExtResource("11_fvktp")]
+[node name="DragonMelter" parent="scenary/weapons_on_floor" unique_id=265169357 instance=ExtResource("11_fvktp")]
 position = Vector2(-52, 94)
 
 [node name="props" type="Node2D" parent="scenary" unique_id=381100850]

@@ -4,9 +4,5 @@ extends Sword
 
 func _attack():
 	slash_area.direction = (get_global_mouse_position() - global_position).normalized()
-	player.velocity += slash_area.direction * 15 #avanço pra frente
+	#player.velocity += slash_area.direction * 180
 	animation_player.play("attack")
-	"""
-	é responsabilidade da espada decidir a DIREÇÃO daquele slash, o slash nao sabe "pra onde ele está olhando" 
-	
-	"""

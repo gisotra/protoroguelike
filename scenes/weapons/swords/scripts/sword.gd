@@ -122,6 +122,7 @@ func _transition_to_handled():
 	outline.hide()
 	shine_drop.emitting = false
 	sword_sprite.offset.x = sprite_desired_offset.x
+	sword_sprite.offset.y = sprite_desired_offset.y	
 	sword_sprite.rotation = 0
 	current_state = WeaponState.HANDLED
 

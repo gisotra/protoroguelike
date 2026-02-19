@@ -9,7 +9,6 @@ region = Rect2(3, 168, 44, 17)
 
 [resource]
 script = ExtResource("1_y58xb")
-base_damage = 50.0
 combo_size = 3
 sword_sprite = SubResource("AtlasTexture_loucf")
 metadata/_custom_type_script = "uid://hcjoj7k40n5o"

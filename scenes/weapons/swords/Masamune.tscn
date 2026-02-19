@@ -1,21 +1,25 @@
-[gd_scene load_steps=17 format=3 uid="uid://cx46k135omu11"]
+[gd_scene load_steps=17 format=3 uid="uid://bwfqh1u2ydg0e"]
 
-[ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_garad"]
-[ext_resource type="Resource" uid="uid://di5oa2iupmtc8" path="res://resources/swords/Night_Veil.tres" id="2_d4xpm"]
-[ext_resource type="Script" uid="uid://ortecp085sb1" path="res://scenes/weapons/swords/night_veil.gd" id="2_jj02w"]
-[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="3_bihkw"]
-[ext_resource type="Texture2D" uid="uid://c3sqyp15soehv" path="res://scenes/weapons/swords/sword_animations/nightVeil/nightVeilSLASH.png" id="5_kb7pb"]
-[ext_resource type="Script" uid="uid://cnhfak8t8c64t" path="res://scenes/weapons/swords/attack_area.gd" id="6_vrtwu"]
+[ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_o6rjb"]
+[ext_resource type="Resource" uid="uid://dmmk2n5vbebct" path="res://resources/swords/Masamune.tres" id="2_lmlps"]
+[ext_resource type="Script" uid="uid://cpoqij51x43cy" path="res://scenes/weapons/swords/masamune.gd" id="2_uyoi4"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="3_miiyw"]
+[ext_resource type="Texture2D" uid="uid://3w4yk6uy8kro" path="res://scenes/weapons/swords/sword_animations/katanaAah/masamuneSlash.png" id="4_uyoi4"]
+[ext_resource type="Script" uid="uid://cnhfak8t8c64t" path="res://scenes/weapons/swords/attack_area.gd" id="6_1litm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jj02w"]
-atlas = ExtResource("3_bihkw")
-region = Rect2(131, 166, 46, 19)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wce0x"]
+atlas = ExtResource("3_miiyw")
+region = Rect2(134, 238, 33, 6)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_loucf"]
-atlas = ExtResource("3_bihkw")
-region = Rect2(3, 168, 44, 17)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1litm"]
+atlas = ExtResource("3_miiyw")
+region = Rect2(11, 239, 31, 4)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jj02w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko6l8"]
+atlas = ExtResource("3_miiyw")
+region = Rect2(134, 238, 33, 6)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vsg1r"]
 resource_local_to_scene = true
 particles_animation = true
 particles_anim_h_frames = 6
@@ -30,7 +34,7 @@ point_count = 5
 [sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
 curve = SubResource("Curve_yyswi")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrtwu"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tpw2o"]
 resource_local_to_scene = true
 particle_flag_disable_z = true
 emission_shape = 3
@@ -43,31 +47,31 @@ gravity = Vector3(0, -10, 0)
 scale_curve = SubResource("CurveTexture_rbehg")
 anim_offset_max = 1.0
 
-[sub_resource type="Animation" id="Animation_jj02w"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_1litm"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("slash_sprite:visible")
+tracks/0/path = NodePath("sword_sprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("sword_sprite:visible")
+tracks/1/path = NodePath("slash_sprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,9 +110,9 @@ tracks/4/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_kb7pb"]
+[sub_resource type="Animation" id="Animation_ko6l8"]
 resource_name = "attack"
-length = 0.45
+length = 0.41
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,7 +121,7 @@ tracks/0/path = NodePath("sword_sprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.37),
+"times": PackedFloat32Array(0, 0.41),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -129,7 +133,7 @@ tracks/1/path = NodePath("slash_sprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.37),
+"times": PackedFloat32Array(0, 0.41),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -141,7 +145,7 @@ tracks/2/path = NodePath("slash_sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.01, 0.04, 0.07, 0.16, 0.19, 0.23, 0.28),
+"times": PackedFloat32Array(0.0014277361, 0.04, 0.08, 0.16, 0.23, 0.29, 0.35),
 "transitions": PackedFloat32Array(2, 2, 2, 2, 2, 2, 2),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -153,10 +157,10 @@ tracks/3/path = NodePath("SlashArea:monitoring")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.23),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.21967383),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -165,75 +169,60 @@ tracks/4/path = NodePath("SlashArea:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.23),
+"times": PackedFloat32Array(0, 0.21967383),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_vrtwu"]
-resource_name = "attack2"
-step = 0.01
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6i4d3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d3kcp"]
 _data = {
-&"RESET": SubResource("Animation_jj02w"),
-&"attack": SubResource("Animation_kb7pb"),
-&"attack2": SubResource("Animation_vrtwu")
+&"RESET": SubResource("Animation_1litm"),
+&"attack": SubResource("Animation_ko6l8")
 }
 
-[node name="Night Veil" unique_id=370991695 node_paths=PackedStringArray("drop_shine") instance=ExtResource("1_garad")]
-script = ExtResource("2_jj02w")
-swordData = ExtResource("2_d4xpm")
-editor_anchor_pos = Vector2(0, -3)
-sprite_desired_offset = Vector2(25, 0)
-weight = 50.0
-outline_sprite = SubResource("AtlasTexture_jj02w")
+[node name="Masamune" unique_id=1172011209 node_paths=PackedStringArray("drop_shine") instance=ExtResource("1_o6rjb")]
+script = ExtResource("2_uyoi4")
+swordData = ExtResource("2_lmlps")
+sprite_desired_offset = Vector2(-2, -4)
+weight = 30.0
+outline_sprite = SubResource("AtlasTexture_wce0x")
 drop_shine = NodePath("sword_sprite/shine_drop")
 
 [node name="sword_sprite" parent="." index="0" unique_id=820839760]
-texture = SubResource("AtlasTexture_loucf")
+texture = SubResource("AtlasTexture_1litm")
 
 [node name="outline" parent="sword_sprite" index="0" unique_id=2048506612]
-texture = SubResource("AtlasTexture_jj02w")
+visible = false
+texture = SubResource("AtlasTexture_ko6l8")
 
 [node name="shine_drop" parent="sword_sprite" index="1" unique_id=655887570]
-material = SubResource("CanvasItemMaterial_jj02w")
-process_material = SubResource("ParticleProcessMaterial_vrtwu")
+material = SubResource("CanvasItemMaterial_vsg1r")
+process_material = SubResource("ParticleProcessMaterial_tpw2o")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=479045648]
 libraries = {
-&"": SubResource("AnimationLibrary_6i4d3")
+&"": SubResource("AnimationLibrary_d3kcp")
 }
 autoplay = &"RESET"
 
-[node name="Sprite2D" parent="InteractionComponent" parent_id_path=PackedInt32Array(923986455) index="0"]
-position = Vector2(0, -21)
-
-[node name="CollisionShape2D" parent="InteractionComponent" parent_id_path=PackedInt32Array(923986455) index="2" unique_id=331445354]
+[node name="slash_sprite" parent="." index="3" unique_id=1456262753]
 visible = false
-
-[node name="cut" type="Marker2D" parent="." index="3" unique_id=1616370656]
-position = Vector2(51, 0)
-
-[node name="slash_sprite" parent="." index="4" unique_id=1456262753]
-visible = false
-position = Vector2(20.86, -1)
-texture = ExtResource("5_kb7pb")
+position = Vector2(25.5, -14)
+texture = ExtResource("4_uyoi4")
 hframes = 7
 
-[node name="SlashArea" type="Area2D" parent="." index="5" unique_id=1611693864]
+[node name="SlashArea" type="Area2D" parent="." index="4" unique_id=1175092775]
 visible = false
 collision_layer = 256
 collision_mask = 65
 monitoring = false
-script = ExtResource("6_vrtwu")
+script = ExtResource("6_1litm")
 damage = 50.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlashArea" index="0" unique_id=15631491]
-polygon = PackedVector2Array(3, -14, 7, 16, 27, 27, 37, 22, 44, 15, 45, 0, 37, -19, 24, -31, 1, -38)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlashArea" index="0" unique_id=958818654]
+polygon = PackedVector2Array(-10, -10, 6, -14, 53, -12, 70, -3, 64, 2, 33, 5, 20, 3)
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="SlashArea" to="SlashArea" method="_on_body_entered"]
 
 [editable path="InteractionComponent"]

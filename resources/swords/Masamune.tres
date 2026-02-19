@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SwordSettings" load_steps=4 format=3 uid="uid://dmmk2n5vbebct"]
+
+[ext_resource type="Script" uid="uid://hcjoj7k40n5o" path="res://resources/swords/base/SwordSettings.gd" id="1_kwm0p"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_gew32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afn54"]
+atlas = ExtResource("2_gew32")
+region = Rect2(11, 239, 31, 4)
+
+[resource]
+script = ExtResource("1_kwm0p")
+combo_size = 1
+player_knockback = 50.0
+enemy_knockback = 70.0
+sword_sprite = SubResource("AtlasTexture_afn54")
+metadata/_custom_type_script = "uid://hcjoj7k40n5o"
