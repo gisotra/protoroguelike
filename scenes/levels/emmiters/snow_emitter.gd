@@ -9,4 +9,5 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	global_position.x = player.global_position.x 
-	global_position.y = player.global_position.y - 120
+	global_position.y = player.global_position.y - 240
+	

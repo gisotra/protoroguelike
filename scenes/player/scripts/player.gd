@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 150.0
+@export var SPEED = 150.0
 const coeficiente_de_aceleracao = .15
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var eyes: Sprite2D = $eyes
@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 	#handle movement
 	var direction
 	direction = Input.get_vector("move_left", "move_right","move_up","move_down")
-	
 	var target_velocity: Vector2 = direction * SPEED
 	
 	#handles animation

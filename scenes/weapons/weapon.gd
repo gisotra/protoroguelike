@@ -12,7 +12,7 @@ enum WeaponState {
 	DROP,    # Está no chão
 	STORED   # Player guardou
 }
-
+	
 func _manage_pos():
 	look_at(get_global_mouse_position())
 	rotation_degrees = wrap(rotation_degrees, 0, 360)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm7544al7i108"]
+[gd_scene format=3 uid="uid://dm7544al7i108"]
 
-[ext_resource type="Texture2D" uid="uid://ci230ejxvvmeq" path="res://scenes/scenary/visuals/fire.png" id="1_3a3r5"]
 [ext_resource type="Script" uid="uid://do05rldfmc1rm" path="res://scenes/scenary/scripts/lobby_firepit.gd" id="2_4xil8"]
 
 [sub_resource type="Gradient" id="Gradient_bk34j"]
@@ -33,9 +32,8 @@ scale_max = 1.25
 scale_curve = SubResource("CurveTexture_rbehg")
 color_ramp = SubResource("GradientTexture1D_5bhke")
 
-[node name="firepit" type="GPUParticles2D"]
+[node name="firepit" type="GPUParticles2D" unique_id=706974510]
 amount = 80
-texture = ExtResource("1_3a3r5")
 lifetime = 1.1
 randomness = 0.27
 fixed_fps = 60

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://culccqnh0ukgy"]
+[gd_scene format=3 uid="uid://culccqnh0ukgy"]
 
 [ext_resource type="Texture2D" uid="uid://b6l546qda38nm" path="res://scenes/levels/emmiters/snow_flakes.png" id="1_0ys3s"]
 [ext_resource type="Script" uid="uid://bquyrkjt8nhq3" path="res://scenes/levels/emmiters/snow_emitter.gd" id="1_cssu6"]
@@ -27,7 +27,7 @@ curve = SubResource("Curve_cssu6")
 lifetime_randomness = 0.19
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(250, 1, 1)
+emission_box_extents = Vector3(500, 1, 1)
 angle_min = -77.399994
 angle_max = 77.40001
 direction = Vector3(-1, 1, 0)
@@ -46,15 +46,15 @@ anim_speed_min = 1.0
 anim_speed_max = 3.0
 anim_offset_max = 1.0
 
-[node name="SnowEmitter" type="Node2D"]
+[node name="SnowEmitter" type="Node2D" unique_id=158175996]
 process_mode = 3
 top_level = true
 script = ExtResource("1_cssu6")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1979130056]
 material = SubResource("CanvasItemMaterial_xr2yj")
 position = Vector2(27, 0)
-amount = 50
+amount = 100
 texture = ExtResource("1_0ys3s")
 lifetime = 9.13
 explosiveness = 0.08

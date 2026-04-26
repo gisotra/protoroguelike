@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cx46k135omu11"]
+[gd_scene format=3 uid="uid://cx46k135omu11"]
 
 [ext_resource type="PackedScene" uid="uid://cwpryeapp5soo" path="res://scenes/weapons/swords/sword.tscn" id="1_garad"]
 [ext_resource type="Resource" uid="uid://di5oa2iupmtc8" path="res://resources/swords/Night_Veil.tres" id="2_d4xpm"]
@@ -15,7 +15,7 @@ region = Rect2(131, 166, 46, 19)
 atlas = ExtResource("3_bihkw")
 region = Rect2(3, 168, 44, 17)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jj02w"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vrtwu"]
 resource_local_to_scene = true
 particles_animation = true
 particles_anim_h_frames = 6
@@ -30,7 +30,7 @@ point_count = 5
 [sub_resource type="CurveTexture" id="CurveTexture_rbehg"]
 curve = SubResource("Curve_yyswi")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vrtwu"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7d6x8"]
 resource_local_to_scene = true
 particle_flag_disable_z = true
 emission_shape = 3
@@ -198,13 +198,11 @@ texture = SubResource("AtlasTexture_loucf")
 texture = SubResource("AtlasTexture_jj02w")
 
 [node name="shine_drop" parent="sword_sprite" index="1" unique_id=655887570]
-material = SubResource("CanvasItemMaterial_jj02w")
-process_material = SubResource("ParticleProcessMaterial_vrtwu")
+material = SubResource("CanvasItemMaterial_vrtwu")
+process_material = SubResource("ParticleProcessMaterial_7d6x8")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=479045648]
-libraries = {
-&"": SubResource("AnimationLibrary_6i4d3")
-}
+libraries/ = SubResource("AnimationLibrary_6i4d3")
 autoplay = &"RESET"
 
 [node name="Sprite2D" parent="InteractionComponent" parent_id_path=PackedInt32Array(923986455) index="0"]

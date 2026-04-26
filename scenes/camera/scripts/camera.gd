@@ -14,10 +14,9 @@ var desired_offset: Vector2
 var min_off_set = -150
 var max_off_set = 150
 
-#Shake
+#Shake	
 var shake_fade: float = 10.0
 var shake_strength: float
-
 func _ready():
 	camera_states = states.AIM
 	
