@@ -1,0 +1,38 @@
+o que implementar: 
+
+mexer na camera 
+cria uma nova sala
+ia de inimigos
+melhorar o player
+
+zoom quando for falar com npc
+
+
+sistema de vida:
+
+quando que é necessário mostrar a vida dos inimigos?
+> muitas vezes só não é necessário
+análise de dois jogos
+
+dead cells: 
+    - gameplay estratégica
+    - builds que envolvem cálculo e raciocínio
+    - números de "dano" ao impacto de ataques são uma RECOMPENSA visual para 
+o jogador, evidenciando se a sua estratégia de build deu certo;
+    - ex: Você se esforça a run inteira pra pegar 20 pergaminhos de violência, 
+e um ataque crítico estoura 20000 pt 
+    OU SEJA, se o jogo envolve calculos complexos, estratégia de arvore de 
+habilidades, upgrades e etc, mostrar a vida dos inimigos e dano 
+
+nuclear throne:
+    - tem "arcade flow", você senta na cadeira, abre uma run, mata tudo o que 
+tem na frente e não pensa mto a respeito, o jogo quer aflorar os seus INSTINTOS,
+não o seu raciocínio;
+    - é muito inimigo na tela;
+    - bullet hell;
+    - ex: Se fosse pra mostrar um numero toda vez que voce acertasse ou fosse
+acertado no jogo teria poluição visual 
+    OU SEJA, o jogo quer ser simples quer ter um flow simples, ele NÃO precisa
+de um sistema de vida visual;
+
+

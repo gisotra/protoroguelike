@@ -6,7 +6,7 @@ class_name GameCamera
 
 enum states {
 	AIM,
-	GUIDED
+	CINEMATIC
 }
 
 #Mouse Oriented Camera
@@ -14,7 +14,7 @@ var desired_offset: Vector2
 var min_off_set = -150
 var max_off_set = 150
 
-#Shake	
+#Shake
 var shake_fade: float = 10.0
 var shake_strength: float
 func _ready():
@@ -24,13 +24,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match camera_states:
+# ------------ AIM FOR SHOOTING ------------ 
 		states.AIM:
 			desired_offset = (get_global_mouse_position() - position) * 0.5
 			desired_offset.x = clamp(desired_offset.x, min_off_set, max_off_set)
 			desired_offset.y = clamp(desired_offset.y, min_off_set / 2.0, max_off_set / 2.0)
-	
 			global_position = player.global_position + desired_offset
-		states.GUIDED:
+			
+# ------------ FOCUS ON NPC ------------ 
+		states.CINEMATIC:
 			desired_offset = (get_global_mouse_position() - position) * 0.5
 			desired_offset.x = clamp(desired_offset.x, min_off_set, max_off_set)
 			global_position.x = player.global_position.x + desired_offset.x

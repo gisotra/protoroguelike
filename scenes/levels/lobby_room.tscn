@@ -186,7 +186,6 @@ position = Vector2(-112, 196)
 
 [node name="camera" parent="scenary/player" unique_id=1486474668 node_paths=PackedStringArray("player") instance=ExtResource("3_e5vng")]
 position = Vector2(-112, 196)
-zoom = Vector2(1, 1)
 limit_left = -318
 limit_top = -315
 limit_right = 322
