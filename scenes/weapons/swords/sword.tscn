@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwpryeapp5soo"]
+[gd_scene format=3 uid="uid://cwpryeapp5soo"]
 
 [ext_resource type="Script" uid="uid://c20jb37gyqxd6" path="res://scenes/weapons/swords/scripts/sword.gd" id="1_26wvk"]
 [ext_resource type="PackedScene" uid="uid://bpupxjsevyybh" path="res://scenes/weapons/drop_shining.tscn" id="3_tpw2o"]
@@ -42,6 +42,7 @@ on_floor = true
 [node name="sword_sprite" type="Sprite2D" parent="." unique_id=820839760]
 
 [node name="outline" type="Sprite2D" parent="sword_sprite" unique_id=2048506612]
+show_behind_parent = true
 
 [node name="shine_drop" parent="sword_sprite" unique_id=655887570 instance=ExtResource("3_tpw2o")]
 material = SubResource("CanvasItemMaterial_vsg1r")

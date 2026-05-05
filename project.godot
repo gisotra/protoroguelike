@@ -36,7 +36,6 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 
 [dotnet]
 
@@ -45,6 +44,16 @@ project/assembly_name="protoroguelike"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/trail_2d/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://components/": "yellow",
+"res://resources/": "orange",
+"res://scenes/": "teal",
+"res://singleton/": "pink"
+}
 
 [global_group]
 

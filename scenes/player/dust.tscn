@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bys8blhndb5le"]
+[gd_scene format=3 uid="uid://bys8blhndb5le"]
 
 [ext_resource type="Texture2D" uid="uid://cyybuuywpluxa" path="res://scenes/player/visuals/smoke.png" id="1_ks4uv"]
 
@@ -10,8 +10,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_hvgcl"]
-offsets = PackedFloat32Array(0, 0.959276)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_p32id"]
 gradient = SubResource("Gradient_hvgcl")
@@ -39,11 +38,13 @@ scale_curve = SubResource("CurveTexture_veaii")
 color_ramp = SubResource("GradientTexture1D_p32id")
 anim_offset_max = 1.0
 
-[node name="dust" type="GPUParticles2D"]
+[node name="dust" type="GPUParticles2D" unique_id=388746441]
 material = SubResource("CanvasItemMaterial_1vtmn")
+amount = 10
+amount_ratio = 0.9372
 texture = ExtResource("1_ks4uv")
-lifetime = 0.6900000000000001
-explosiveness = 0.14
+lifetime = 0.58
+explosiveness = 0.38
 fixed_fps = 60
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_hvgcl")

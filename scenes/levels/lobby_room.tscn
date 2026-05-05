@@ -46,6 +46,7 @@ adjustment_saturation = 1.09
 position = Vector2(17, 7)
 
 [node name="SnowEmitter" parent="." unique_id=880001876 node_paths=PackedStringArray("player") instance=ExtResource("1_bgurf")]
+visible = false
 player = NodePath("../scenary/player/player")
 
 [node name="snow" type="Node2D" parent="." unique_id=1846400493]

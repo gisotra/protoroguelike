@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://8h7bn7m7t0wq"]
+
+[node name="RoomStructure" type="Node2D" unique_id=308571101]
+
+[node name="YSortHandler" type="Node2D" parent="." unique_id=1196374115]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="YSortHandler" unique_id=1285646254]
+
+[node name="Entities" type="Node2D" parent="YSortHandler" unique_id=1840738434]
