@@ -1,7 +1,7 @@
 extends CanvasLayer
 class_name GameUI
 
-@export var player : Node2D 
+@export var player : Player 
 
 func _ready() -> void:
 	pass # Replace with function body.

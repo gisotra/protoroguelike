@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://cm4wyr15qpsl2"]
 
-[ext_resource type="PackedScene" uid="uid://blkt2eekpfrsj" path="res://components/health/health_ui.tscn" id="1_bwyfi"]
+[ext_resource type="Script" uid="uid://cc4br8gc0lcef" path="res://components/health/game_ui.gd" id="1_ibsu8"]
+[ext_resource type="Texture2D" uid="uid://dlcb0mceq6wrw" path="res://components/health/healthslots.png" id="2_qsd0w"]
+[ext_resource type="Texture2D" uid="uid://dqru1iyd4wk7d" path="res://components/health/lifeHudBar.png" id="3_g7mx2"]
+[ext_resource type="Texture2D" uid="uid://dg8kt57g3jeyd" path="res://components/health/weaponSlotHalf1.png" id="4_efyo6"]
+[ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="5_wqyo1"]
+[ext_resource type="Texture2D" uid="uid://ca2efklcu2ir6" path="res://components/health/weaponSlotHalf2.png" id="6_v7qp1"]
+[ext_resource type="Texture2D" uid="uid://7xsr2sbodokt" path="res://components/health/minimap.png" id="7_wqyo1"]
+[ext_resource type="Script" uid="uid://c64fkpqqe7wg3" path="res://scenes/UI/scripts/mini_map_viewport.gd" id="8_v7qp1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61fi8"]
+atlas = ExtResource("5_wqyo1")
+region = Rect2(8, 169, 39, 15)
 
 [node name="GameLevel" type="Node2D" unique_id=1246050146]
 
@@ -14,9 +25,159 @@
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2065223928]
 
-[node name="GameUI" parent="." unique_id=1436150157 instance=ExtResource("1_bwyfi")]
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=1436150157]
+script = ExtResource("1_ibsu8")
 
-[node name="healthHudBar" parent="GameUI" index="1" unique_id=793744131]
+[node name="MarginContainer" type="MarginContainer" parent="GameUI" unique_id=1617578999]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HealthUI" type="Control" parent="GameUI/MarginContainer" unique_id=348854228]
+layout_mode = 2
+
+[node name="HeartsVContainer" type="VBoxContainer" parent="GameUI/MarginContainer/HealthUI" unique_id=2002730559]
+layout_mode = 1
 anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 109.0
+grow_vertical = 0
 
-[editable path="GameUI"]
+[node name="HeartsHContainer" type="HBoxContainer" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer" unique_id=510901766]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer" unique_id=1625851001]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HealthSlot" type="Sprite2D" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer/TextureRect" unique_id=5620002]
+texture = ExtResource("2_qsd0w")
+centered = false
+hframes = 2
+
+[node name="TextureRect2" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer" unique_id=750647368]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HealthSlot" type="Sprite2D" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer/TextureRect2" unique_id=1016444725]
+texture = ExtResource("2_qsd0w")
+centered = false
+hframes = 2
+
+[node name="TextureRect3" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer" unique_id=59698289]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HealthSlot" type="Sprite2D" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer/TextureRect3" unique_id=1448694526]
+texture = ExtResource("2_qsd0w")
+centered = false
+hframes = 2
+
+[node name="TextureRect4" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer" unique_id=1688877475]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HealthSlot" type="Sprite2D" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer/TextureRect4" unique_id=1489743981]
+texture = ExtResource("2_qsd0w")
+centered = false
+hframes = 2
+
+[node name="TextureRect5" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer" unique_id=135506602]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="HealthSlot" type="Sprite2D" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer/HeartsHContainer/TextureRect5" unique_id=1958493809]
+texture = ExtResource("2_qsd0w")
+centered = false
+hframes = 2
+
+[node name="HealthHudBar" type="TextureRect" parent="GameUI/MarginContainer/HealthUI/HeartsVContainer" unique_id=793744131]
+layout_mode = 2
+texture = ExtResource("3_g7mx2")
+stretch_mode = 5
+
+[node name="WeaponUI" type="Control" parent="GameUI/MarginContainer" unique_id=1931107979]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/MarginContainer/WeaponUI" unique_id=370916169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 179.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="FirstHalf" type="TextureRect" parent="GameUI/MarginContainer/WeaponUI/HBoxContainer" unique_id=1856768373]
+layout_mode = 2
+texture = ExtResource("4_efyo6")
+stretch_mode = 5
+
+[node name="WeaponSprite" type="TextureRect" parent="GameUI/MarginContainer/WeaponUI/HBoxContainer" unique_id=1297118920]
+layout_mode = 2
+texture = SubResource("AtlasTexture_61fi8")
+stretch_mode = 5
+
+[node name="SecondHalf" type="TextureRect" parent="GameUI/MarginContainer/WeaponUI/HBoxContainer" unique_id=1083688848]
+layout_mode = 2
+texture = ExtResource("6_v7qp1")
+stretch_mode = 5
+
+[node name="MiniMapUI" type="Control" parent="GameUI/MarginContainer" unique_id=1993281764]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/MarginContainer/MiniMapUI" unique_id=503431857]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 355.0
+offset_top = 156.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_wqyo1")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/MarginContainer/MiniMapUI/TextureRect" unique_id=1280462699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer" unique_id=340822153]
+clip_contents = true
+layout_mode = 2
+
+[node name="MiniMapViewport" type="SubViewport" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer/SubViewportContainer" unique_id=1567517139]
+handle_input_locally = false
+size = Vector2i(50, 40)
+render_target_update_mode = 4
+script = ExtResource("8_v7qp1")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer/SubViewportContainer/MiniMapViewport" unique_id=1401033764]
+
+[node name="MiniCamera" type="Camera2D" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer/SubViewportContainer/MiniMapViewport" unique_id=938286701]

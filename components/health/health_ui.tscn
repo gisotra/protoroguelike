@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blkt2eekpfrsj"]
 
-[ext_resource type="Script" uid="uid://cc4br8gc0lcef" path="res://components/health/health_ui.gd" id="1_m5p87"]
+[ext_resource type="Script" uid="uid://cc4br8gc0lcef" path="res://components/health/game_ui.gd" id="1_m5p87"]
 [ext_resource type="Texture2D" uid="uid://dlcb0mceq6wrw" path="res://components/health/healthslots.png" id="2_qdm35"]
 [ext_resource type="Texture2D" uid="uid://dqru1iyd4wk7d" path="res://components/health/lifeHudBar.png" id="3_tu6tp"]
 
