@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SwordSettings" format=3 uid="uid://dmmk2n5vbebct"]
+[gd_resource type="Resource" script_class="SwordSettings" load_steps=4 format=3 uid="uid://dmmk2n5vbebct"]
 
 [ext_resource type="Script" uid="uid://hcjoj7k40n5o" path="res://resources/swords/base/SwordSettings.gd" id="1_kwm0p"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="2_gew32"]

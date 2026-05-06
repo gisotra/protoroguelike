@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjqlkhhvj32hq"]
+
+[ext_resource type="PackedScene" uid="uid://cm4wyr15qpsl2" path="res://game_level.tscn" id="1_xe48q"]
+[ext_resource type="PackedScene" uid="uid://ctl5ov2xsk68e" path="res://scenes/player/player.tscn" id="2_wtbdl"]
+[ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_l0s72"]
+[ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="4_l0s72"]
+
+[node name="MainLobby" unique_id=1246050146 instance=ExtResource("1_xe48q")]
+
+[node name="player" parent="YSortHandler/Entities" parent_id_path=PackedInt32Array(1441589489) index="0" unique_id=345459282 instance=ExtResource("2_wtbdl")]
+
+[node name="camera" parent="YSortHandler/Entities" parent_id_path=PackedInt32Array(1441589489) index="1" unique_id=1201138536 node_paths=PackedStringArray("player") instance=ExtResource("3_l0s72")]
+limit_enabled = false
+player = NodePath("../player")
+
+[node name="GameUI" parent="." index="2" unique_id=1436150157 node_paths=PackedStringArray("player")]
+player = NodePath("../YSortHandler/Entities/player")
+
+[node name="cursor" parent="GameUI" index="1" unique_id=377396203 instance=ExtResource("4_l0s72")]

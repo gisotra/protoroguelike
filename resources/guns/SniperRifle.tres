@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GunSettings" format=3 uid="uid://ciwrwpk4ay4q8"]
+[gd_resource type="Resource" script_class="GunSettings" load_steps=5 format=3 uid="uid://ciwrwpk4ay4q8"]
 
 [ext_resource type="Script" uid="uid://lq56wytnavvh" path="res://resources/guns/base/GunSettings.gd" id="1_dtydt"]
 [ext_resource type="Texture2D" uid="uid://c0ruf3huv32kn" path="res://scenes/weapons/guns/visuals/guns_spritesheet.png" id="1_qthpi"]
