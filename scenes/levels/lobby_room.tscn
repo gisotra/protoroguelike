@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bpcj5ak71njtd" path="res://scenes/scenary/visuals/glow.tscn" id="16_bgurf"]
 [ext_resource type="PackedScene" uid="uid://rprlj0utuyr5" path="res://scenes/FX/fogueira.tscn" id="17_tpf23"]
 [ext_resource type="PackedScene" uid="uid://dccw0vtliabtp" path="res://scenes/entities/static/train_dummy.tscn" id="18_fvktp"]
+[ext_resource type="PackedScene" uid="uid://blkt2eekpfrsj" path="res://components/health/health_ui.tscn" id="20_uyl1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi1ba"]
 size = Vector2(4.5, 564)
@@ -201,6 +202,9 @@ position = Vector2(0, -219)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1225028590]
 color = Color(0.8565899, 0.85659, 0.8565899, 1)
+
+[node name="HealthUI" parent="." unique_id=1436150157 node_paths=PackedStringArray("player") instance=ExtResource("20_uyl1k")]
+player = NodePath("../scenary/player/player")
 
 [editable path="scenary/npcs/byson"]
 [editable path="scenary/npcs/byson/Interaction_Component"]

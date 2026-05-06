@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cm4wyr15qpsl2"]
+
+[ext_resource type="PackedScene" uid="uid://blkt2eekpfrsj" path="res://components/health/health_ui.tscn" id="1_bwyfi"]
+
+[node name="GameLevel" type="Node2D" unique_id=1246050146]
+
+[node name="YSortHandler" type="Node2D" parent="." unique_id=425742542]
+
+[node name="Entities" type="Node2D" parent="YSortHandler" unique_id=1441589489]
+
+[node name="BulletPool" type="Node2D" parent="YSortHandler" unique_id=42162471]
+
+[node name="Enemy" type="Node2D" parent="YSortHandler" unique_id=249251378]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2065223928]
+
+[node name="GameUI" parent="." unique_id=1436150157 instance=ExtResource("1_bwyfi")]
+
+[node name="healthHudBar" parent="GameUI" index="1" unique_id=793744131]
+anchors_preset = 2
+
+[editable path="GameUI"]
