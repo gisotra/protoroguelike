@@ -9,24 +9,53 @@
 [ext_resource type="Texture2D" uid="uid://7xsr2sbodokt" path="res://components/health/minimap.png" id="7_wqyo1"]
 [ext_resource type="Script" uid="uid://c64fkpqqe7wg3" path="res://scenes/UI/scripts/mini_map_viewport.gd" id="8_v7qp1"]
 
+[sub_resource type="Gradient" id="Gradient_v7qp1"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0.34901962, 0.79607844, 0.33333334)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_61fi8"]
+gradient = SubResource("Gradient_v7qp1")
+use_hdr = true
+fill_from = Vector2(0.5, 0.6)
+fill_to = Vector2(0.5, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_61fi8"]
 atlas = ExtResource("5_wqyo1")
 region = Rect2(8, 169, 39, 15)
 
 [node name="GameLevel" type="Node2D" unique_id=1246050146]
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=765605742]
+
 [node name="YSortHandler" type="Node2D" parent="." unique_id=425742542]
+y_sort_enabled = true
 
 [node name="Entities" type="Node2D" parent="YSortHandler" unique_id=1441589489]
+y_sort_enabled = true
 
 [node name="BulletPool" type="Node2D" parent="YSortHandler" unique_id=42162471]
+y_sort_enabled = true
 
 [node name="Enemy" type="Node2D" parent="YSortHandler" unique_id=249251378]
+y_sort_enabled = true
+
+[node name="Props" type="Node2D" parent="YSortHandler" unique_id=934898855]
+y_sort_enabled = true
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2065223928]
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1436150157]
 script = ExtResource("1_ibsu8")
+
+[node name="AuraGlow" type="TextureRect" parent="GameUI" unique_id=1327665654]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_61fi8")
 
 [node name="MarginContainer" type="MarginContainer" parent="GameUI" unique_id=1617578999]
 anchors_preset = 15
@@ -34,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
@@ -119,8 +148,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 179.0
+offset_top = 188.0
 offset_right = 8.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -148,9 +178,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 355.0
-offset_top = 156.0
-offset_right = -1.0
+offset_left = 372.0
+offset_top = 166.0
+offset_right = 16.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_wqyo1")
@@ -182,3 +213,6 @@ script = ExtResource("8_v7qp1")
 [node name="Sprite2D" type="Sprite2D" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer/SubViewportContainer/MiniMapViewport" unique_id=1401033764]
 
 [node name="MiniCamera" type="Camera2D" parent="GameUI/MarginContainer/MiniMapUI/TextureRect/MarginContainer/SubViewportContainer/MiniMapViewport" unique_id=938286701]
+zoom = Vector2(0.1, 0.1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=701371307]

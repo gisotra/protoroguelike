@@ -1,6 +1,8 @@
 extends SubViewport
 
 @onready var mini_camera: Camera2D = $MiniCamera
+@export var player: Player
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

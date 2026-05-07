@@ -1,7 +1,8 @@
 extends Node
 class_name HealthSystem
 
-
+var maxHearts : int
+var hearts : int
 
 func _ready() -> void:
 	pass # Replace with function body.
