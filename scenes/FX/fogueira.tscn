@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://rprlj0utuyr5"]
+[gd_scene format=3 uid="uid://rprlj0utuyr5"]
 
-[ext_resource type="Shader" uid="uid://wlqw04cbo3ad" path="res://scenes/FX/fogueira.gdshader" id="1_8fmsc"]
 [ext_resource type="Texture2D" uid="uid://diydhx81rhvld" path="res://scenes/FX/fogueira.png" id="1_rcdar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrct0"]
-shader = ExtResource("1_8fmsc")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fmsc"]
 radius = 3.5

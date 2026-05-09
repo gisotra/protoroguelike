@@ -32,6 +32,8 @@ y_sort_enabled = true
 [node name="Entities" type="Node2D" parent="YSortHandler" unique_id=1441589489]
 y_sort_enabled = true
 
+[node name="WeaponPool" type="Node2D" parent="YSortHandler" unique_id=1845883675]
+
 [node name="BulletPool" type="Node2D" parent="YSortHandler" unique_id=42162471]
 y_sort_enabled = true
 

@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bbwh752ccvdj2" path="res://scenes/camera/camera.tscn" id="3_l0s72"]
 [ext_resource type="PackedScene" uid="uid://dtbcxe7mm1u4b" path="res://scenes/UI/cursor.tscn" id="4_l0s72"]
 [ext_resource type="PackedScene" uid="uid://rprlj0utuyr5" path="res://scenes/FX/fogueira.tscn" id="5_38e72"]
+[ext_resource type="PackedScene" uid="uid://cb7tdfihvsbhj" path="res://scenes/weapons/guns/rocket_launcher.tscn" id="5_cgfyo"]
+[ext_resource type="PackedScene" uid="uid://dccw0vtliabtp" path="res://scenes/entities/static/train_dummy.tscn" id="5_pd47c"]
+[ext_resource type="Texture2D" uid="uid://cfjpdpi06tm65" path="res://scenes/scenary/visuals/statues.png" id="6_5xhie"]
+[ext_resource type="PackedScene" uid="uid://bq2s3apqr5xbe" path="res://scenes/weapons/guns/pistol.tscn" id="6_gyocb"]
+[ext_resource type="PackedScene" uid="uid://bwfqh1u2ydg0e" path="res://scenes/weapons/swords/Masamune.tscn" id="7_b1x4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38e72"]
 texture = ExtResource("2_5ceyo")
@@ -118,6 +123,9 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_38e72")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgfyo"]
+size = Vector2(32, 64)
+
 [sub_resource type="Environment" id="Environment_38e72"]
 background_mode = 3
 glow_enabled = true
@@ -135,8 +143,38 @@ tile_set = SubResource("TileSet_5xhie")
 limit_enabled = false
 player = NodePath("../player")
 
+[node name="RocketLauncher" parent="YSortHandler/WeaponPool" parent_id_path=PackedInt32Array(1845883675) index="0" unique_id=758291586 instance=ExtResource("5_cgfyo")]
+position = Vector2(17, 43)
+
+[node name="Pistol" parent="YSortHandler/WeaponPool" parent_id_path=PackedInt32Array(1845883675) index="1" unique_id=387696616 instance=ExtResource("6_gyocb")]
+position = Vector2(116, 15)
+
+[node name="Masamune" parent="YSortHandler/WeaponPool" parent_id_path=PackedInt32Array(1845883675) index="2" unique_id=1172011209 instance=ExtResource("7_b1x4f")]
+position = Vector2(95, 63)
+
+[node name="train_dummy" parent="YSortHandler/Enemy" parent_id_path=PackedInt32Array(249251378) index="0" unique_id=786815038 instance=ExtResource("5_pd47c")]
+position = Vector2(229, 50)
+
+[node name="train_dummy2" parent="YSortHandler/Enemy" parent_id_path=PackedInt32Array(249251378) index="1" unique_id=1102115127 instance=ExtResource("5_pd47c")]
+position = Vector2(240, 133)
+
 [node name="fogueira" parent="YSortHandler/Props" parent_id_path=PackedInt32Array(934898855) index="0" unique_id=1157807299 instance=ExtResource("5_38e72")]
-position = Vector2(72, 144)
+position = Vector2(74, 44)
+
+[node name="statue" type="Node2D" parent="YSortHandler/Props" parent_id_path=PackedInt32Array(934898855) index="1" unique_id=247603862]
+position = Vector2(75, 140)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSortHandler/Props/statue" index="0" unique_id=233733984]
+position = Vector2(0, 14)
+texture = ExtResource("6_5xhie")
+offset = Vector2(0, -32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSortHandler/Props/statue" index="1" unique_id=605529167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSortHandler/Props/statue/StaticBody2D" index="0" unique_id=1676750583]
+position = Vector2(0, 14)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_cgfyo")
 
 [node name="GameUI" parent="." index="3" unique_id=1436150157 node_paths=PackedStringArray("player")]
 player = NodePath("../YSortHandler/Entities/player")
@@ -148,3 +186,6 @@ player = NodePath("../../../../../../../YSortHandler/Entities/player")
 
 [node name="WorldEnvironment" parent="." index="4" unique_id=701371307]
 environment = SubResource("Environment_38e72")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="5" unique_id=1514268179]
+color = Color(0.92156863, 0.93333334, 1, 1)
