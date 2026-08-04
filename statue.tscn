@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cmwpaqvn2nlrw"]
+
+[ext_resource type="Texture2D" uid="uid://cfjpdpi06tm65" path="res://scenes/scenary/visuals/statues.png" id="1_01fnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgfyo"]
+size = Vector2(32, 64)
+
+[node name="statue" type="Node2D" unique_id=1380538581]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1067316285]
+position = Vector2(0, 14)
+texture = ExtResource("1_01fnw")
+offset = Vector2(0, -32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1962797812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1206313089]
+position = Vector2(0, 14)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_cgfyo")
