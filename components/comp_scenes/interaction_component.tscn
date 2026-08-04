@@ -1,16 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dahyafqvjnpxn"]
+[gd_scene format=3 uid="uid://dahyafqvjnpxn"]
 
 [ext_resource type="Script" uid="uid://bj8vpqjt0h8sn" path="res://components/interaction_component.gd" id="1_th1a4"]
 
-[node name="InteractionComponent" type="Area2D"]
+[node name="InteractionComponent" type="Area2D" unique_id=791272226]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_th1a4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1039633264]
 scale = Vector2(1e-05, 1e-05)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=610866210]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

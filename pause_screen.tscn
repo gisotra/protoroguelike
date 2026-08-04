@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bpspwqls4lrai"]
+
+[node name="PauseScreen" type="CanvasLayer" unique_id=157934266]
+layer = 2
+
+[node name="Control" type="Control" parent="." unique_id=693197316]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=805705869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=2014470657]
+layout_mode = 2
+text = "VOLTAR "
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer" unique_id=894846274]
+layout_mode = 2
+text = "SAIR DO JOGO"

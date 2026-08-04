@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://3bi3aj7dysqs"]
+
+[node name="Title_Screen" type="CanvasLayer" unique_id=1603003227]
+
+[node name="Control" type="Control" parent="." unique_id=741786127]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=244944136]
+clip_contents = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.103
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+bbcode_enabled = true
+text = "[wave ][rainbow freq=.7 sat=.9 val=0.99 speed=1.8]re:SHOT o jogo[/rainbow][/wave] só que ele não tá assim [shake]pronto[/shake] "
+horizontal_alignment = 1
+justification_flags = 162

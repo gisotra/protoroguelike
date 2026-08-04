@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2tsr6a16pfw4"]
+[gd_scene format=3 uid="uid://d2tsr6a16pfw4"]
 
 [ext_resource type="Script" uid="uid://cn3kvfoddxpfn" path="res://scenes/entities/npcs/byson.gd" id="1_kcbfn"]
 [ext_resource type="Texture2D" uid="uid://ctmmltsk15yjv" path="res://scenes/entities/npcs/merchant/byson.png" id="2_kcbfn"]

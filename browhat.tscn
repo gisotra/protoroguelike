@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dwg3rgw5mceoa"]
+
+[ext_resource type="Script" uid="uid://cxi2ltx2yw2gh" path="res://scenes/weapons/guns/scripts/base/Gun.gd" id="1_7a366"]
+[ext_resource type="PackedScene" uid="uid://of0phgf65t3m" path="res://scenes/weapons/bullets/bullet_scenes/sniper_bullet.tscn" id="2_4ysco"]
+[ext_resource type="Resource" uid="uid://ciwrwpk4ay4q8" path="res://resources/guns/SniperRifle.tres" id="3_48q84"]
+
+[node name="Gun" type="Node2D" unique_id=1901972519]
+script = ExtResource("1_7a366")
+bullet_scene = ExtResource("2_4ysco")
+gun_settings = ExtResource("3_48q84")
+metadata/_custom_type_script = "uid://cxi2ltx2yw2gh"

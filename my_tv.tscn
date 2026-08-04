@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://nw34l14m1g1l"]
+
+[ext_resource type="PackedScene" uid="uid://cjqlkhhvj32hq" path="res://main_lobby.tscn" id="1_dd1lh"]
+
+[node name="MyTV" type="Control" unique_id=2012699326]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=483756723]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1334522092]
+handle_input_locally = false
+size = Vector2i(480, 270)
+size_2d_override = Vector2i(1280, 720)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=57096967]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainLobby" parent="SubViewportContainer/SubViewport" unique_id=1246050146 instance=ExtResource("1_dd1lh")]
+position = Vector2(581.3333, 346.66666)
+
+[node name="TVPlayer" type="AnimationPlayer" parent="." unique_id=1820218137]

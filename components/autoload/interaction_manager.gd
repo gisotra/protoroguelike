@@ -3,7 +3,6 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("Player")
 
 const base_text = "[E] to "
-
 var active_areas = [] 
 var can_interact = true
 
@@ -30,4 +29,3 @@ func _sort_by_distance_to_player(area1, area2): #algoritmo de sorte customizado
 	var area1_to_player = player.global_position.distance_to(area1.global_position)
 	var area2_to_player = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player
-	
